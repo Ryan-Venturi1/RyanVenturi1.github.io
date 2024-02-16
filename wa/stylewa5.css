@@ -1,0 +1,105 @@
+/* General styles - put these straight into your stylesheet */
+
+body {
+    margin: 0;
+}
+
+html {
+    font-family: 'Helvetica neue', Arial, 'sans serif';
+    font-size: 10px;
+    background-color: #ccc;
+}
+
+
+h2{
+    color: black;
+    margin: 0;
+    font-size: 2em; 
+    padding-top: 1em; 
+}
+
+p{
+    color: rgba(255, 255, 255, 0.682);
+    margin: 0;
+    font-size: 1.5em; 
+    line-height: 1em; 
+    background-color: rgb(184, 31, 31);
+    padding-top: 2em; 
+    padding-bottom: 2em;
+    padding-left: 1.5em; 
+}
+
+.article{
+    height: 12em; 
+}
+
+.card article img{
+    width: 14.5em; 
+    height: 14.5em;
+    float: right;
+}
+
+.card footer{
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0), rgba(0,0,0,0.1));
+    background-color: red;
+    border-radius: 0 0 1.5em 1.5em;
+    height: 5em; 
+    padding-bottom: 1.5em; 
+    padding-left: 1em; 
+    font-weight: bold;
+}
+
+.card header{
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0));
+    border-radius: 1.5em 1.5em 0 0;
+    background-color: red;
+    height: 5em; 
+    padding-top: .5em; 
+    padding-left: 1em; 
+}
+
+.card{
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0));
+    border-radius: 1.75em 1.75em 0 0;
+    border: solid black;
+    background-color: red;
+    width: 50em; 
+    height: 17.5em; 
+    padding-left: 1em; 
+    padding-top: 1em; 
+}
+.mecard article img{
+    width: 14.5em; 
+    height: 14.5em;
+    float: right;
+}
+
+.mecard footer{
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0), rgba(0,0,0,0.1));
+    background-color: rgb(36, 109, 192);
+    border-radius: 0 0 1.5em 1.5em;
+    height: 5em; 
+    padding-bottom: 1.5em; 
+    padding-left: 1em; 
+    font-weight: bold;
+}
+
+.mecard header{
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0));
+    border-radius: 1.5em 1.5em 0 0;
+    background-color: rgb(7, 181, 39);
+    height: 5em; 
+    padding-top: .5em; 
+    padding-left: 1em; 
+}
+
+.mecard{
+    background-image: linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0));
+    border-radius: 1.75em 1.75em 0 0;
+    border: solid black;
+    background-color: rgb(251, 248, 248);
+    width: 50em; 
+    height: 17.5em; 
+    padding-left: 1em; 
+    padding-top: 1em; 
+}
