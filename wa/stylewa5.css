@@ -58,7 +58,7 @@ html {
     width: 35em;
     height: 22em;
     margin: 5em auto;
-    background-color: rgb(7, 181, 39);
+    background-color: rgb(35, 188, 196);
     border: 0.2em solid black;
     border-radius: 1.5em;
      
@@ -76,7 +76,7 @@ html {
     }
 
 .mecard footer{
-    background-color:rgb(7, 181, 39);
+    background-color: rgb(35, 188, 196);
     border-radius: 0 0 1.5em 1.5em;
     padding-left: 1em;
     
@@ -90,7 +90,7 @@ html {
   
 .mecard article {
     height: 12.0em; 
-    background-color: rgb(7, 181, 39);
+    background-color: rgb(29, 143, 149);
     padding-left: 1em; /* Added left padding */
   }
 
