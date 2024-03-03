@@ -81,7 +81,10 @@ body {
   @media screen and (max-width: 500px) {
     .grid {
         flex-direction: column;
-        /* Add any other styles for smaller screens here */
+    }
+    .photos {
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 }
 
