@@ -29,6 +29,7 @@ img{
     padding-top: 20px;
     animation-name: imgmove;
     animation-duration: 5s;
+    position: relative;
 }
 
 
@@ -41,6 +42,7 @@ img{
     border-radius: 50%;
     left:5vw;
     top:0;
+    transition: all 0.3s ease;
     
 }
 
@@ -52,6 +54,7 @@ h1{
 
 #red-ball:hover{
     border-color: purple;
+    transform: scale(1.2);
 }
 
 @keyframes imgmove{
