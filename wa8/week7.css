@@ -53,7 +53,7 @@ h1{
 }
 
 #red-ball:hover{
-    border-color: purple;
+    color: purple;
     transform: scale(1.2);
 }
 
