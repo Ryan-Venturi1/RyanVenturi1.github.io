@@ -1,10 +1,10 @@
 body{
     font-family: "Droid Sans", sans-serif;
-    background-color: rgb(225, 225, 225);
+    background-color: rgb(255, 255, 255);
     color:black;
 }
 header{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(253, 253, 100);
     text-align: center;
     font-size: 40px;
     height: 150px;
@@ -15,7 +15,7 @@ header{
 }
 
 nav {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(253, 253, 100);
     display: flex;
     justify-content: center;
     margin-top: 25px;
@@ -49,45 +49,67 @@ h1 {
     margin-bottom: auto;
 }
 
-.section1{
-    background-color: rgb(207, 207, 207);
+.section9{
+    background-color: #2fccc4;
     width: 100%;
-    padding-top: 150px;
+    padding-top: 10px;
+    color: white;
+
+}
+.section1{
+    background-color: #41b3a3;
+    width: 100%;
+    padding-top: 10px;
+    color: white;
 
 }
 .section2{
-    background-color: rgb(255, 255, 255);
+    background-color: #2fccc4;
     width: 100%;
+    padding-top: 10px;
+    color: white;
 }
 
 .section3{
-    background-color: rgb(207, 207, 207);
+    background-color: #41b3a3;
     width: 100%;
+    padding-top: 10px;
+    color: white;
 }
 
 .section4{
-    background-color: rgb(255, 255, 255);
+    background-color: #2fccc4;
     width: 100%;
+    padding-top: 10px;
+    color: white;
 }
 
 .section5{
-    background-color: rgb(207, 207, 207);
+    background-color: #41b3a3;
     width: 100%;
+    padding-top: 10px;
+    color: white;
 }
 
 .section6{
-    background-color: rgb(255, 255, 255);
+    background-color: #2fccc4;
     width: 100%;
+    padding-top: 10px;
+    color: white;
 }
 
 .section7{
-    background-color: rgb(207, 207, 207);
+    background-color: #41b3a3;
     width: 100%;
+    padding-top: 10px;
+    color: white;
 }
 
 .section8{
-    background-color: rgb(255, 255, 255);
+    background-color: #2fccc4;
     width: 100%;
+    padding-top: 10px;
+    color: white;
 }
 
 h2 {
@@ -106,6 +128,7 @@ p {
     .left-column {
      flex: 1;
      padding: 10px;
+     text-align: left;
     }    
     .middle-column {
      flex: 1;
@@ -114,6 +137,7 @@ p {
     .right-column {
      flex: 1;
      padding: 10px;
+     text-align: right;
     }
 
     .flex-container2, .flex-container3, .flex-container4, .flex-container5, .flex-container6, .flex-container7, .flex-container8, .flex-container9  {
@@ -148,8 +172,12 @@ h3 {
 }
 
 .Button:hover{
-    color:orange;
-    background-color: black;
+    color:rgb(0, 0, 0);
+    background-color: yellow;
+    padding: 25px;
+    font-size: 35px;
+    font-weight: bold;
+
 }
 
 .intro{
@@ -162,3 +190,27 @@ title{
     font-size: 50px;
     margin-top: 10px;
 }
+
+.right-column img {
+    max-width: 100%; 
+    height: auto;
+}
+
+.left-columnz {
+    flex: 1;
+    padding: 10px;
+    text-align: left;
+   }    
+  .right-columnz {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+   }
+
+
+   @media (max-width: 400px) {
+    .flex-container {
+    flex-direction: column;
+    align-items: center;
+        }
+    }
