@@ -137,7 +137,7 @@ p {
     .right-column {
      flex: 1;
      padding: 10px;
-     text-align: right;
+     text-align: left;
     }
 
     .flex-container2, .flex-container3, .flex-container4, .flex-container5, .flex-container6, .flex-container7, .flex-container8, .flex-container9  {
