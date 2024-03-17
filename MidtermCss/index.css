@@ -214,41 +214,13 @@ title{
     text-align: center;
    }
 
-
-   @media (max-width: 400px) {
-    .flex-container, .flex-container2, .flex-container3, .flex-container4, .flex-container5, .flex-container6, .flex-container7, .flex-container8, .flex-container9 {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav {
-        margin: 0;
-    }
-
-    nav ul li a:hover {
-        margin: 0;
-    }
-
-    p {
-        font-size: 14px;
-    }
-
-    h3 {
-        font-size: 15px;
-    }
-
-    ul {
-        font-size: 16px;
-    }
-
-    .grid-container {
-        display: flex;
-        flex-direction: column;
-        grid-template-columns: 1fr;
-        grid-gap: 10px;
+@media (max-width: 600px) {
+    .flex-container {
+        flex-wrap: wrap;
     }
 }
+
+
 
 
 .grid-container {
