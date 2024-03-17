@@ -46,7 +46,7 @@ nav:hover{
 
 nav ul li a {
     color: rgb(0, 0, 0);   
-    font-style: bold;
+    font-weight: bold;
     font-size: 25px;
     justify-content: center;
     text-decoration: none;
@@ -294,5 +294,8 @@ ul, ol {
     .flex-container8,
     .flex-container9 {
         flex-direction: column;
+    }
+    .right-column img {
+        display: none;
     }
 }
