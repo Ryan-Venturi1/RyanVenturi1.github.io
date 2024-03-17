@@ -19,6 +19,8 @@ nav {
     display: flex;
     justify-content: center;
     margin-top: 25px;
+    margin-right: 20px;
+    margin-left: 20px;
     
 }
 
@@ -27,10 +29,13 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+
 }
 
 nav ul li {
     display: inline;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 
@@ -49,63 +54,63 @@ h1 {
     margin-bottom: auto;
 }
 
-.section9{
-    background-color: #2fccc4;
-    width: 100%;
-    padding-top: 10px;
-    color: white;
-
-}
 .section1{
-    background-color: #41b3a3;
+    background-color: #2fccc4;
     width: 100%;
     padding-top: 10px;
     color: white;
 
 }
 .section2{
-    background-color: #2fccc4;
+    background-color: #41b3a3;
     width: 100%;
     padding-top: 10px;
     color: white;
-}
 
+}
 .section3{
-    background-color: #41b3a3;
+    background-color: #2fccc4;
     width: 100%;
     padding-top: 10px;
     color: white;
 }
 
 .section4{
-    background-color: #2fccc4;
+    background-color: #41b3a3;
     width: 100%;
     padding-top: 10px;
     color: white;
 }
 
 .section5{
-    background-color: #41b3a3;
-    width: 100%;
-    padding-top: 10px;
-    color: white;
-}
-
-.section6{
     background-color: #2fccc4;
     width: 100%;
     padding-top: 10px;
     color: white;
 }
 
-.section7{
+.section6{
     background-color: #41b3a3;
     width: 100%;
     padding-top: 10px;
     color: white;
 }
 
+.section7{
+    background-color: #2fccc4;
+    width: 100%;
+    padding-top: 10px;
+    color: white;
+}
+
 .section8{
+    background-color: #41b3a3;
+    width: 100%;
+    padding-top: 10px;
+    color: white;
+}
+
+.section9{
     background-color: #2fccc4;
     width: 100%;
     padding-top: 10px;
@@ -118,6 +123,7 @@ h2 {
 
 p {
     text-align: center;
+    padding: 15px;
 }
 
 .flex-container {
@@ -156,7 +162,7 @@ p {
 
 h3 {
     text-align: left;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .Button{
@@ -166,7 +172,7 @@ h3 {
     padding: 10px;
     text-align: center;
     display: inline-block;
-    font-size: 25px;
+    font-size: 30px;
     margin-top: 80px;
     margin-left: 28%;
 }
@@ -174,8 +180,6 @@ h3 {
 .Button:hover{
     color:rgb(0, 0, 0);
     background-color: yellow;
-    padding: 25px;
-    font-size: 35px;
     font-weight: bold;
 
 }
@@ -188,7 +192,7 @@ h3 {
 title{
     text-align: center;
     font-size: 50px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .right-column img {
@@ -214,3 +218,71 @@ title{
     align-items: center;
         }
     }
+
+    p{
+
+        font-size: 20px;
+    }
+
+    ul{
+        font-size: 20px;
+    }
+    nav ul li a:hover {
+        font-weight: bold;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    
+    nav {
+        width: 100%;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    /* Add this CSS code to your index.css file */
+
+/* Define a grid layout for the sections */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns per row */
+    grid-gap: 20px; /* Adjust the gap between columns */
+    padding: 20px; /* Add padding to the grid container */
+}
+
+
+
+/* Style the flex containers within each section */
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+footer{
+    background-color: rgb(253, 253, 100);
+    text-align: left;
+    font-size: 40px;
+    height: 350px;
+    width: 100%;
+    margin: 0px;
+    bottom: 0px;
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+.contact-info{
+    padding-left: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.event-info{
+    padding-top: 10px;
+    padding-left: 10px;
+    text-decoration: none;
+    color: black;
+}
+footer a {
+    text-decoration: none; 
+    color: black; 
+}
