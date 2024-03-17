@@ -272,3 +272,19 @@ ul, ol {
     font-weight: bold;
     color: black;
 }
+
+@media (min-width: 1000px) {
+
+  
+}
+  @media (max-width: 400px) {
+ .section9{
+    width: max-content;
+ }
+ footer{
+    width:max-content
+ }
+ .intro{
+    width: max-content;
+ }
+  }
