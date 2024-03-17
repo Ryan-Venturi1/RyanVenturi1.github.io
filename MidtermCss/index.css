@@ -273,18 +273,26 @@ ul, ol {
     color: black;
 }
 
-@media (min-width: 1000px) {
 
-  
+@media (max-width: 700px) {
+    .section9 {
+        width: 100%;
+    }
+    footer {
+        width: 100%;
+    }
+    .intro {
+        width: 100%;
+    }
+    .flex-container,
+    .flex-container2,
+    .flex-container3,
+    .flex-container4,
+    .flex-container5,
+    .flex-container6,
+    .flex-container7,
+    .flex-container8,
+    .flex-container9 {
+        flex-direction: column;
+    }
 }
-  @media (max-width: 400px) {
- .section9{
-    width: max-content;
- }
- footer{
-    width:max-content
- }
- .intro{
-    width: max-content;
- }
-  }
