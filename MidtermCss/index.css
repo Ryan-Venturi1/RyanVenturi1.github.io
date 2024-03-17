@@ -214,48 +214,6 @@ title{
     text-align: center;
    }
 
-   @media (max-width: 500px) {
-    nav ul li {
-        display: block;
-        margin: 10px auto;
-        text-align: center;
-    }
-
-    .flex-container,
-    .flex-container2,
-    .flex-container3,
-    .flex-container4,
-    .flex-container5,
-    .flex-container6,
-    .flex-container7,
-    .flex-container8,
-    .flex-container9 {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .left-column,
-    .middle-column,
-    .right-column,
-    .left-columnz,
-    .right-columnz {
-        flex: 1;
-        padding: 10px;
-        text-align: center;
-    }
-
-    .Button {
-        margin-top: 20px;
-    }
-
-    .grid-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-
-
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
