@@ -1,0 +1,37 @@
+body {
+    font-family: droid sans, sans-serif;
+    width: 350px;
+    align-items: center;
+    background-color: #ffc125;
+  }
+
+  label {
+    font-weight: bold;
+    font-family: droid sans, sans-serif;
+    font-size: 20px;
+  }
+
+  div {
+    padding-bottom: 20px;
+    font-family: droid sans, sans-serif;
+    font-size: 20px;
+  }
+
+  input[type="text"] {
+    padding: 5px;
+    width: 150px;
+    color: black;
+    font-size: 20px;
+    font-family: droid sans, sans-serif;
+    font-size: 20px;
+  }
+
+  p {
+    background: #ffc125;
+    color: #ffffff;
+    padding: 10px;
+    visibility: hidden;
+    font-weight: bold;
+    font-family: droid sans, sans-serif;
+    font-size: 20px;
+  }
