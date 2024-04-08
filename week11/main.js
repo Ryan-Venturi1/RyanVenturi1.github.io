@@ -12,6 +12,7 @@ function createThumbnails() {
         newImage.setAttribute('src', filename);
         newImage.setAttribute('alt', 'Image');
         thumbBar.appendChild(newImage);
+        
 
         newImage.addEventListener('click', function() {
             currentIndex = IMAGE_FILENAMES.indexOf(filename);
