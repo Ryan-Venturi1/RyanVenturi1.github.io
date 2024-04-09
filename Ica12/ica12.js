@@ -25,6 +25,8 @@ async function getQoute() {
         
         displayQoute(json["question"]);
         answer=json["answer"];
+        answerText.textContent= " ";
+
         
 
         
@@ -41,7 +43,6 @@ async function getQoute() {
     }
 
     function getAnswer(){
-        console.log(212);
         answerText.textContent = answer;
     
     }
