@@ -3,7 +3,7 @@ addEventListener('load', getQoute);
 const btn = document.querySelector('#js-new-quote');
 btn.addEventListener('click', getQoute);
 
-const answerBtn = document.querySelector('#js-tweet');
+answerBtn = document.querySelector('#js-tweet');
 AnswerBtn.addEventListener('click', getAnswer);
 
 const answerText = document.querySelector('#js-answer-text');
