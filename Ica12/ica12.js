@@ -3,8 +3,8 @@ addEventListener('load', getQoute);
 const btn = document.querySelector('#js-new-quote');
 btn.addEventListener('click', getQoute);
 
-answerBtn = document.querySelector('#js-tweet');
-AnswerBtn.addEventListener('click', getAnswer);
+const answerBtn = document.querySelector('#js-tweet');
+answerBtn.addEventListener('click', getAnswer);
 
 const answerText = document.querySelector('#js-answer-text');
 
@@ -42,10 +42,11 @@ async function getQoute() {
 
     }
 
-    function getAnswer(){
-        answerText.textContent = answer;
-    
-    }
-    
+
+}
+
+function getAnswer(){
+    answerText.textContent = answer;
+
 }
 
