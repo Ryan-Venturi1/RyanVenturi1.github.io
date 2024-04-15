@@ -37,14 +37,16 @@ html {
   }
   
   .quotes {
-    padding: 20px 50px;
-    min-height: 200px;
+    padding: 20px;
+    text-align: center;
   }
   
   .quote-text {
     padding-bottom: 20px;
     font-size: 25px;
     color: black;
+    font-family: droid sans, sans-serif;
+    font-weight: bold;
   }
   
   .controls {
@@ -68,31 +70,20 @@ html {
   position: absolute; 
   bottom: 0px;
   left: 0px;
- } 
+ }  
 
-  .twitter {
-    background-color: #1da1f2;
-    text-decoration: none;
-  }
-  
-  .twitter:hover {
-    background-color: #1e7fbb;
-  }
-  
   .new-quote {
     background-color: #c75d00;
     margin-bottom: 15px;
   }
   
   .new-quote:hover {
-    background-color: #6d3b0e;
+    background-color: #07c226;
   }
   
-  .new-quote:disabled {
-    background-color: #cccccc;
-    color: #666666;
-    cursor: not-allowed;
-  }
+#app {
+  height: auto;
+}
   
   @media screen and (max-width: 600px) {
     .app {
