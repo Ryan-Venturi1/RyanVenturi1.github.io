@@ -45,16 +45,32 @@
 
       // Add your code here
       const catData = JSON.parse(catString);
-      const motherCats=[""];
-      const motherInfo= motherCats.join[","];
-
-      const kittenInfo = 
-      total = total + 1;
-      male = male + 1;
-      female = female + 1;
+      const motherCats=[];
+      let motherInfo= '';
 
 
-    
+      if (motherCats.length > 1) {
+        motherInfo = motherCats.join(', ') + ' and ' + motherCats + '.';
+    } else {
+        motherInfo = motherCats[0] + '.';
+    }
+
+      catData.forEach(cat) {
+        total += cat.kittens.length;
+        cat.kittens.forEach(kitten) {
+            if (kitten.gender === 'male') {
+                male++;
+                total= total + male;
+            } else {
+                female++;
+                total= total + female;
+            }
+        };
+    }
+
+
+    let kittenInfo = `Total kittens: ${total}, Male kittens: ${male}, Female kittens: ${female}`;
+
       // Don't edit the code below here!
 
       para1.textContent = motherInfo;
