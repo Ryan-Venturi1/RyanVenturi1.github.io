@@ -1,12 +1,12 @@
 .Up-Button{
-    height:25px;
+    height:45px;
     width: auto;
     margin-right: 10px;
     margin-left: 10px;
     position: absolute;
 }
 .Down-Button{
-    height:25px;
+    height:45px;
     width: auto;
     margin-left: 10px;
     margin-right: 10px;
@@ -14,7 +14,7 @@
 
 }
 .Volume-Image{
-    height:35px;
+    height:45px;
     width: auto;
     position: absolute;
 
