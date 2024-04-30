@@ -16,8 +16,13 @@
 .Volume-Image{
     height:35px;
     width: auto;
-    position: fixed;
+    position: absolute;
 
+}
+h3{
+    padding: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 .Volume-Box{
     height:35px;
