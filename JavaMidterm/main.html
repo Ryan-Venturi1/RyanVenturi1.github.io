@@ -5,28 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Most Annoying Volume</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-
 <div class="vol-element">
-
-     <!--<img class="Volume-Image" src="vol.png" alt="Volume Image">-->
     <h1>Most Annoying Volume Changer Each Click Changes Volume By 1%</h1>
-    <h3>Volume: 50%</h3>
-    <button>Set Volume</button>
-    <!-- <div class="Volume-Box">{will be volume}</div> -->
+    <div class="Sets">
+        <h3 id="volume-display" ></h3> <!-- Initialize display correctly -->
+        <button class="Bolume">Set Volume</button>
+    </div>
     <img class="Up-Button" src="up.png" alt="Up-Button">
-    <img class=" Down-Button" src="down.png" alt="Down-Button">
-    
+    <img class="Down-Button" src="down.png" alt="Down-Button"> <!-- Ensure class names are correct -->
 </div>
 
-<script src="js.js">
-   // const vol = 50%;
-   // if Up-Button is clicked vol += 1%;
+<script src="js.js"></script>
+<script>
+var volume = 50; // Correct variable naming
+var volumeDisplay = document.getElementById('volume-display');
+var volchange = true;
+volumeDisplay.textContent = "Volume: " + volume + "%"; // Use camelCase correctly
 
-    //if Down-Button clicked;
-    //vol -= 1%;
+document.querySelector('.Up-Button').addEventListener('click', () => {
+    if ((volume < 100)  && (volchange == true)) {
+        volume += 1;
+        volumeDisplay.textContent = "Volume: " + volume + "%";
+    }
+});
+
+document.querySelector('.Down-Button').addEventListener('click', () => {
+    if ((volume > 0) && (volchange == true)) {
+        volume -= 1;
+        volumeDisplay.textContent = "Volume: " + volume + "%";
+    }
+});
+document.querySelector('.Bolume').addEventListener('click', () => {
+    volchange = false;
+    volumeDisplay.textContent = "Volume: " + volume + "%" + " Successfully Changed";
+});
 </script>
 </body>
 </html>
