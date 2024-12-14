@@ -1,0 +1,83 @@
+#include <SoftwareSerial.h>
+#include <FastLED.h>
+
+// Bluetooth module pins
+#define BT_RX 10
+#define BT_TX 11
+
+// LED strip configuration
+#define NUM_LEDS 100
+#define LED_PIN 6
+CRGB leds[NUM_LEDS];
+
+// Command numbers
+const uint8_t CMD_MOOD_LIGHT = 1;
+const uint8_t CMD_STUDY_LIGHT = 2;
+const uint8_t CMD_RELAX_LIGHT = 3;
+const uint8_t CMD_LIGHTS_OFF = 4;
+
+SoftwareSerial bluetooth(BT_RX, BT_TX);
+
+void setup() {
+  Serial.begin(9600);
+  bluetooth.begin(9600);
+
+  FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, NUM_LEDS);
+  FastLED.setBrightness(100);
+  turnOffLights();
+
+  Serial.println("\n=== Bluetooth Receiver Ready ===");
+  Serial.println("Waiting for commands...");
+}
+
+void loop() {
+  if (bluetooth.available()) {
+    uint8_t command = bluetooth.read();
+    Serial.print("Command Received: ");
+    Serial.println(command);
+
+    switch (command) {
+      case CMD_MOOD_LIGHT:
+        Serial.println("Setting Mood Light");
+        setMoodLight();
+        break;
+      case CMD_STUDY_LIGHT:
+        Serial.println("Setting Study Light");
+        setStudyLight();
+        break;
+      case CMD_RELAX_LIGHT:
+        Serial.println("Setting Relax Light");
+        setRelaxLight();
+        break;
+      case CMD_LIGHTS_OFF:
+        Serial.println("Turning Off Lights");
+        turnOffLights();
+        break;
+      default:
+        Serial.println("Unknown Command");
+        break;
+    }
+  }
+}
+
+void setMoodLight() {
+  for (int i = 0; i < NUM_LEDS; i++) {
+    leds[i] = CHSV(i * (255 / NUM_LEDS), 255, 255);
+  }
+  FastLED.show();
+}
+
+void setStudyLight() {
+  fill_solid(leds, NUM_LEDS, CRGB::White);
+  FastLED.show();
+}
+
+void setRelaxLight() {
+  fill_solid(leds, NUM_LEDS, CRGB(255, 147, 41)); // Warm white
+  FastLED.show();
+}
+
+void turnOffLights() {
+  fill_solid(leds, NUM_LEDS, CRGB::Black);
+  FastLED.show();
+}
