@@ -183,7 +183,7 @@
   <header>
     <div class="container">
       <h1>Voice-Activated Lighting System Documentation</h1>
-      <p>A project to solve a lighting problem in my office</p>
+      <p>A detailed breakdown of my project to solve a lighting issue in my office using innovative technologies.</p>
       <div class="header-media">
         <img src="1.jpeg" alt="Project Box 1">
         <img src="2.jpeg" alt="Project Box 2">
@@ -194,8 +194,8 @@
   <div class="container">
     <section>
       <h2>Vision</h2>
-      <p>The purpose and goal of this project were to solve a pet peeve: my office light socket died, and the desk lamp casts a weird shadow on paper and my iPad when taking notes. I wanted a bright, easy-to-use voice-activated system to adjust lighting while studying.</p>
-      <p>Inspiration: I needed better, adaptable lighting for productivity and comfort.</p>
+      <p>The primary purpose of this project was to address a persistent issue in my office: the overhead light socket had failed, making the space inconvenient for study or work. The desk lamp I relied on created harsh shadows that made writing on paper and using my iPad for notes particularly difficult. This drove me to create a custom lighting solution that was versatile, voice-activated, and optimized for my needs.</p>
+      <p>My vision was to not only fix this problem but also to create a user-friendly, futuristic lighting system. I envisioned a setup where I could control lighting configurations through voice commands, making it easier to shift between study, relaxation, and focused work modes. Ultimately, I aimed for a system that balanced functionality, aesthetics, and technical innovation.</p>
       <video controls>
         <source src="IMG_3069.MP4" type="video/mp4">
         Your browser does not support the video tag.
@@ -205,12 +205,12 @@
     <section>
       <h2>Components Used</h2>
       <ul>
-        <li>Customizable LED strip for desk lighting (adjustable brightness and colors)</li>
-        <li>Bluetooth modules (HC-05, one as a master, one as a slave)</li>
-        <li>Arduino Nanos (used for compact enclosures)</li>
-        <li>Solderless breadboards (for efficient wiring without permanent soldering)</li>
+        <li><strong>Customizable LED Strip:</strong> The LED strip was chosen for its flexibility in customizing brightness and color. I tailored it to fit the exact dimensions of my desk to ensure even lighting, with specific areas (e.g., the top of the desk) being brighter for maximum focus.</li>
+        <li><strong>Bluetooth Modules (HC-05):</strong> I used two modules—one as a master and the other as a slave—to enable wireless communication between the voice module and the LED controller.</li>
+        <li><strong>Arduino Nanos:</strong> The compact size of these microcontrollers allowed me to create smaller enclosures for the system. One Nano controlled the LED strip, and another handled the voice recognition and Bluetooth communication.</li>
+        <li><strong>Solderless Breadboards:</strong> These simplified the wiring process and minimized the need for permanent soldering, allowing for easy adjustments during debugging and assembly.</li>
       </ul>
-      <p>Reason for choices: The components allowed flexibility and compactness. The solderless breadboards reduced wiring clutter and were perfect for the Arduino Nano's pin layout.</p>
+      <p>Each component was selected with a focus on functionality, ease of integration, and the ability to troubleshoot effectively. For example, the breadboards reduced wiring clutter, while the LED strip's modularity made it easy to adjust lighting intensity for different zones of the desk.</p>
       <video controls>
         <source src="IMG_3070.MP4" type="video/mp4">
         Your browser does not support the video tag.
@@ -218,40 +218,50 @@
     </section>
 
     <section>
+      <h2>Acquisition and Setup</h2>
+      <p>All components were sourced from Amazon, with a total project cost of under $60. The affordability of the components made the project accessible, but it also introduced some challenges, particularly with component documentation and compatibility.</p>
+      <p>For instance, the Bluetooth modules were difficult to configure due to a lack of proper documentation. After extensive trial and error, I discovered they operated at a baud rate of 9600 rather than the commonly used 38400. Additionally, the voice module was highly sensitive to background noise, which required meticulous setup and training to ensure reliable performance.</p>
+      <p>While no major hardware modifications were made, I did cut the LED strip to exact dimensions and solder custom wiring to fit the specific layout of my desk. These adjustments ensured a clean and professional-looking final product.</p>
+    </section>
+
+    <section>
       <h2>Assembly and Functionality</h2>
-      <p>The system was built in two parts:</p>
+      <p>The system was built in two main parts:</p>
       <ol>
-        <li><strong>Voice Recognition System:</strong> Configured to toggle between listening and training modes. It sends TX/RX signals to the Bluetooth master.</li>
-        <li><strong>LED Control System:</strong> Receives commands via Bluetooth slave and controls the LED strip's brightness and color.</li>
+        <li><strong>Voice Recognition System:</strong> This component was configured to switch between listening and training modes. It sends TX/RX signals via Bluetooth to the master module, which then relays the commands to the LED control system.</li>
+        <li><strong>LED Control System:</strong> This component receives commands from the Bluetooth slave module and adjusts the LED strip's brightness and color accordingly. It provides seamless transitions between different lighting modes.</li>
       </ol>
-      <p>Debugging required two laptops to verify Bluetooth pairing and command accuracy.</p>
-      <p>Code Overview: The system includes training mode, live listening, and manual command testing.</p>
+      <p>Debugging and testing were critical to the assembly process. I used two laptops to verify Bluetooth pairing and ensure commands were being transmitted accurately. The code for the system was designed to include both training and listening modes, as well as manual command testing for troubleshooting.</p>
+      <p>Below are links to the code for each component:</p>
       <div class="code-links">
-        <a href="Box1Voice.txt">Code For Voice Box</a>
-        <a href="Box2Led.txt">Code For Led Box</a>
+        <a href="Box1Voice.txt">Code for Voice Box</a>
+        <a href="Box2Led.txt">Code for LED Box</a>
       </div>
     </section>
 
     <section>
-      <h2>Final Outcome</h2>
-      <p>The system functions perfectly at home, allowing me to control lighting with simple voice commands. While it failed in class due to ambient noise (AC), the design works as intended in a quiet environment.</p>
-      <video controls>
-        <source src="IMG_3071.MP4" type="video/mp4">
-        <source src="IMG_3072.MP4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p>Future Improvements: Upgrade the voice module to use machine learning or higher-memory Arduino boards for enhanced accuracy.</p>
+      <h2>Challenges</h2>
+      <p>The project presented several challenges, the most significant of which was configuring the Bluetooth modules. With minimal documentation available, I had to rely on user reviews and experimentation to determine the correct baud rate and wiring configuration. This process took over four hours but was ultimately successful.</p>
+      <p>The voice module also proved to be a challenge due to its sensitivity to background noise. Even minor sounds, such as an air conditioner turning on, disrupted its functionality. To address this, I carefully trained the system in a quiet environment and selected unique commands ("mood," "relax," "study," and "off") to minimize confusion. However, certain similar-sounding commands, such as "study" and "sleep," still caused issues.</p>
     </section>
 
     <section>
-        <video controls>
-            <source src="IMG_3072.MP4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+      <h2>Final Outcome</h2>
+      <p>The system performs exceptionally well in a quiet home environment, allowing me to control lighting with simple voice commands. While it struggled in the noisy classroom setting due to ambient noise, I was able to demonstrate its functionality effectively in a more controlled setting.</p>
+      <video controls>
+        <source src="IMG_3071.MP4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>Future improvements include upgrading the voice module to a more accurate system or implementing machine learning for voice recognition. This would require a microcontroller with more memory than the Arduino Nano but would significantly enhance the system's reliability and flexibility.</p>
+    </section>
+
+    <section>
       <h2>Credits and References</h2>
-      <p>Thanks to Sophie and Quinn for debugging help and Zack for inspiring the project.</p>
+      <p>This project would not have been possible without the help of several individuals and resources. I would like to thank:</p>
       <ul>
-        <li>Parts purchased via Amazon</li>
+        <li>Sophie and Quinn for their invaluable assistance during debugging.</li>
+        <li>Zack for inspiring me to take on this project and for providing guidance throughout the process.</li>
+        <li>Amazon for supplying all the components used in the project.</li>
       </ul>
     </section>
   </div>
