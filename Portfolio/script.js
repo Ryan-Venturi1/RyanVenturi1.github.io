@@ -416,3 +416,58 @@ window.addEventListener("scroll", () => {
     backToTopBtn.classList.remove("show");
   }
 });
+
+// Initialize project filters
+function initializeFilters() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const category = btn.dataset.filter;
+      const filteredProjects = category === 'all' 
+        ? projects 
+        : projects.filter(p => p.category === category);
+      
+      populateProjects(filteredProjects);
+    });
+  });
+}
+
+// Update existing populateProjects function
+function populateProjects(projectsToShow = projects) {
+  const projectsGrid = document.getElementById('projectsGrid');
+  projectsGrid.style.opacity = '0';
+  
+  setTimeout(() => {
+    projectsGrid.innerHTML = projectsToShow.map(project => `
+      <div class="project-card" onclick="openProjectModal(${project.id})"
+           tabindex="0" role="button" aria-pressed="false"
+           aria-label="Open details for ${project.title}">
+        <div class="project-image" style="background-image: url('${project.image}')">
+          <div class="project-overlay">
+            <span class="view-project">View Details</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-description">${project.description}</p>
+          <div class="project-tech">
+            ${project.technologies
+              .map(tech => `<span class="tech-tag">${tech}</span>`)
+              .join('')}
+          </div>
+        </div>
+      </div>
+    `).join('');
+    projectsGrid.style.opacity = '1';
+  }, 300);
+}
+
+// Add to DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+  initializeFilters();
+  populateProjects();
+});
