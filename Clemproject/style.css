@@ -1,0 +1,295 @@
+/* Reset box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9fafb;
+    color: #111827;
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  /* Screens */
+  .screen {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .screen.active {
+    display: flex;
+  }
+  
+  /* Distinct backgrounds for each level screen (just for variety) */
+  .level1 {
+    background-color: #f0fdf4; /* a light greenish hue */
+  }
+  .level2 {
+    background-color: #fff7ed; /* a light orange hue */
+  }
+  .level3 {
+    background-color: #fef2f2; /* a light red/pink hue */
+  }
+  
+  /* Points in top-right */
+  .points {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #dcfce7;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  
+  /* Back button */
+  .back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+  }
+  .back-button:hover {
+    background-color: #dcfce7;
+  }
+  
+  /* Primary green button style */
+  .button {
+    background-color: #22c55e;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    font-size: 1rem;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  .button:hover {
+    background-color: #16a34a;
+    transform: scale(1.03);
+  }
+  .button.disabled {
+    background-color: #d1d5db;
+    cursor: not-allowed;
+  }
+  
+  /* Tutorial button specifically = blue */
+  .tutorial-button {
+    background-color: #3b82f6;
+  }
+  .tutorial-button:hover {
+    background-color: #2563eb;
+  }
+  
+  /* Conveyor with stripes */
+  .conveyor {
+    width: 100%;
+    max-width: 700px;
+    height: 140px;
+    margin: 1.5rem 0;
+    position: relative;
+    border: 3px solid #4b5563;
+    border-radius: 8px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+    background: repeating-linear-gradient(
+      -45deg,
+      #a5a5a5,
+      #a5a5a5 10px,
+      #8e8e8e 10px,
+      #8e8e8e 20px
+    );
+  }
+  
+  /* Item traveling on conveyor */
+  .item {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 80px;
+    border: 2px solid #9ca3af;
+    border-radius: 8px;
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: left 10s linear;
+  }
+  .item img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+  
+  /* Bins row */
+  .bins {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  /* Each bin + label */
+  .bin {
+    width: 120px;
+    height: 160px;
+    border: 3px solid #4b5563;
+    border-radius: 8px;
+    background-size: 70% auto;
+    background-repeat: no-repeat;
+    background-position: center 30px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .bin:hover {
+    transform: scale(1.05);
+  }
+  .bin-label {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    font-size: 1.1rem;
+  }
+  
+  /* Distinct bin background colors / possible icons */
+  .trash-bin {
+    background-color: #ef4444;
+    background-image: url('images/bin-trash.png');
+  }
+  .recycle-bin {
+    background-color: #3b82f6;
+    background-image: url('images/bin-recycle.png');
+  }
+  .compost-bin {
+    background-color: #4ade80;
+    background-image: url('images/bin-compost.png');
+  }
+  
+  /* Progress bar container w/ labels */
+  .progress-bar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  .progress-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 0 0.5rem;
+  }
+  .progress-bar {
+    flex: 1;
+    height: 1rem;
+    background-color: #d1d5db;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: 0 0.5rem;
+  }
+  .progress {
+    height: 100%;
+    background-color: #22c55e;
+    width: 0%;
+    transition: width 0.3s;
+  }
+  
+  /* Feedback message area */
+  .feedback-message {
+    margin-top: 1rem;
+    min-height: 3rem; /* keep space even if empty */
+    text-align: center;
+  }
+  .feedback-message .verdict {
+    display: block;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+  }
+  .verdict.good {
+    color: #10b981; /* green */
+  }
+  .verdict.oops {
+    color: #ef4444; /* red */
+  }
+  .feedback-message .explanation {
+    font-size: 1.1rem;
+    font-weight: normal;
+  }
+  
+  /* Badges grid: add a subtle icon & hover style */
+  .badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 2rem;
+  }
+  .badge {
+    background-color: #d1d5db;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    transition: transform 0.2s, background-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .badge::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: url('images/badge-icon.png') no-repeat center;
+    background-size: 80% auto;
+    opacity: 0.15;
+    transform: translate(-50%, -50%);
+  }
+  .badge:hover {
+    transform: scale(1.03);
+    background-color: #cbd5e1;
+  }
+  .badge.earned {
+    background-color: #dcfce7;
+  }
+  .badge.earned::before {
+    opacity: 0.3; /* stand out a bit more when earned */
+  }
+  .badge h3 {
+    margin-bottom: 0.5rem;
+  }
+  .badge p {
+    margin: 0;
+  }
+  
+  /* Tutorial content */
+  .tutorial-content {
+    max-width: 600px;
+    text-align: left;
+    margin-top: 2rem;
+  }
+  .tutorial-content p {
+    margin: 0.5rem 0;
+  }
