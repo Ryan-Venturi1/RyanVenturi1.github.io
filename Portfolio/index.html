@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Required Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="A modern, immersive portfolio showcasing my creative tech and design work."
-  />
+  <meta name="description" content="A modern, immersive portfolio showcasing my creative tech and design work." />
   <meta name="keywords" content="portfolio, web development, design, creative tech" />
   <title>Ryan Venturi's Creative Tech and Design Portfolio</title>
+  
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <!-- Favicons -->
-  <link rel="icon" href="https://via.placeholder.com/32.png" />
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzJjM2U1MCIvPjwvc3ZnPg==" />
 
-  <!-- External Icons & Fonts -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Main CSS -->
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -90,15 +83,11 @@
     <div id="particles-container" aria-hidden="true"></div>
     <div class="hero-content">
       <h1 class="hero-title">Ryan Venturi</h1>
-      <h3 class="hero-subtitle">Creative Technolgy and Design Engineer and Entrapaneur</h3>
+      <h3 class="hero-subtitle">Creative Technology and Design Engineer and Entrepreneur</h3>
       <p class="hero-subtitle">
         Building digital experiences that fuse innovation and functionality.
       </p>
-      <button 
-        class="cta-button"
-        onclick="scrollToSection('projects')" 
-        aria-label="Explore my projects"
-      >
+      <button class="cta-button" onclick="scrollToSection('projects')" aria-label="Explore my projects">
         Explore My Work <i class="fas fa-arrow-right"></i>
       </button>
       <div class="scroll-indicator" aria-hidden="true">
@@ -111,36 +100,36 @@
 <section id="projects" class="section" tabindex="-1">
   <div class="section-container">
     <h2 class="section-title">Featured Projects</h2>
-    
-    <!-- Project Categories -->
+    <div id="project-modal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeProjectModal()">×</button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
     <div class="project-filters">
       <button class="filter-btn active" data-filter="all">All Projects</button>
-      <button class="filter-btn" data-filter="web">Web Development</button>
-      <button class="filter-btn" data-filter="mobile">Physical Computing</button>
-      <button class="filter-btn" data-filter="ai">Arduino</button>
-      <button class="filter-btn" data-filter="ai">Adobe Design</button>
-      <button class="filter-btn" data-filter="ai">Figma</button>
-      <button class="filter-btn" data-filter="ai">3d Printing</button>
-      <button class="filter-btn" data-filter="ai">AI/ML</button>
+      <button class="filter-btn" data-filter="React">Web Development</button>
+      <button class="filter-btn" data-filter="Arduino">Physical Computing</button>
+      <button class="filter-btn" data-filter="TensorFlow">AI/ML</button>
+      <button class="filter-btn" data-filter="Adobe">Design</button>
+      <button class="filter-btn" data-filter="Figma">UI/UX</button>
     </div>
 
-    <div class="projects-grid" id="projectsGrid">
-      <!-- Populated by script.js -->
-    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
 
     <!-- Project Metrics -->
     <div class="project-metrics">
       <div class="metric-item">
-        <span class="metric-number">50+</span>
+        <span class="metric-number">25+</span>
         <span class="metric-label">Projects Completed</span>
       </div>
       <div class="metric-item">
-        <span class="metric-number">100k+</span>
-        <span class="metric-label">Active Users</span>
+        <span class="metric-number">500k+</span>
+        <span class="metric-label">Deployed Working Code</span>
       </div>
       <div class="metric-item">
-        <span class="metric-number">95%</span>
-        <span class="metric-label">Client Satisfaction</span>
+        <span class="metric-number">2</span>
+        <span class="metric-label">Companies Founded and New Venture Challenge Wins</span>
       </div>
     </div>
   </div>
@@ -154,74 +143,86 @@
       <div class="about-layout">
         <!-- Profile/Personal Info -->
         <div class="about-info">
-          <img 
-            src="https://via.placeholder.com/300x300.png?text=Your+Photo" 
-            alt="A profile picture" 
-            class="about-photo"
-          />
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIj5Qcm9maWxlIEltYWdlPC90ZXh0Pjwvc3ZnPg==" alt="Profile photo" class="about-photo" />
           <h3>Professional Profile</h3>
           <p>
-            I'm a full-stack developer and designer with a passion for creating 
-            engaging, intuitive digital products. My core expertise includes 
-            JavaScript frameworks, UI/UX best practices, and cloud-based solutions.
+            I'm a student in Engineering studying Creative Technology and Design at the University of Colorado Boulder, and Full time Entrepreneur. While I have learned many skills to advacned levels my true passion lies in startups, coding, Physical Computing/Engineering and design. As well as being a student a large portion of my time is spent working in enviormantalism advocacy and solution orieitned event managment were we enge with students to help them be more sutsanible and provide support to help them do such. I am also a nerd in amny subjects currently I ahve been deep diving into ultimodal devlopment to see if I can develope a cmaera system that cna screen for anxiety and depression thorugh facial experimetns and quantam computing and the apllciations that could have towards gerneal intelligance devleopment.
           </p>
           <p>
-            I focus on performance-driven, accessible code, striving to blend 
-            technical precision with a keen design sensibility. In my work, I love 
-            introducing micro-interactions, advanced animations, and new web 
-            technologies to keep the user experience fresh and delightful.
+            I focus on many new technolgies and designs that can help to solve problems and make people's lives better. Wiht my [pltatform Pleides we are working to change the ladnscape of mental health rtreatment by chngin the norm from reactionairy care to preventive care. With my work in envioramntalism Im working to help insure their is  safe ahbitable world for feautre genratiosn. ANd for my student lif my gola is to apply the skills and trades I learn to real life meaningful projetcs.
           </p>
         </div>
 
         <!-- Skills & Additional Info -->
-        <div class="about-details">
-          <div class="skills-container">
-            <h3>Technical Skills</h3>
-            <div class="skill-bars">
-              <!-- populated by script.js -->
-            </div>
-          </div>
-
-          <div class="achievements">
-            <h3>Key Achievements</h3>
-            <ul>
-              <li>Led a team of 5 to build a PWA used by 100,000+ active users</li>
-              <li>Awarded “Best Innovative Design” at TechExpo 2022</li>
-              <li>Contributed to various open-source projects (React, Vue Ecosystem)</li>
-            </ul>
-          </div>
+<div class="about-details">
+  <div class="skills-container">
+    <h3>Technical Skills</h3>
+    <div class="skill-bars">
+      <div class="skill-bar-container">
+        <div class="skill-info">
+          <span>UI/UX Design</span>
+          <span>Advanced - Figma, Adobe XD, Creative Suite</span>
         </div>
-
-        <!-- Timeline / Experience -->
-        <div class="experience-timeline">
-          <div class="timeline-item">
-            <h4 class="timeline-title">Senior Frontend Engineer</h4>
-            <div class="timeline-date">2022 - Present</div>
-            <p class="timeline-description">
-              Focusing on advanced UI development, code performance optimization, 
-              and engineering leadership.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <h4 class="timeline-title">UI/UX Designer</h4>
-            <div class="timeline-date">2020 - 2022</div>
-            <p class="timeline-description">
-              Created user-centric designs and led workshops to integrate 
-              accessibility in the design process.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <h4 class="timeline-title">Full-Stack Developer</h4>
-            <div class="timeline-date">2017 - 2020</div>
-            <p class="timeline-description">
-              Built robust e-commerce and data analytics platforms with 
-              high availability and top-tier security.
-            </p>
-          </div>
+      </div>
+      <div class="skill-bar-container">
+        <div class="skill-info">
+          <span>Web Development</span>
+          <span>HTML/CSS, JavaScript, React, Node.js</span>
+        </div>
+      </div>
+      <div class="skill-bar-container">
+        <div class="skill-info">
+          <span>Cloud Computing</span>
+          <span>AWS, Firebase, Cloud Architecture</span>
+        </div>
+      </div>
+      <div class="skill-bar-container">
+        <div class="skill-info">
+          <span>AI & Machine Learning</span>
+          <span>ChatGPT, Claude, DALL-E, Custom GPT Models</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+
+  <div class="achievements">
+    <h3>Key Achievements</h3>
+    <ul>
+      <li>Successfully led Pleiades through $1M founder's round valuation</li>
+      <li>Built platform with 150+ features and 30+ integrated APIs</li>
+      <li>Directed 2,000+ follower digital strategy for Zero Waste Outreach</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Timeline / Experience -->
+<div class="experience-timeline">
+  <div class="timeline-item">
+    <h4 class="timeline-title">Pleiades Mental Health</h4>
+    <div class="timeline-date">January 2024 - Present</div>
+    <p class="timeline-description">
+      Founder and CIO, built innovative mental health platform integrating cutting-edge technology with holistic therapy.
+    </p>
+  </div>
+  <div class="timeline-item">
+    <h4 class="timeline-title">Environmental Center Programs</h4>
+    <div class="timeline-date">2023 - Present</div>
+    <p class="timeline-description">
+      Created Unhouse Assistance Program, managed Zero Waste Outreach, impacting 10,000+ students annually.
+    </p>
+  </div>
+  <div class="timeline-item">
+    <h4 class="timeline-title">Delta Tau Delta</h4>
+    <div class="timeline-date">2022 - 2023</div>
+    <p class="timeline-description">
+      Founding father and Petition Chairman, established new chapter at University of Colorado.
+    </p>
+  </div>
+</div>
+
+</div>
+</div>
+</section>
 
   <!-- Contact Section -->
   <section id="contact" class="section" tabindex="-1">
