@@ -120,9 +120,10 @@ const projects = [
     title: "Opera Flyer Design",
     shortdescription:
       "Our assignment was to develop a unique, colorful, well-designed poster for the Colorado Opera. We were given too many words to fit on the page and were tasked with creating a readable and colorful design on an 11.5 x 17 inch page.",
-    image: `data:image/svg+xml;base64,${btoa(
-      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
-    )}`,
+      images: [
+        "text1.png",
+        "text2.png",
+      ],
     technologies: ["Adobe Illustrator", "Photoshop", "Adobe InDesign"]
   },
   {
@@ -132,9 +133,13 @@ const projects = [
       "Using the design skills from our class, we were tasked with creating a brand identity, packaging, and products within two weeks. With this goal in mind, I crafted a beverage brand called UnWind, designed for those who want to unwind after a long day.",
     longdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-    image: `data:image/svg+xml;base64,${btoa(
-      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
-    )}`,
+      images: [
+        "soda1.png",
+        "soda2.png",
+        "soda3.png",
+        "soda4.png",
+        "soda5.png",
+      ],
     technologies: ["Adobe Illustrator", "Photoshop", "Adobe Dimension"]
   },
   {
@@ -144,9 +149,13 @@ const projects = [
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
     longdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-    image: `data:image/svg+xml;base64,${btoa(
-      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
-    )}`,
+      images: [
+        "match1.png",
+        "match2.png", 
+        "match3.png",
+        "match4.png",
+        "match5.png",
+      ],
     technologies: ["React Native", "Python", "TensorFlow", "MongoDB"]
   },
   {
@@ -156,9 +165,9 @@ const projects = [
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
     longdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-    image: `data:image/svg+xml;base64,${btoa(
-      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
-    )}`,
+      images: [
+        "AiModerator.mp4",
+      ],
     technologies: ["React Native", "Python", "TensorFlow", "MongoDB"],
     link: "#",
     github: "#"
@@ -170,9 +179,9 @@ const projects = [
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
     longdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-    image: `data:image/svg+xml;base64,${btoa(
-      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
-    )}`,
+      images: [
+        "message.png",
+      ],
     technologies: ["React Native", "Python", "TensorFlow", "MongoDB"],
     link: "#"
   },
@@ -183,9 +192,11 @@ const projects = [
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
     longdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-    image: `data:image/svg+xml;base64,${btoa(
-      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
-    )}`,
+      images: [
+        "OPENEMR.png",
+        "OPENEmr1.png",
+        "OPENEMR2.png",
+      ],
     technologies: ["React Native", "Python", "TensorFlow", "MongoDB"],
     link: "#"
   },
@@ -196,9 +207,14 @@ const projects = [
       "While not publicly available, the Oasis platform — which plugs into the Pleiades Ecosystem — uses over 60 APIs, AI, modern UI/UX dashboard design, and other cutting-edge technologies to provide unique, state-of-the-art support.",
     longdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-    image: `data:image/svg+xml;base64,${btoa(
-      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
-    )}`,
+      images: [
+        "oasis.png",
+        "oasis1.png",
+        "oasis2.png",
+        "oasis3.png",
+        "oasis4.png",
+        "oasis5.png",
+      ],
     technologies: [
       "JavaScript",
       "Python",
@@ -590,22 +606,38 @@ function initializeParticles() {
   });
 }
 function createModalContent(project) {
-  let carouselHTML = '';
-  if (project.images) {
-    carouselHTML = `
-      <div class="image-carousel">
-        <button class="carousel-btn prev">&lt;</button>
-        <div class="carousel-container">
-          ${project.images.map((img, i) => `
+// In createModalContent function, replace the carouselHTML section with:
+let carouselHTML = '';
+if (project.images && project.images.length > 1) {
+  carouselHTML = `
+    <div class="image-carousel">
+      <button class="carousel-btn prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-container">
+        ${project.images.map((img, i) => {
+          const isVideo = img.endsWith('.mov') || img.endsWith('.mp4');
+          return isVideo ? `
+            <video src="${img}" class="carousel-image ${i === 0 ? 'active' : ''}" controls>
+              Your browser does not support the video tag.
+            </video>
+          ` : `
             <img src="${img}" alt="${project.title} image ${i + 1}" class="carousel-image ${i === 0 ? 'active' : ''}" />
-          `).join('')}
-        </div>
-        <button class="carousel-btn next">&gt;</button>
+          `;
+        }).join('')}
       </div>
-    `;
-  } else {
-    carouselHTML = `<img src="${project.image}" alt="${project.title}" class="modal-image" />`;
-  }
+      <button class="carousel-btn next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  `;
+} else if (project.images && project.images.length === 1) {
+  const singleAsset = project.images[0];
+  const isVideo = singleAsset.endsWith('.mov') || singleAsset.endsWith('.mp4');
+  carouselHTML = isVideo ? `
+    <video src="${singleAsset}" class="modal-single-video" controls>
+      Your browser does not support the video tag.
+    </video>
+  ` : `
+    <img src="${singleAsset}" alt="${project.title}" class="modal-single-image" />
+  `;
+}
 
   let subprojectsHTML = '';
   if (project.subprojects?.length) {
@@ -654,26 +686,38 @@ function createModalContent(project) {
   `;
 }
 
+// In updateProjectsGrid function, modify the project card HTML:
 function updateProjectsGrid(projectsToShow) {
   const projectsGrid = document.getElementById('projectsGrid');
   
-  projectsGrid.innerHTML = projectsToShow.map(project => `
-    <div class="project-card" onclick="openProjectModal(${project.id})">
-      <div class="project-image" style="background-image: url('${project.image}')">
-        <div class="project-overlay">
-          <span class="view-project">View Details</span>
+  projectsGrid.innerHTML = projectsToShow.map(project => {
+    const firstImage = project.images && project.images.length > 0 ? project.images[0] : null;
+    const isVideo = firstImage && (firstImage.endsWith('.mov') || firstImage.endsWith('.mp4'));
+    
+    return `
+      <div class="project-card" onclick="openProjectModal(${project.id})">
+        <div class="project-image">
+          ${isVideo ? 
+            `<video src="${firstImage}" class="preview-video" muted loop>
+              Your browser does not support the video tag.
+             </video>` :
+            `<div class="image-container" style="background-image: url('${firstImage}')"></div>`
+          }
+          <div class="project-overlay">
+            <span class="view-project">View Details</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>${project.title}</h3>
+          <p>${project.shortdescription}</p>
+          <div class="project-tech">
+            ${project.technologies.slice(0, 3).map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+            ${project.technologies.length > 3 ? `<span class="tech-tag">+${project.technologies.length - 3}</span>` : ''}
+          </div>
         </div>
       </div>
-      <div class="project-content">
-        <h3>${project.title}</h3>
-        <p>${project.shortdescription}</p>
-        <div class="project-tech">
-          ${project.technologies.slice(0, 3).map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-          ${project.technologies.length > 3 ? `<span class="tech-tag">+${project.technologies.length - 3}</span>` : ''}
-        </div>
-      </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 // Close modal when clicking outside content
