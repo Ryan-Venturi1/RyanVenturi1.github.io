@@ -8,26 +8,51 @@ const projects = [
   {
     id: 1,
     title: "Pleiades Mental Health",
-    Subtitle: "AI-Powered Mental Health Platform",
+    subtitle: "AI-Powered Mental Health Platform",
     shortdescription:
-      "Pleaides Mental Health is the leading preventive mentla health care paltofrm that allows users to recive better therpay and allows thepriats to provide better care. ",
+      "Pleiades Mental Health is the leading preventive mental health care platform that allows users to receive better therapy and allows therapists to provide better care.",
     longdescription:
-      "As the first founder of pleiades Mentla Helath I was able to devlope a state of teh art mental health paltofrm. Follwong the precendt of preventive care our goal is to onboard clietns when they first start ecxpeincing symptosmrelated to any form of entla health adn then while we treat and support the current issues the suers are impacting we then teach them coping techinques and skills while provinging them with a full platform of self support and communtyt tools to help them in the futuere. For our therpaists we want to help them get back to what they signed up for which is helping people by using our paltfom we are able to save the ytime running their practises simiply theri operations., and show them tangible data to jsutfiy the progress their clietns are maiing to help them remove their burnout. Click below to lern about all of the platfom offerings I built. comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-    // Replace all image URLs like this
-    image: `data:image/svg+xml;base64,${btoa('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>')}`,    
-    technologies: ["React", "TensorFlow", "Node.js", "JavaScript", "CSS", "HTML", "firebase", "aws", "mySQL", "php", "python", "Figma"],
-    subprojetcs:[],
+      "As the first founder of Pleiades Mental Health, I was able to develop a state-of-the-art mental health platform. Following the precedent of preventive care, our goal is to onboard clients when they first start experiencing symptoms related to any form of mental health, and while we treat and support the current issues impacting them, we also teach them coping techniques and skills while providing them with a full platform of self-support and community tools to help them in the future. For our therapists, we want to help them get back to what they signed up for, which is helping people. By using our platform, we are able to save them time running their practices, simplify their operations, and show them tangible data to justify the progress their clients are making to help reduce burnout. Click below to learn about all of the platform offerings I built, including a comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
+    images: [
+      "pleiades.png",
+      "overview.png",
+      "pleiadeshome.png",
+      "signin.png"
+    ],
+    technologies: [
+      "React",
+      "TensorFlow",
+      "Node.js",
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "firebase",
+      "aws",
+      "mySQL",
+      "php",
+      "python",
+      "Figma"
+    ],
+    subprojects: [
+      "Modality Matching",
+      "Oasis",
+      "Scheduling System",
+      "Personality Matching",
+      "Encrypted Messaging System",
+      "Team",
+      "Compatibility Matching"
+    ],
     link: "pleiadesmh.com",
   },
+
   {
     id: 2,
     title: "IvySky",
-    shortdescription:
-      "A mental health non profit designe dby teens for teens.",
+    shortdescription: "A mental health nonprofit designed by teens for teens.",
     longdescription:
-      "As the former CEO and Founder and a highschool sophmore we set out to build a new app tht changes the way people seek mental health treatmetn. THis lead us on the journey of creating a free app that uses opensource publicly avalible contnet and inhouse genrated content to build a free resoruce paltofrm that helped teens devlope coping mechanisms. While I have since moved on to creating a platform wtith more offerings in Pleiades in IvySky's hayday as a fully registerd 501(c)3 we are still able to help teens in need with a team of 55 therpaist, coders, marketers, and docotres we achvied a high of 60,000 in funding and 500 daily active suers. We are currently working on a new platform that is in the works . Click below to lern more about how IvySky.",
-      image: `data:image/svg+xml;base64,${btoa('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>')}`,    
-      links: {
+      "As the former CEO and Founder, and a high school sophomore, we set out to build a new app that changes the way people seek mental health treatment. This led us on a journey of creating a free app that uses open-source, publicly available content and in-house generated content to build a free resource platform that helped teens develop coping mechanisms. While I have since moved on to creating a platform with more offerings in Pleiades, in IvySky's heyday as a fully registered 501(c)3, we were still able to help teens in need with a team of 55 therapists, coders, marketers, and doctors. We achieved a high of $60,000 in funding and 500 daily active users. We are currently working on a new platform. Click below to learn more about IvySky.",
+    images: ["ivyskylogo.png"],
+    links: {
       linkedin: "https://www.linkedin.com/company/ivysky",
       appStore: "https://apps.apple.com/us/app/ivysky-mental-health/id1626276102",
       instagram: "https://www.instagram.com/ivyskyofficial",
@@ -35,67 +60,106 @@ const projects = [
       tiktok: "https://www.tiktok.com/@ivyskyofficial",
       community: "https://www.delts.org/building-community-to-support-mental-health"
     },
-    
-    technologies: ["Adobe XD", "React", "Python", "AWS", 'Firebase'],
-    link: "https://www.linkedin.com/company/ivysky",
+    technologies: ["Adobe XD", "React", "Python", "AWS", "Firebase"],
+    link: "https://www.linkedin.com/company/ivysky"
+  },
   
-  },
-  {
-    id: 3,
-    title: "Physical Computing Meets Botony",
-    shortdescription:
-    "A fully automated and interactive garden that using a wide varitey of code and sensors was able to grow 35 palnts and 15 flowers with automated lighting, watering, and feeding. This project was built for a class and built on the Arduino platoform usign pumps relays breadbaords and 20 water sensors giving independt readings of each bed. To build this systme I pursahsed and coreclty cut wood boards, cut 10 12 inch pvc pipes to exact specofcation and 3d printed 24 jpints that i designed and scaled in Onshape. The whole garend including the wirnign was designed and built in OnSHape",
-    image: `data:image/svg+xml;base64,${btoa('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>')}`,    
-    technologies: ["Arduino", "ArdunioIDE"],
-    Skills: ["Electircal Circuits", "Soldering", "Current Regulation", "Wood Shop", "CAD", "3D Printing"],
 
-  },
+{
+  id: 3,
+  title: "Physical Computing Meets Botany",
+  shortdescription:
+    "A fully automated and interactive garden that, using a wide variety of code and sensors, was able to grow 35 plants and 15 flowers with automated lighting, watering, and feeding. This project was built for a class on the Arduino platform using pumps, relays, breadboards, and 20 water sensors for independent readings of each bed. To build this system, I purchased and correctly cut wood boards, cut ten 12-inch PVC pipes to exact specifications, and 3D-printed 24 joints that I designed and scaled in Onshape. The entire garden, including the wiring, was designed and built in Onshape.",
+    images: [
+      "pleiades.png",
+      "overview.png",
+      "pleiadeshome.png",
+      "signin.png"
+    ],
+  technologies: [
+    "Arduino",
+    "Arduino IDE",
+    "Relays",
+    "Pumps",
+    "Water Sensors",
+    "Breadboards",
+    "Onshape",
+    "3D Printing"
+  ],
+  Skills: [
+    "Electrical Circuits",
+    "Soldering",
+    "Current Regulation",
+    "Wood Shop",
+    "CAD",
+    "3D Printing"
+  ]
+},
   {
     id: 4,
     title: "Smart Home Desk Lighting System",
     shortdescription:
-      "Desk lighting system that combines arduino and bluetooth to control lights on a desk. This was built for a class and built on the Arduino platoform and using 25 voice commands can be programmed trained and reprogrammed. This allows with jsut simiple voice commands the ability to change and the lights in my room to any color or setting I wish. Employing bluetooth and voice recongition was challenging but allowed me to full coustimze where the system is and how it works.",
-      image: `data:image/svg+xml;base64,${btoa('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>')}`,    
-      technologies: ["NeoPixels", "Solidering", "Arduino", "Bluetooth", "Voice Recognition"],
+      "A desk lighting system that combines Arduino and Bluetooth to control lights on a desk. This was built for a class on the Arduino platform using 25 voice commands that can be programmed, trained, and reprogrammed. With simple voice commands, you can change the lights in the room to any color or setting. Employing Bluetooth and voice recognition was challenging, but it allowed for complete customization of the system’s placement and functionality.",
+      images: [
+        "light.jpg",
+        "light1.jpg",
+        "light2.mov",
+        "light3.mov",
+        "light4.mov"
+      ],
+    technologies: [
+      "NeoPixels",
+      "Soldering",
+      "Arduino",
+      "Bluetooth",
+      "Voice Recognition"
+    ]
   },
   {
     id: 5,
-    title: "Opera FLyer Design",
+    title: "Opera Flyer Design",
     shortdescription:
-      "Our assignment was to devlope a unique coloful well designed psoter fpr the colorado opera. We were given to many words to fit on the apge and tasked with creaitng a readible and colorful design on an 11.5 by 17 page",
-      image: `data:image/svg+xml;base64,${btoa('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>')}`,    
-      technologies: ["Adobe Illustrator", "Photoshop", "Adove inDesign"],
+      "Our assignment was to develop a unique, colorful, well-designed poster for the Colorado Opera. We were given too many words to fit on the page and were tasked with creating a readable and colorful design on an 11.5 x 17 inch page.",
+    image: `data:image/svg+xml;base64,${btoa(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
+    )}`,
+    technologies: ["Adobe Illustrator", "Photoshop", "Adobe InDesign"]
   },
   {
     id: 6,
     title: "Soda Cans",
     shortdescription:
-      "Using the design skills in our class we were designed with creaitng a brand identity and their packagin and prodyucts within 2 weeks of assignmetn. With this goal in mind I crafted a beverage brand called UnWind, designed for those who want to be able top Unwind after a long day",
+      "Using the design skills from our class, we were tasked with creating a brand identity, packaging, and products within two weeks. With this goal in mind, I crafted a beverage brand called UnWind, designed for those who want to unwind after a long day.",
     longdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-      image: `data:image/svg+xml;base64,${btoa('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>')}`,    
-      technologies: ["Adobe Illustrator", "Photoshop", "Adove Dimension"],
-
+    image: `data:image/svg+xml;base64,${btoa(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
+    )}`,
+    technologies: ["Adobe Illustrator", "Photoshop", "Adobe Dimension"]
   },
   {
     id: 7,
-    title: "Client Mathing System",
+    title: "Client Matching System",
     shortdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
     longdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-      image: `data:image/svg+xml;base64,${btoa('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>')}`,    
-      technologies: ["React Native", "Python", "TensorFlow", "MongoDB"],
+    image: `data:image/svg+xml;base64,${btoa(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
+    )}`,
+    technologies: ["React Native", "Python", "TensorFlow", "MongoDB"]
   },
   {
     id: 8,
-    title: "Artfical Intelligence Content Moderation System",
+    title: "Artificial Intelligence Content Moderation System",
     shortdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
     longdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-      image: `data:image/svg+xml;base64,${btoa('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>')}`,    
-      technologies: ["React Native", "Python", "TensorFlow", "MongoDB"],
+    image: `data:image/svg+xml;base64,${btoa(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
+    )}`,
+    technologies: ["React Native", "Python", "TensorFlow", "MongoDB"],
     link: "#",
     github: "#"
   },
@@ -106,9 +170,11 @@ const projects = [
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
     longdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-      image: `data:image/svg+xml;base64,${btoa('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>')}`,    
-      technologies: ["React Native", "Python", "TensorFlow", "MongoDB"],
-    link: "#",
+    image: `data:image/svg+xml;base64,${btoa(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
+    )}`,
+    technologies: ["React Native", "Python", "TensorFlow", "MongoDB"],
+    link: "#"
   },
   {
     id: 10,
@@ -117,28 +183,56 @@ const projects = [
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
     longdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-      image: `data:image/svg+xml;base64,${btoa('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>')}`,    
-      technologies: ["React Native", "Python", "TensorFlow", "MongoDB"],
-    link: "#",
+    image: `data:image/svg+xml;base64,${btoa(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
+    )}`,
+    technologies: ["React Native", "Python", "TensorFlow", "MongoDB"],
+    link: "#"
   },
   {
     id: 11,
     title: "The Oasis",
     shortdescription:
-      "While not publicliy avlible tge Oasis platform which while plug into the Pleiades Ecosystem uses over 60 apis, AI, Modern UI/UX dashbaord design and many other top of fields technolgy to provide unique state of the art support. ",
+      "While not publicly available, the Oasis platform — which plugs into the Pleiades Ecosystem — uses over 60 APIs, AI, modern UI/UX dashboard design, and other cutting-edge technologies to provide unique, state-of-the-art support.",
     longdescription:
       "A comprehensive analytics dashboard leveraging machine learning for predictive insights and real-time data visualization.",
-    image: `data:image/svg+xml;base64,${btoa('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>')}`,
-    technologies: ["JavaScript", "Python", "TensorFlow", "Firebase", "Meetup API", "Sound CLoud API", "SORA", "AWS", "HTML", "CSS", "Figma","ManyOthers"],
+    image: `data:image/svg+xml;base64,${btoa(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif">Project Image</text></svg>'
+    )}`,
+    technologies: [
+      "JavaScript",
+      "Python",
+      "TensorFlow",
+      "Firebase",
+      "Meetup API",
+      "SoundCloud API",
+      "SORA",
+      "AWS",
+      "HTML",
+      "CSS",
+      "Figma",
+      "ManyOthers"
+    ]
   },
   {
-    id: 11,
+    id: 12,
     title: "Prompt Engineering and AI Applications",
     shortdescription:
-      "Ample experince and understanidng of all leading AI models and their applications inculding numerous API building and AI model devolpment and training through Tensorflow.",
-    technologies: ["ChatGPT 4o, 1o, 1o Mini", "Open AI Sora and Dall-e Image Generator", "Claude Sonnet and Claude Projetcs", "Google Gemini and Mulitmodl image Trainer", "TensorFlow", "OpenAi API Trained", "OpenAi Text Reconginizng API"],
+      "Ample experience and understanding of all leading AI models and their applications, including extensive work on API integrations, AI model development, and TensorFlow training.",
+    technologies: [
+      "ChatGPT 4.0, 1.0, 1.0 Mini",
+      "OpenAI Sora",
+      "DALL·E Image Generator",
+      "Claude (Sonnet and Claude Projects)",
+      "Google Gemini (Multimodal Image Trainer)",
+      "TensorFlow",
+      "OpenAI API",
+      "OpenAI Text Recognition API"
+    ]
   }
-];
+]
+
+
 
 const skills = [
   {
@@ -296,7 +390,138 @@ const skills = [
 ];
 
 let isDarkMode = false;
+// Store the initial scroll position
+let scrollPosition = 0;
 
+function initializeCarousel() {
+  const carousel = document.querySelector('.image-carousel');
+  if (!carousel) return;
+
+  const images = carousel.querySelectorAll('.carousel-image');
+  const indicators = carousel.querySelectorAll('.carousel-indicator');
+  const prevBtn = carousel.querySelector('.carousel-btn.prev');
+  const nextBtn = carousel.querySelector('.carousel-btn.next');
+  let currentIndex = 0;
+
+  function updateCarousel(newIndex) {
+    // Update images
+    images[currentIndex].classList.remove('active');
+    images[newIndex].classList.add('active');
+    
+    // Update indicators
+    if (indicators.length) {
+      indicators[currentIndex].classList.remove('active');
+      indicators[newIndex].classList.add('active');
+    }
+    
+    currentIndex = newIndex;
+  }
+
+  function nextSlide() {
+    const newIndex = (currentIndex + 1) % images.length;
+    updateCarousel(newIndex);
+  }
+
+  function prevSlide() {
+    const newIndex = (currentIndex - 1 + images.length) % images.length;
+    updateCarousel(newIndex);
+  }
+
+  // Add event listeners
+  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+  
+  // Add indicator click handlers
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => updateCarousel(index));
+  });
+
+  // Add keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!carousel.closest('.modal').classList.contains('active')) return;
+    
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+
+  // Optional: Auto advance
+  let autoAdvance;
+  
+  function startAutoAdvance() {
+    autoAdvance = setInterval(nextSlide, 5000);
+  }
+  
+  function stopAutoAdvance() {
+    clearInterval(autoAdvance);
+  }
+
+  carousel.addEventListener('mouseenter', stopAutoAdvance);
+  carousel.addEventListener('mouseleave', startAutoAdvance);
+  
+  startAutoAdvance();
+}
+
+// Call this after creating modal content
+document.getElementById('project-modal').addEventListener('click', (e) => {
+  if (e.target.id === 'project-modal') {
+    closeProjectModal();
+  }
+});
+
+// Update your openProjectModal function to initialize carousel
+function openProjectModal(projectId) {
+  const project = projects.find(p => p.id === projectId);
+  const modal = document.getElementById('project-modal');
+  const modalContent = document.getElementById('modal-content');
+  
+  if (!project || !modal) return;
+
+  // Store current scroll position
+  scrollPosition = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.style.width = '100%';
+
+  modalContent.innerHTML = createModalContent(project);
+  modal.classList.add('active');
+  
+  // Initialize carousel after content is added
+  initializeCarousel();
+}
+
+function closeProjectModal() {
+  const modal = document.getElementById('project-modal');
+  
+  if (!modal) return;
+  
+  modal.classList.remove('active');
+  
+  // Remove styles from body and restore scroll position
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, scrollPosition);
+}
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', () => {
+  // Close modal when clicking outside content
+  const modal = document.getElementById('project-modal');
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeProjectModal();
+      }
+    });
+  }
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeProjectModal();
+    }
+  });
+});
 /*
   ==========================================================================
   1. INITIALIZATION
@@ -451,69 +676,13 @@ function updateProjectsGrid(projectsToShow) {
   `).join('');
 }
 
-function openProjectModal(projectId) {
-  const project = projects.find(p => p.id === projectId);
-  const modal = document.getElementById('project-modal');
-  const modalContent = document.getElementById('modal-content');
-  
-  modalContent.innerHTML = createModalContent(project);
-  modal.classList.add('active');
-  
-  initializeCarousel();
-}
-function closeProjectModal() {
-  const modal = document.getElementById('project-modal');
-  modal.classList.remove('active');
-}
-
-// Add click event on projects
-function updateProjectsGrid(projectsToShow) {
-  const projectsGrid = document.getElementById('projectsGrid');
-  
-  projectsGrid.innerHTML = projectsToShow.map(project => `
-    <div class="project-card" onclick="openProjectModal(${project.id})">
-      <div class="project-image" style="background-image: url('${project.image}')">
-        <div class="project-overlay">
-          <span class="view-project">View Details</span>
-        </div>
-      </div>
-      <div class="project-content">
-        <h3>${project.title}</h3>
-        <p>${project.shortdescription}</p>
-        <div class="project-tech">
-          ${project.technologies.slice(0, 3).map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-          ${project.technologies.length > 3 ? `<span class="tech-tag">+${project.technologies.length - 3}</span>` : ''}
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-
 // Close modal when clicking outside content
 document.getElementById('project-modal').addEventListener('click', (e) => {
   if (e.target.id === 'project-modal') {
     closeProjectModal();
   }
 });
-function initializeCarousel() {
-  const carousel = document.querySelector('.image-carousel');
-  if (!carousel) return;
 
-  const images = carousel.querySelectorAll('.carousel-image');
-  let currentIndex = 0;
-
-  carousel.querySelector('.prev').addEventListener('click', () => {
-    images[currentIndex].classList.remove('active');
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    images[currentIndex].classList.add('active');
-  });
-
-  carousel.querySelector('.next').addEventListener('click', () => {
-    images[currentIndex].classList.remove('active');
-    currentIndex = (currentIndex + 1) % images.length;
-    images[currentIndex].classList.add('active');
-  });
-}
 /*
   ==========================================================================
   3. ANIMATIONS
@@ -612,26 +781,7 @@ function filterProjects(category) {
   );
 }
 
-function updateProjectsGrid(projectsToShow) {
-  const projectsGrid = document.getElementById('projectsGrid');
-  
-  projectsGrid.innerHTML = projectsToShow.map(project => `
-    <div class="project-card">
-      <div class="project-image" style="background-image: url('${project.image}')">
-        <div class="project-overlay">
-          <span class="view-project">View Details</span>
-        </div>
-      </div>
-      <div class="project-content">
-        <h3>${project.title}</h3>
-        <p>${project.shortdescription}</p>
-        <div class="project-tech">
-          ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
+
 
 // Initialize projects on page load
 document.addEventListener('DOMContentLoaded', () => {
