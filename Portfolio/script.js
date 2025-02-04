@@ -71,10 +71,10 @@ const projects = [
   shortdescription:
     "A fully automated and interactive garden that, using a wide variety of code and sensors, was able to grow 35 plants and 15 flowers with automated lighting, watering, and feeding. This project was built for a class on the Arduino platform using pumps, relays, breadboards, and 20 water sensors for independent readings of each bed. To build this system, I purchased and correctly cut wood boards, cut ten 12-inch PVC pipes to exact specifications, and 3D-printed 24 joints that I designed and scaled in Onshape. The entire garden, including the wiring, was designed and built in Onshape.",
     images: [
-      "pleiades.png",
-      "overview.png",
-      "pleiadeshome.png",
-      "signin.png"
+      "Garden4.JPG",
+      "Garden2.MOV",
+      "Garden3.JPG",
+      "Garden1.JPG",
     ],
   technologies: [
     "Arduino",
