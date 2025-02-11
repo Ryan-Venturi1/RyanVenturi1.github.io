@@ -120,6 +120,7 @@ function closeProjectModal() {
   document.body.style.width = '';
   window.scrollTo(0, scrollPosition);
 }
+window.closeProjectModal = closeProjectModal;
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
