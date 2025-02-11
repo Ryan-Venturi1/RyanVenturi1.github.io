@@ -437,6 +437,7 @@ button {
 .landing-title .gradient-text {
   background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
   -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   background-size: 200% 200%;
   animation: gradient 8s ease infinite;
 }
