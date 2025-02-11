@@ -405,8 +405,8 @@ const skills = [
   }
 ];
 
-let isDarkMode = false;
-// Store the initial scroll position
+let isDarkMode = localStorage.getItem('theme') === 'dark' || 
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 let scrollPosition = 0;
 
 function initializeCarousel() {
@@ -850,8 +850,10 @@ function initializeObserver() {
 */
 function toggleDarkMode() {
   isDarkMode = !isDarkMode;
-  document.documentElement.setAttribute("data-theme", isDarkMode ? "dark" : "light");
+  document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+  localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 }
+document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
 
 /*
   ==========================================================================
