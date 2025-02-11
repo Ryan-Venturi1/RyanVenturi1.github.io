@@ -218,7 +218,7 @@ function createModalContent(project) {
               ${sub.skills ? `<div class="subproject-skills">
                 ${sub.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
               </div>` : ''}
-              <a href="${sub.link}" class="subproject-link" target="_blank" rel="noopener">Learn More</a>
+              <a href="${sub.link}" class="subproject-link" target="_blank" rel="noopener">View Live Version</a>
             </div>
           `).join('')}
         </div>
@@ -427,12 +427,14 @@ function scrollToTop() {
     behavior: "smooth"
   });
 }
+window.scrollToTop = scrollToTop;
 
 function updateActiveSection(sectionId) {
   document.querySelectorAll(".nav button").forEach(btn => btn.classList.remove("active"));
-  const activeBtn = document.querySelector(`.nav button[onclick="scrollToSection('${sectionId}')"]`);
+  const activeBtn = document.querySelector(`.nav button[data-section="${sectionId}"]`);
   if (activeBtn) activeBtn.classList.add("active");
 }
+
 
 function initializeScrolling() {
   window.addEventListener("scroll", () => {
@@ -489,14 +491,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initializeObserver() {
   const observer = new IntersectionObserver(
-    entries => entries.forEach(entry => {
-      if (entry.isIntersecting) updateActiveSection(entry.target.id);
-    }),
-    { threshold: 0.5 }
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          updateActiveSection(entry.target.id);
+        }
+      });
+    },
+    {
+      // This effectively shifts the viewport for the observer’s calculation
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0
+    }
   );
 
   document.querySelectorAll("section").forEach(section => observer.observe(section));
 }
+
 
 /*
   ==========================================================================

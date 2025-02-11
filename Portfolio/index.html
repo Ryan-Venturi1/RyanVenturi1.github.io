@@ -31,9 +31,10 @@
     <ul>
       <li>
         <button 
-          onclick="scrollToSection('home')" 
+          data-section="landing"
+          onclick="scrollToSection('landing')" 
           class="active" 
-          aria-label="Go to home section"
+          aria-label="Go to landing section"
         >
           <i class="fas fa-home"></i>
           <span>Home</span>
@@ -41,6 +42,7 @@
       </li>
       <li>
         <button 
+          data-section="projects"
           onclick="scrollToSection('projects')" 
           aria-label="Go to projects section"
         >
@@ -50,6 +52,7 @@
       </li>
       <li>
         <button 
+          data-section="about"
           onclick="scrollToSection('about')" 
           aria-label="Go to about me section"
         >
@@ -59,6 +62,7 @@
       </li>
       <li>
         <button 
+          data-section="contact"
           onclick="scrollToSection('contact')" 
           aria-label="Go to contact section"
         >
@@ -76,6 +80,7 @@
       <i class="fas fa-adjust"></i>
     </button>
   </nav>
+  
 
   <!-- Home Section -->
 <!-- Replace the current landing-section with: -->

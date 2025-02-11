@@ -30,25 +30,90 @@ const projects = [
       subprojects: [
         { 
           title: "Modality Matching", 
-          description: "Description for Modality Matching.", 
-          skills: ["React", "Node.js", "CSS"],
+          description: "Modality Matching allows users to connect with therapists who practice a style of therapy best suited to an individual’s needs. The platform leverages modern JavaScript and AI techniques to deliver personalized matches based on therapeutic modalities.",
+          skills: ["JavaScript", "AI", "Modality"],
           link: "https://example.com/modality-matching" 
         },
         { 
-          title: "Oasis", 
-          description: "Description for Oasis.", 
-          skills: ["React", "Node.js", "CSS"],
-          link: "https://example.com/oasis" 
+          title: "Personality Matching", 
+          description: "Personality Matching enables users to take the Big Five personality screener. Based on the traits they exhibit, the system matches them with therapists whose personality profiles align scientifically, ensuring the best possible therapeutic relationship.",
+          skills: ["JavaScript", "CSS", "AI"],
+          link: "https://example.com/personality-matching" 
+        },
+        { 
+          title: "Symptom Based Matching", 
+          description: "Symptom Based Matching allows users to complete a comprehensive mental health screener that helps diagnose conditions such as anxiety, depression, BPD, addiction, and eating disorders. Once the symptoms are analyzed, the platform connects users with therapists who specialize in addressing their specific needs.",
+          skills: ["JavaScript", "AI", "Mental Health"],
+          link: "https://example.com/symptom-based-matching" 
+        },
+        { 
+          title: "Main Website", 
+          description: "The main website, built entirely from scratch, provides vital information for users and therapists interested in joining our platform. It clearly communicates who we are, what we do, and offers an engaging overview of our services using modern web design practices.",
+          skills: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+          link: "https://example.com/main-website" 
+        },
+        { 
+          title: "Functioning Sign In and Sign Ups", 
+          description: "This project implements a streamlined sign-in and sign-up system that allows therapists and users to create accounts securely. It supports both Google authentication and traditional registration methods, ensuring accurate user information while preventing fraud.",
+          skills: ["JavaScript", "Authentication", "Google OAuth", "Security", "Backend Development"],
+          link: "https://example.com/sign-in-sign-ups" 
+        },
+        { 
+          title: "Joke API", 
+          description: "The Joke API integration displays a daily joke on both client and therapist dashboards, providing users with a quick moment of levity while navigating the platform.",
+          skills: ["JavaScript", "API Integration", "REST"],
+          link: "https://example.com/joke-api" 
+        },
+        { 
+          title: "Compatibility Matching", 
+          description: "Compatibility Matching allows users to input basic information—such as interests, state, insurance type, and price range—which is then analyzed against our extensive therapist database. The system returns the top ten therapists, ranked by a compatibility score out of 100%.",
+          skills: ["JavaScript", "Data Matching", "Algorithm Design", "API Integration"],
+          link: "https://example.com/compatibility-matching" 
+        },
+        { 
+          title: "Daily Telehealth", 
+          description: "Daily Telehealth streamlines online therapy sessions by enabling therapists to set up secure, HIPAA-compliant virtual appointments. Clients can quickly join automated telehealth rooms without any setup hassle, ensuring a smooth and safe experience.",
+          skills: ["JavaScript", "Video Conferencing", "Telehealth", "HIPAA Compliance"],
+          link: "https://example.com/daily-telehealth" 
         },
         { 
           title: "Scheduling System", 
-          description: "Description for Scheduling System.", 
-          skills: ["React", "Node.js", "CSS"],
+          description: "The Scheduling System allows users to book appointments with therapists for in-person, hybrid, or online sessions. Therapists can integrate their Google or Outlook calendars and manage their availability using a drag-and-drop interface that automatically generates optimal appointment slots with built-in breaks.",
+          skills: ["JavaScript", "Calendar Integration", "Drag-and-Drop UI", "Scheduling Algorithms"],
           link: "https://example.com/scheduling-system" 
         },
-        // ... add more as needed
+        { 
+          title: "Encrypted Messaging System", 
+          description: "This encrypted messaging system facilitates secure communication between clients and therapists. It enables the exchange of messages, progress updates, and screening responses while ensuring that all sensitive information remains confidential.",
+          skills: ["JavaScript", "Encryption", "Messaging", "Security"],
+          link: "https://example.com/encrypted-messaging-system" 
+        },
+        { 
+          title: "Screeners and Progress Checks", 
+          description: "With just a few clicks, therapists can send progress checks and screening questionnaires to clients. The system also allows for the creation of custom assessments, the use of pre-provided templates, or access to a shared marketplace of templates available to all therapists.",
+          skills: ["JavaScript", "UI/UX", "Survey Tools", "Template Management"],
+          link: "https://example.com/screeners-progress-checks" 
+        },
+        { 
+          title: "Notes", 
+          description: "The tailored notes system enables therapists to create both templated and custom notes for each client. These notes are automatically saved and organized under the user's profile, simplifying the process of attaching them to insurance claims and streamlining administrative tasks.",
+          skills: ["JavaScript", "Notes Management", "UI/UX", "Data Storage"],
+          link: "https://example.com/notes" 
+        },
+        { 
+          title: "Goodnews Area", 
+          description: "Using a built-in RSS reader from the Goodnews Network, the Goodnews Area displays the top five uplifting headlines on the main dashboard. This feature provides users with daily inspiration and access to positive, encouraging news.",
+          skills: ["JavaScript", "RSS Integration", "API Integration", "UI/UX"],
+          link: "https://example.com/goodness-area" 
+        },
+        { 
+          title: "Weather API", 
+          description: "The Weather API integration, available on both client and therapist dashboards, displays current weather information in either Fahrenheit or Celsius. This feature helps users plan their day effectively with real-time weather updates.",
+          skills: ["JavaScript", "API Integration", "Weather Data", "Responsive Design"],
+          link: "https://example.com/weather-api" 
+        }
       ],
-      link: "pleiadesmh.com",
+      link: "https://pleiadesmh.com/mainwebsite/home.html",
     },
   
     {

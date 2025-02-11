@@ -82,7 +82,7 @@ ul {
 }
 
 .subprojects-carousel h3 {
-  text-align: center;
+  text-align: left;
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
   font-weight: 600;
@@ -91,17 +91,18 @@ ul {
 
 .subprojects-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, 1fr) !important; /* Force exactly 2 columns */
   gap: 1.5rem;
   padding: 0 1rem;
 }
+
 
 .subproject-card {
   background: var(--surface-hover);
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: left; /* Left-justify card content */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
@@ -129,7 +130,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: center;
+  justify-content: flex-start; /* Align skills to the left */
 }
 
 .skill-tag {
@@ -162,8 +163,8 @@ ul {
   inset: 0;
   background: rgba(0, 0, 0, 0.75);
   display: none;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;  /* Align modal content to the left */
+  justify-content: flex-start; /* Align modal content to the left */
   z-index: 2000;
   padding: 1rem;
 }
@@ -176,11 +177,10 @@ ul {
   background: var(--surface);
   padding: 2rem;
   border-radius: 12px;
-  /* Adjust these dimensions to match your other modals */
   max-width: 900px;
   width: 90%;
   position: relative;
-  text-align: center;
+  text-align: left; /* Left-align modal content */
 }
 
 #subproject-modal .modal-close {
@@ -203,13 +203,13 @@ ul {
   color: var(--text-secondary);
 }
 
-
 .modal-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 1rem;
 }
+
 .modal-single-image,
 .modal-single-video {
   width: 100%;
@@ -218,7 +218,6 @@ ul {
   background: #000;
   margin-bottom: 1.5rem;
 }
-
 
 .modal-link {
   padding: 0.5rem 1rem;
@@ -234,14 +233,17 @@ ul {
 .modal-link:hover {
   background: var(--primary-dark);
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 button {
   cursor: pointer;
   font-family: inherit;
 }
+
 
 /* Light Mode Variables */
 :root {
