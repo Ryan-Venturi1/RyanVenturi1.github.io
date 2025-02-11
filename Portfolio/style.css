@@ -435,11 +435,50 @@ button {
 }
 
 .landing-title .gradient-text {
+  /* Define the gradient */
   background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  background-size: 200% 200%;
+  
+  /* Standard syntax */
+  color: transparent;
+  background-clip: text;
+  
+  /* Webkit syntax for Safari/Chrome */
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  background-size: 200% 200%;
+  
+  /* Firefox syntax */
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  
+  /* Animation */
   animation: gradient 8s ease infinite;
+}
+
+/* Define the gradient animation */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Webkit keyframes for Safari/Chrome */
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .landing-subtitle {
