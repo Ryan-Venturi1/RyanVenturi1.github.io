@@ -28,13 +28,25 @@ const projects = [
         "Figma"
       ],
       subprojects: [
-        "Modality Matching",
-        "Oasis",
-        "Scheduling System",
-        "Personality Matching",
-        "Encrypted Messaging System",
-        "Team",
-        "Compatibility Matching"
+        { 
+          title: "Modality Matching", 
+          description: "Description for Modality Matching.", 
+          skills: ["React", "Node.js", "CSS"],
+          link: "https://example.com/modality-matching" 
+        },
+        { 
+          title: "Oasis", 
+          description: "Description for Oasis.", 
+          skills: ["React", "Node.js", "CSS"],
+          link: "https://example.com/oasis" 
+        },
+        { 
+          title: "Scheduling System", 
+          description: "Description for Scheduling System.", 
+          skills: ["React", "Node.js", "CSS"],
+          link: "https://example.com/scheduling-system" 
+        },
+        // ... add more as needed
       ],
       link: "pleiadesmh.com",
     },

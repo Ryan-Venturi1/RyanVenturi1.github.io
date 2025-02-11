@@ -72,24 +72,137 @@ ul {
 .carousel-btn.prev { left: 0; }
 .carousel-btn.next { right: 0; }
 
+/* --- Subprojects Tiles Styling --- */
 .subprojects-carousel {
   margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.subprojects-carousel h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
 }
 
 .subprojects-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 1.5rem;
+  padding: 0 1rem;
 }
 
 .subproject-card {
-  background: var(--surface);
+  background: var(--surface-hover);
   border-radius: 12px;
-  overflow: hidden;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
+
+.subproject-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.subproject-card h4 {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.subproject-card p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* --- Skills Styling --- */
+.subproject-skills {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.skill-tag {
+  background: var(--primary-light);
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+/* Link styling within the subproject card */
+.subproject-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.subproject-link:hover {
+  background: var(--primary-dark);
+}
+
+/* --- Subproject Modal Styling --- */
+#subproject-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+#subproject-modal.active {
+  display: flex;
+}
+
+#subproject-modal .modal-content {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 12px;
+  /* Adjust these dimensions to match your other modals */
+  max-width: 900px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+}
+
+#subproject-modal .modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#subproject-modal h2 {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+#subproject-modal p {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
 
 .modal-links {
   display: flex;
@@ -340,7 +453,7 @@ button {
   border-radius: 8px;
   padding: 1rem 2rem;
   font-size: 1.1rem;
-  color: white;
+  color: black;
   background: var(--accent);
   cursor: pointer;
   overflow: hidden;

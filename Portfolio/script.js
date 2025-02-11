@@ -106,7 +106,7 @@ function openProjectModal(projectId) {
   // Initialize carousel after content is added
   initializeCarousel();
 }
-
+window.openProjectModal = openProjectModal;
 function closeProjectModal() {
   const modal = document.getElementById('project-modal');
   
@@ -167,50 +167,58 @@ function initializeLoading() {
   ==========================================================================
 */
 function createModalContent(project) {
-// In createModalContent function, replace the carouselHTML section with:
-let carouselHTML = '';
-if (project.images && project.images.length > 1) {
-  carouselHTML = `
-    <div class="image-carousel">
-      <button class="carousel-btn prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
-      <div class="carousel-container">
-        ${project.images.map((img, i) => {
-          const isVideo = img.endsWith('.mov') || img.endsWith('.mp4');
-          return isVideo ? `
-            <video src="${img}" class="carousel-image ${i === 0 ? 'active' : ''}" controls>
-              Your browser does not support the video tag.
-            </video>
-          ` : `
-            <img src="${img}" alt="${project.title} image ${i + 1}" class="carousel-image ${i === 0 ? 'active' : ''}" />
-          `;
-        }).join('')}
+  // Create carousel HTML
+  let carouselHTML = '';
+  if (project.images && project.images.length > 1) {
+    carouselHTML = `
+      <div class="image-carousel">
+        <button class="carousel-btn prev" aria-label="Previous image">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="carousel-container">
+          ${project.images.map((img, i) => {
+            const isVideo = img.endsWith('.mov') || img.endsWith('.mp4');
+            return isVideo ? `
+              <video src="${img}" class="carousel-image ${i === 0 ? 'active' : ''}" controls>
+                Your browser does not support the video tag.
+              </video>
+            ` : `
+              <img src="${img}" alt="${project.title} image ${i + 1}" class="carousel-image ${i === 0 ? 'active' : ''}" />
+            `;
+          }).join('')}
+        </div>
+        <button class="carousel-btn next" aria-label="Next image">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
-      <button class="carousel-btn next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
-    </div>
-  `;
-} else if (project.images && project.images.length === 1) {
-  const singleAsset = project.images[0];
-  const isVideo = singleAsset.endsWith('.mov') || singleAsset.endsWith('.mp4');
-  carouselHTML = isVideo ? `
-    <video src="${singleAsset}" class="modal-single-video" controls>
-      Your browser does not support the video tag.
-    </video>
-  ` : `
-    <img src="${singleAsset}" alt="${project.title}" class="modal-single-image" />
-  `;
-}
+    `;
+  } else if (project.images && project.images.length === 1) {
+    const singleAsset = project.images[0];
+    const isVideo = singleAsset.endsWith('.mov') || singleAsset.endsWith('.mp4');
+    carouselHTML = isVideo ? `
+      <video src="${singleAsset}" class="modal-single-video" controls>
+        Your browser does not support the video tag.
+      </video>
+    ` : `
+      <img src="${singleAsset}" alt="${project.title}" class="modal-single-image" />
+    `;
+  }
 
+  // Create subprojects HTML
   let subprojectsHTML = '';
-  if (project.subprojects?.length) {
+  if (project.subprojects && project.subprojects.length > 0) {
     subprojectsHTML = `
       <div class="subprojects-carousel">
         <h3>Related Projects</h3>
         <div class="subprojects-container">
-          ${project.subprojects.map(sub => `
-            <div class="subproject-card">
-              <img src="${sub.image}" alt="${sub.title}" />
+          ${project.subprojects.map((sub, index) => `
+            <div class="subproject-card" data-project-id="${project.id}" data-subproject-index="${index}">
               <h4>${sub.title}</h4>
               <p>${sub.description}</p>
+              ${sub.skills ? `<div class="subproject-skills">
+                ${sub.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+              </div>` : ''}
+              <a href="${sub.link}" class="subproject-link" target="_blank" rel="noopener">Learn More</a>
             </div>
           `).join('')}
         </div>
@@ -218,6 +226,7 @@ if (project.images && project.images.length > 1) {
     `;
   }
 
+  // Create links HTML (using either a links object or a single link)
   let linksHTML = '';
   if (project.links) {
     linksHTML = Object.entries(project.links)
@@ -226,8 +235,11 @@ if (project.images && project.images.length > 1) {
           <i class="fas fa-external-link-alt"></i> ${key.charAt(0).toUpperCase() + key.slice(1)}
         </a>
       `).join('');
+  } else if (project.link) {
+    linksHTML = `<a href="${project.link}" class="modal-link" target="_blank" rel="noopener">Visit Project</a>`;
   }
 
+  // Return the final modal content HTML
   return `
     <div class="modal-content">
       <h2>${project.title}</h2>
@@ -237,7 +249,7 @@ if (project.images && project.images.length > 1) {
         <p class="long-desc">${project.longdescription || ''}</p>
       </div>
       <div class="modal-tech">
-        ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+        ${project.technologies ? project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('') : ''}
       </div>
       <div class="modal-links">
         ${linksHTML}
@@ -246,6 +258,65 @@ if (project.images && project.images.length > 1) {
     </div>
   `;
 }
+function attachSubprojectListeners() {
+  const subprojectCards = document.querySelectorAll('.subproject-card');
+  subprojectCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const projectId = card.getAttribute('data-project-id');
+      const subIndex = parseInt(card.getAttribute('data-subproject-index'));
+      // Assuming "projects" is your projects data array
+      const project = projects.find(p => p.id == projectId);
+      if (project && project.subprojects && project.subprojects[subIndex]) {
+        openSubprojectModal(project.subprojects[subIndex]);
+      }
+    });
+  });
+}
+function openSubprojectModal(subproject) {
+  let modal = document.getElementById('subproject-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'subproject-modal';
+    modal.classList.add('modal');
+    modal.innerHTML = `
+      <div class="modal-content">
+        <button class="modal-close" id="subproject-modal-close">&times;</button>
+        <div id="subproject-modal-content"></div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    // Attach close events
+    modal.querySelector('#subproject-modal-close').addEventListener('click', closeSubprojectModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeSubprojectModal();
+      }
+    });
+  }
+
+  const modalContent = document.getElementById('subproject-modal-content');
+  modalContent.innerHTML = `
+    <h2>${subproject.title}</h2>
+    <p>${subproject.description}</p>
+    ${subproject.skills ? `<div class="subproject-skills">
+      ${subproject.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+    </div>` : ''}
+    <a href="${subproject.link}" class="subproject-link" target="_blank" rel="noopener">Learn More</a>
+  `;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSubprojectModal() {
+  const modal = document.getElementById('subproject-modal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+
 
 // In updateProjectsGrid function, modify the project card HTML:
 function updateProjectsGrid(projectsToShow) {
@@ -334,14 +405,21 @@ function initializeAnimations() {
   4. NAVIGATION & SCROLLING
   ==========================================================================
 */
+// In script.js
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
-  window.scrollTo({
-    top: section.offsetTop,
-    behavior: "smooth"
-  });
-  updateActiveSection(sectionId);
+  if (section) {
+    window.scrollTo({
+      top: section.offsetTop,
+      behavior: 'smooth'
+    });
+  }
+  updateActiveSection(sectionId); // if you have this function defined
 }
+
+// Expose scrollToSection globally:
+window.scrollToSection = scrollToSection;
+
 
 function scrollToTop() {
   window.scrollTo({
@@ -426,11 +504,14 @@ function initializeObserver() {
   ==========================================================================
 */
 function toggleDarkMode() {
+  // Your dark mode toggling logic here
   isDarkMode = !isDarkMode;
   document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
   localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 }
-document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+
+// Expose the function globally so inline handlers can access it
+window.toggleDarkMode = toggleDarkMode;
 
 /*
   ==========================================================================
