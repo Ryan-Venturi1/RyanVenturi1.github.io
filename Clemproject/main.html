@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <!-- Title Screen -->
   <div id="titleScreen" class="screen active">
     <h1>Recycling Game</h1>
@@ -52,13 +51,10 @@
     <!-- Bins -->
     <div class="bins">
       <div class="bin trash-bin" onclick="sortItem('trash')">
-        <div class="bin-label">Trash</div>
+        <div class="bin-label">Landfill</div>
       </div>
       <div class="bin recycle-bin" onclick="sortItem('recycle')">
         <div class="bin-label">Recycle</div>
-      </div>
-      <div class="bin compost-bin" onclick="sortItem('compost')">
-        <div class="bin-label">Compost</div>
       </div>
     </div>
   </div>
@@ -81,13 +77,10 @@
 
     <div class="bins">
       <div class="bin trash-bin" onclick="sortItem('trash')">
-        <div class="bin-label">Trash</div>
+        <div class="bin-label">Landfill</div>
       </div>
       <div class="bin recycle-bin" onclick="sortItem('recycle')">
         <div class="bin-label">Recycle</div>
-      </div>
-      <div class="bin compost-bin" onclick="sortItem('compost')">
-        <div class="bin-label">Compost</div>
       </div>
     </div>
   </div>
@@ -110,13 +103,10 @@
 
     <div class="bins">
       <div class="bin trash-bin" onclick="sortItem('trash')">
-        <div class="bin-label">Trash</div>
+        <div class="bin-label">Landfill</div>
       </div>
       <div class="bin recycle-bin" onclick="sortItem('recycle')">
         <div class="bin-label">Recycle</div>
-      </div>
-      <div class="bin compost-bin" onclick="sortItem('compost')">
-        <div class="bin-label">Compost</div>
       </div>
     </div>
   </div>
@@ -127,16 +117,17 @@
     <div class="badges-grid"></div>
   </div>
 
-  <!-- Tutorial Screen -->
+  <!-- Main Tutorial Screen -->
   <div id="tutorialScreen" class="screen">
     <button class="back-button" onclick="completeTutorial()">←</button>
     <div class="tutorial-content">
       <h2>How to Play</h2>
       <p>1. An item appears on the conveyor.</p>
-      <p>2. Click the bin you think is correct.</p>
+      <p>2. Click the correct bin: Landfill or Recycle.</p>
       <p>3. +10 points for correct sorting; -5 for mistakes.</p>
       <p>4. Fill the progress bar to 100% to finish the level.</p>
-      <p>5. Levels unlock in sequence once completed.</p>
+      <p>5. Items move faster as you progress!</p>
+      <p>6. Levels unlock in sequence once completed.</p>
     </div>
   </div>
 
