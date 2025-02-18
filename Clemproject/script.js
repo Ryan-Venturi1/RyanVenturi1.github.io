@@ -1,4 +1,33 @@
 /*****************************************************
+  Core Functions - Defined First
+*****************************************************/
+function showScreen(screenId) {
+  document.querySelectorAll('.screen').forEach((screen) => {
+    screen.classList.remove('active');
+  });
+
+  if (screenId.startsWith('game')) {
+    const levelNum = screenId.replace('game', '');
+    document.getElementById(`gameScreen${levelNum}`).classList.add('active');
+  } else {
+    document.getElementById(`${screenId}Screen`).classList.add('active');
+  }
+}
+
+function updatePoints(delta) {
+  points = Math.max(0, points + delta);
+  levelStats.totalPoints += delta;
+  
+  document.querySelectorAll('.points').forEach((el) => {
+    el.textContent = points + ' points';
+    el.classList.add('highlight');
+    setTimeout(() => el.classList.remove('highlight'), 200);
+  });
+  
+  checkBadges();
+}
+
+/*****************************************************
   Level-specific Items
 *****************************************************/
 const level1Items = [
@@ -16,13 +45,13 @@ const level1Items = [
   },
   {
     name: 'Plastic Bag',
-    type: 'landfill',
+    type: 'trash',
     icon: 'images/Bag.jpg',
     explanation: 'Bags tangle in recycling machines and cause damage.'
   },
   {
     name: 'Candy/Chip Bag',
-    type: 'landfill',
+    type: 'trash',
     icon: 'images/Candy.jpg',
     explanation: 'Mixed materials cannot be separated for recycling.'
   }
@@ -30,7 +59,7 @@ const level1Items = [
 
 const level2Items = [
   {
-    name: 'Clear Plastic Clamshell Container',
+    name: 'Clear Plastic Container',
     type: 'recycle',
     icon: 'images/PlasticContainer.jpg',
     explanation: 'Clear plastic containers can be made into new products.'
@@ -42,14 +71,14 @@ const level2Items = [
     explanation: 'Plastic jugs are recyclable after a quick rinse.'
   },
   {
-    name: 'Hot Coffee Cup and Lid',
-    type: 'landfill',
+    name: 'Hot Coffee Cup',
+    type: 'trash',
     icon: 'images/Coffee.jpg',
     explanation: 'Plastic lining prevents paper cup from being recycled.'
   },
   {
     name: 'Paper Towel',
-    type: 'landfill',
+    type: 'trash',
     icon: 'images/PaperTowel.jpg',
     explanation: 'Fibers are too short to be recycled after use.'
   }
@@ -58,12 +87,12 @@ const level2Items = [
 const level3Items = [
   {
     name: '#7 PLA Plastics',
-    type: 'landfill',
+    type: 'trash',
     icon: 'images/7Plastic.jpg',
     explanation: 'Plant-based plastics need special facilities to break down.'
   },
   {
-    name: 'Milk or Juice Carton',
+    name: 'Milk Carton',
     type: 'recycle',
     icon: 'images/MilkandJuice.jpg',
     explanation: 'Modern facilities can separate and recycle the materials.'
@@ -76,7 +105,7 @@ const level3Items = [
   },
   {
     name: 'Plastic Utensils',
-    type: 'landfill',
+    type: 'trash',
     icon: 'images/PlasticUtensials.jpg',
     explanation: 'Too small to be sorted by recycling machines.'
   }
@@ -88,17 +117,17 @@ const EXPLANATIONS = {
   'Plastic Water Bottle': 'Clean plastic bottles are recyclable. Remember to empty them first!',
   'Plastic Bag': 'Plastic bags tangle in recycling machinery and belong in the landfill.',
   'Candy/Chip Bag': 'Multi-layer packaging cannot be separated for recycling.',
-  'Clear Plastic Clamshell Container': 'Clear plastic containers (except #7 PLA) are recyclable.',
+  'Clear Plastic Container': 'Clear plastic containers (except #7 PLA) are recyclable.',
   'Plastic Detergent Jug': 'Plastic jugs and bottles are recyclable. Give them a quick rinse!',
-  'Hot Coffee Cup and Lid': 'Coffee cups have a plastic lining that prevents recycling.',
+  'Hot Coffee Cup': 'Coffee cups have a plastic lining that prevents recycling.',
   'Paper Towel': 'Used paper towels cannot be recycled and belong in the landfill.',
   '#7 PLA Plastics': 'Plant-based plastics require special processing and go to landfill.',
-  'Milk or Juice Carton': 'Modern recycling facilities can process cartons.',
+  'Milk Carton': 'Modern recycling facilities can process cartons.',
   'Aluminum Foil': 'Clean aluminum foil can be recycled with other metals.',
   'Plastic Utensils': 'Disposable utensils are too small and mixed for recycling.'
 };
 
-// Badges definitions
+// Badge definitions
 const badges = {
   'Recycling Rookie': 'Score 50 points',
   'Waste Warrior': 'Complete Level 1',
@@ -121,9 +150,12 @@ let currentItem = null;
 let earnedBadges = [];
 let itemIndex = 0;
 let items = [];
-let spawnInterval = 15000; // Start at 15 seconds
-const minSpawnInterval = 5000; // Minimum 5 seconds
-const spawnDecrease = 500; // Decrease by 0.5 seconds each spawn
+let levelStats = {
+  correctItems: 0,
+  recyclingContaminated: 0,
+  recyclingInTrash: 0,
+  totalPoints: 0
+};
 
 // Screen element references
 let activeConveyorEl = null;
@@ -132,31 +164,13 @@ let activeFeedbackEl = null;
 let activeLeftLabelEl = null;
 
 /*****************************************************
-  Screen Navigation
+  Tutorial Functions
 *****************************************************/
-function showScreen(screenId) {
-  // Hide all screens
-  document.querySelectorAll('.screen').forEach((screen) => {
-    screen.classList.remove('active');
-  });
-
-  // Handle level screens specially
-  if (screenId.startsWith('game')) {
-    const levelNum = screenId.replace('game', '');
-    document.getElementById(`gameScreen${levelNum}`).classList.add('active');
-  } else {
-    // Show the requested screen
-    document.getElementById(`${screenId}Screen`).classList.add('active');
-  }
-}
-
 function completeTutorial() {
-  // Unlock level1
   const level1Btn = document.getElementById('level1');
   level1Btn.disabled = false;
   level1Btn.classList.remove('disabled');
 
-  // Earn "Eco Enthusiast" badge
   if (!earnedBadges.includes('Eco Enthusiast')) {
     earnedBadges.push('Eco Enthusiast');
     updateBadges();
@@ -165,33 +179,55 @@ function completeTutorial() {
 }
 
 /*****************************************************
-  Level Management
+  Level Management Functions
 *****************************************************/
 function generateLevelItems(level) {
   let availableItems = [];
   
-  // Add items based on level
-  if (level >= 1) availableItems = availableItems.concat(level1Items);
-  if (level >= 2) availableItems = availableItems.concat(level2Items);
-  if (level >= 3) availableItems = availableItems.concat(level3Items);
+  switch(level) {
+    case 1:
+      availableItems = level1Items;
+      break;
+    case 2:
+      availableItems = [...level1Items, ...level2Items];
+      break;
+    case 3:
+      availableItems = [...level1Items, ...level2Items, ...level3Items];
+      break;
+  }
   
-  // Generate items array
   items = [];
-  for (let i = 0; i < 75; i++) {
+  for (let i = 0; i < 20; i++) { // Reduced from 75 to make levels shorter
     const rand = Math.floor(Math.random() * availableItems.length);
     items.push({...availableItems[rand]});
   }
 }
 
+function calculateSpawnInterval(level) {
+  const baseIntervals = {
+    1: 15000,
+    2: 12000,
+    3: 9000
+  };
+  
+  const minIntervals = {
+    1: 5000,
+    2: 4000,
+    3: 3000
+  };
+  
+  const currentInterval = baseIntervals[level] - (progress * 75);
+  return Math.max(minIntervals[level], currentInterval);
+}
+
 function showLevelTutorial(level) {
-  // Create tutorial modal
   const modal = document.createElement('div');
   modal.className = 'level-tutorial-modal';
   
   const tutorialContent = {
-    1: "Level 1: Learn about basic recyclables and landfill items. Items will appear every 15 seconds.",
-    2: "Level 2: New items added! Watch for glass and paper. Remember previous items too!",
-    3: "Level 3: Advanced sorting with all items. Stay focused as items move faster!"
+    1: "Level 1: Learn about basic recyclables and landfill items.",
+    2: "Level 2: New items added! Watch for containers and paper products.",
+    3: "Level 3: Advanced sorting with special materials. Stay focused!"
   };
 
   modal.innerHTML = `
@@ -235,19 +271,22 @@ function closeLevelTutorial(level) {
 }
 
 function initializeLevel(level) {
-  // Reset variables
+  levelStats = {
+    correctItems: 0,
+    recyclingContaminated: 0,
+    recyclingInTrash: 0,
+    totalPoints: 0
+  };
+  
   itemIndex = 0;
   progress = 0;
-  spawnInterval = 15000;
   currentItem = null;
   
-  // Get screen elements
   activeConveyorEl = document.getElementById(`conveyor${level}`);
   activeProgressEl = document.getElementById(`progressBar${level}`);
   activeFeedbackEl = document.getElementById(`feedbackMessage${level}`);
   activeLeftLabelEl = document.getElementById(`progressLeftLabel${level}`);
   
-  // Clear previous state
   if (activeConveyorEl) activeConveyorEl.innerHTML = '';
   if (activeFeedbackEl) activeFeedbackEl.innerHTML = '';
   if (activeProgressEl) activeProgressEl.style.width = '0%';
@@ -265,7 +304,7 @@ function startGameLevel(level) {
 
 function spawnItem() {
   if (itemIndex >= items.length) {
-    completeLevel();
+    showLevelComplete();
     return;
   }
 
@@ -277,14 +316,13 @@ function spawnItem() {
   itemEl.innerHTML = `<img src="${currentItem.icon}" alt="${currentItem.name}">`;
   activeConveyorEl.appendChild(itemEl);
 
+  const speed = calculateSpawnInterval(currentLevel);
+  itemEl.style.setProperty('--speed', `${speed/1000}s`);
+
   setTimeout(() => {
     itemEl.style.left = '85%';
   }, 50);
 
-  // Decrease spawn interval
-  spawnInterval = Math.max(minSpawnInterval, spawnInterval - spawnDecrease);
-
-  // Remove item if not sorted in time
   setTimeout(() => {
     if (itemEl.parentNode === activeConveyorEl) {
       updatePoints(-5);
@@ -293,43 +331,80 @@ function spawnItem() {
       currentItem = null;
       spawnItem();
     }
-  }, spawnInterval);
+  }, speed);
 }
 
 function sortItem(binType) {
-  if (!currentItem) return; // no item to sort
+  if (!currentItem) return;
 
+  const isRecyclable = currentItem.type === 'recycle';
   const correct = (binType === currentItem.type);
+  
   if (correct) {
-    updatePoints(10);
+    updatePoints(5);
+    levelStats.correctItems++;
     progress += 10;
-  } else {
+  } else if (isRecyclable && binType === 'trash') {
     updatePoints(-5);
+    levelStats.recyclingInTrash++;
+  } else {
+    updatePoints(-10);
+    levelStats.recyclingContaminated++;
   }
 
-  // Update progress bar & label
   activeProgressEl.style.width = progress + '%';
   activeLeftLabelEl.textContent = progress + '%';
 
-  // Show feedback
   showFeedback(correct, currentItem);
 
-  // Remove item
   const itemEl = activeConveyorEl.querySelector('.item');
   if (itemEl) itemEl.remove();
   currentItem = null;
 
-  // Check if level is complete
   if (progress >= 100) {
-    completeLevel();
+    completeLevel();  // This will handle level completion
   } else {
-    // Next item
     spawnItem();
   }
 }
+function showLevelComplete() {
+  const modal = document.createElement('div');
+  modal.className = 'level-complete-modal';
+  
+  modal.innerHTML = `
+    <div class="level-complete-content">
+      <h2>Level ${currentLevel} Complete!</h2>
+      <div class="level-stats">
+        <p>✓ Correctly sorted: ${levelStats.correctItems} items</p>
+        <p>✗ Threw away recyclable items: ${levelStats.recyclingInTrash} times</p>
+        <p>✗ Contaminated the recycling: ${levelStats.recyclingContaminated} times</p>
+        <p class="level-points">Points earned this level: ${levelStats.totalPoints}</p>
+      </div>
+      <div class="level-complete-buttons">
+        <button onclick="exitToMenu()">Return Home</button>
+        ${currentLevel < 3 ? '<button onclick="startNextLevel()">Next Level</button>' : ''}
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+}
+
+function exitToMenu() {
+  const modal = document.querySelector('.level-complete-modal');
+  if (modal) modal.remove();
+  completeLevel();
+}
+
+function startNextLevel() {
+  const modal = document.querySelector('.level-complete-modal');
+  if (modal) modal.remove();
+  completeLevel();
+  startGameLevel(currentLevel + 1);
+}
 
 function completeLevel() {
-  // Unlock next level if applicable
+  // Unlock next level and award badges
   if (currentLevel === 1) {
     const level2Btn = document.getElementById('level2');
     level2Btn.disabled = false;
@@ -350,6 +425,11 @@ function completeLevel() {
     }
   }
 
+  // Check for perfect score
+  if (levelStats.recyclingContaminated === 0 && levelStats.recyclingInTrash === 0 && !earnedBadges.includes('Perfect Score')) {
+    earnedBadges.push('Perfect Score');
+  }
+
   updateBadges();
   showScreen('levels');
 }
@@ -362,16 +442,8 @@ function exitLevel() {
 }
 
 /*****************************************************
-  Points & Badges
+  Badges
 *****************************************************/
-function updatePoints(delta) {
-  points = Math.max(0, points + delta);
-  document.querySelectorAll('.points').forEach((el) => {
-    el.textContent = points + ' points';
-  });
-  checkBadges();
-}
-
 function checkBadges() {
   if (points >= 50 && !earnedBadges.includes('Recycling Rookie')) {
     earnedBadges.push('Recycling Rookie');
@@ -380,7 +452,6 @@ function checkBadges() {
     earnedBadges.push('Point Collector');
   }
   
-  // Check for Master Recycler
   const totalBadges = Object.keys(badges).length;
   if (earnedBadges.length === totalBadges - 1 && !earnedBadges.includes('Master Recycler')) {
     earnedBadges.push('Master Recycler');
@@ -408,10 +479,8 @@ function updateBadges() {
 function showFeedback(correct, item, overrideMsg) {
   if (!activeFeedbackEl) return;
 
-  // Clear existing feedback
   activeFeedbackEl.innerHTML = '';
 
-  // If we override with "Too slow...", show that
   if (overrideMsg) {
     const verdictEl = document.createElement('div');
     verdictEl.className = 'verdict oops';
@@ -424,7 +493,6 @@ function showFeedback(correct, item, overrideMsg) {
     return;
   }
 
-  // Otherwise show normal correct/incorrect feedback
   const verdictEl = document.createElement('div');
   verdictEl.classList.add('verdict');
   verdictEl.textContent = correct ? 'GOOD!' : 'OOPS!';
@@ -440,16 +508,12 @@ function showFeedback(correct, item, overrideMsg) {
       explanationEl.textContent = `${item.name} actually belongs in ${item.type}. ${EXPLANATIONS[item.name]}`;
     }
   } else {
-    explanationEl.textContent = correct
-      ? 'Correct sorting!'
-      : 'Wrong bin!';
+    explanationEl.textContent = correct ? 'Correct sorting!' : 'Wrong bin!';
   }
 
   activeFeedbackEl.appendChild(verdictEl);
   activeFeedbackEl.appendChild(explanationEl);
 }
 
-/*****************************************************
-  Initialization
-*****************************************************/
+// Initialize badges on page load
 updateBadges();
