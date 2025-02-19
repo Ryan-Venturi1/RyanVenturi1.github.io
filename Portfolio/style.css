@@ -1075,9 +1075,9 @@ button {
 .tech-tag {
   background: var(--primary-light);
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
   border-radius: 50px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 500;
   transition: transform 0.2s ease;
 }
