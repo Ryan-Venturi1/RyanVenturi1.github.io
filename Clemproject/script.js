@@ -368,38 +368,77 @@ function sortItem(binType) {
   }
 }
 function showLevelComplete() {
+  // Remove any existing modals first
+  const existingModal = document.querySelector('.level-complete-modal');
+  const existingOverlay = document.querySelector('.modal-overlay');
+  
+  if (existingModal) existingModal.remove();
+  if (existingOverlay) existingOverlay.remove();
+  
+  // Create overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  
+  // Create modal container
   const modal = document.createElement('div');
   modal.className = 'level-complete-modal';
   
   modal.innerHTML = `
     <div class="level-complete-content">
-      <h2>Level ${currentLevel} Complete!</h2>
+      <h2>Level Complete!</h2>
       <div class="level-stats">
-        <p>✓ Correctly sorted: ${levelStats.correctItems} items</p>
-        <p>✗ Threw away recyclable items: ${levelStats.recyclingInTrash} times</p>
-        <p>✗ Contaminated the recycling: ${levelStats.recyclingContaminated} times</p>
-        <p class="level-points">Points earned this level: ${levelStats.totalPoints}</p>
+        <p><span class="error-mark">✗</span> Threw away recyclable items: ${levelStats.recyclingInTrash} times</p>
+        <p><span class="error-mark">✗</span> Contaminated the recycling: ${levelStats.recyclingContaminated} times</p>
+        <p><span class="check-mark">✓</span> Correctly sorted: ${levelStats.correctItems} items</p>
+        <p class="level-points">${levelStats.totalPoints} pts</p>
+      </div>
+      <div class="badges-section">
+        <h3>Badges obtained</h3>
+        <div class="level-badges"></div>
       </div>
       <div class="level-complete-buttons">
-        <button onclick="exitToMenu()">Return Home</button>
-        ${currentLevel < 3 ? '<button onclick="startNextLevel()">Next Level</button>' : ''}
+        <button onclick="exitToMenu()">← Return Home</button>
+        ${currentLevel < 3 ? '<button onclick="startNextLevel()">Next →</button>' : ''}
       </div>
     </div>
   `;
   
+  // Append overlay first, then modal
+  document.body.appendChild(overlay);
   document.body.appendChild(modal);
+  
+  // Update badges in the modal
+  updateLevelBadges();
+}
+
+function updateLevelBadges() {
+  const badgeContainer = document.querySelector('.level-badges');
+  if (!badgeContainer) return;
+
+  // Clear previous badges
+  badgeContainer.innerHTML = '';
+
+  // Add each earned badge to the modal
+  earnedBadges.forEach((badgeName) => {
+    const badgeEl = document.createElement('div');
+    badgeEl.className = 'badge earned';
+    badgeEl.innerHTML = `<h3>${badgeName}</h3><p>${badges[badgeName]}</p>`;
+    badgeContainer.appendChild(badgeEl);
+  });
 }
 
 function exitToMenu() {
   const modal = document.querySelector('.level-complete-modal');
+  const overlay = document.querySelector('.modal-overlay');
   if (modal) modal.remove();
-  completeLevel();
+  if (overlay) overlay.remove();
+  showScreen('levels');
 }
-
 function startNextLevel() {
   const modal = document.querySelector('.level-complete-modal');
+  const overlay = document.querySelector('.modal-overlay');
   if (modal) modal.remove();
-  completeLevel();
+  if (overlay) overlay.remove();
   startGameLevel(currentLevel + 1);
 }
 
@@ -431,7 +470,8 @@ function completeLevel() {
   }
 
   updateBadges();
-  showScreen('levels');
+  // Instead of switching screens immediately, show the level complete modal:
+  showLevelComplete();
 }
 
 function exitLevel() {
