@@ -35,96 +35,138 @@ const level1Items = [
     name: 'Aluminum Can',
     type: 'recycle',
     icon: 'images/Can.png',
-    explanation: 'Metal containers are always recyclable.'
-  },
-  {
-    name: 'Plastic Water Bottle',
-    type: 'recycle',
-    icon: 'images/Plastic.jpg',
-    explanation: 'Plastic bottles are recyclable when empty and clean.'
-  },
-  {
-    name: 'Plastic Bag',
-    type: 'trash',
-    icon: 'images/Bag.jpg',
-    explanation: 'Bags tangle in recycling machines and cause damage.'
-  },
-  {
-    name: 'Candy/Chip Bag',
-    type: 'trash',
-    icon: 'images/Candy.jpg',
-    explanation: 'Mixed materials cannot be separated for recycling.'
-  }
-];
-
-const level2Items = [
-  {
-    name: 'Clear Plastic Container',
-    type: 'recycle',
-    icon: 'images/PlasticContainer.jpg',
-    explanation: 'Clear plastic containers can be made into new products.'
-  },
-  {
-    name: 'Plastic Detergent Jug',
-    type: 'recycle',
-    icon: 'images/Laundry.jpg',
-    explanation: 'Plastic jugs are recyclable after a quick rinse.'
-  },
-  {
-    name: 'Hot Coffee Cup',
-    type: 'trash',
-    icon: 'images/Coffee.jpg',
-    explanation: 'Plastic lining prevents paper cup from being recycled.'
+    explanation: "Aluminum is infinitely recyclable, meaning it doesn't degrade when it's turned into a new product."
   },
   {
     name: 'Paper Towel',
     type: 'trash',
     icon: 'images/PaperTowel.jpg',
-    explanation: 'Fibers are too short to be recycled after use.'
+    explanation: "The fibers in this type of paper are too short to be recycled into new paper products. It is also common for them to be contaminated with food waste."
+  },
+  {
+    name: 'Plastic Water Bottle',
+    type: 'recycle',
+    icon: 'images/Plastic.jpg',
+    explanation: "Plastic bottles are made from an easy-to-recycle plastic. The cap can also be recycled if you leave it on the bottle!"
+  },
+  {
+    name: 'Candy/Chip Bag',
+    type: 'trash',
+    icon: 'images/Candy.jpg',
+    explanation: "Candy wrappers and chip bags are typically a mixture of different materials such as plastic, paper, and aluminum. Recycling facilities are unable to separate these materials."
+  },
+  {
+    name: 'Red Solo Cup',
+    type: 'trash',
+    icon: 'images/SoloCup.png',
+    explanation: "These cups are made of a hard, brittle plastic that, when melted down (as many companies do to make recycled plastic into new products) release dangerous chemicals."
+  },
+  {
+    name: 'Glass Bottle',
+    type: 'recycle',
+    icon: 'images/Glassbottle.png',
+    explanation: "Glass used in glass bottles is infinitely recyclable and can be crushed down and melted into new products without degrading."
   }
 ];
 
-const level3Items = [
+const level2Items = [
   {
-    name: '#7 PLA Plastics',
+    name: 'Plastic Bag',
     type: 'trash',
-    icon: 'images/7Plastic.jpg',
-    explanation: 'Plant-based plastics need special facilities to break down.'
-  },
-  {
-    name: 'Milk Carton',
-    type: 'recycle',
-    icon: 'images/MilkandJuice.jpg',
-    explanation: 'Modern facilities can separate and recycle the materials.'
-  },
-  {
-    name: 'Aluminum Foil',
-    type: 'recycle',
-    icon: 'images/AluminiumFoil.jpg',
-    explanation: 'Clean foil can be melted down with other metals.'
+    icon: 'images/Bag.jpg',
+    explanation: "Plastic bags get tangled in recycling facility machines, causing the entire recycling process to be delayed."
   },
   {
     name: 'Plastic Utensils',
     type: 'trash',
     icon: 'images/PlasticUtensials.jpg',
-    explanation: 'Too small to be sorted by recycling machines.'
+    explanation: "These are too small to be sorted at recycling facilities."
+  },
+  {
+    name: 'Milk or Juice Carton',
+    type: 'recycle',
+    icon: 'images/MilkandJuice.jpg',
+    explanation: "While these cartons have a waxy feel to them, like the hot coffee cup, there is a market for recycled cartons to be turned into products such as drywall. This market does not exist for hot coffee cups."
+  },
+  {
+    name: 'Plastic Detergent Jug',
+    type: 'recycle',
+    icon: 'images/Laundry.jpg',
+    explanation: "These are made of a durable plastic that can easily be reprocessed into new products. Just be sure to give it a quick rinse before you recycle it!"
+  },
+  {
+    name: 'Plastic Wrap',
+    type: 'trash',
+    icon: 'images/PlasticWrap.png',
+    explanation: "Plastic wrap gets tangled in recycling facility machines, causing the entire recycling process to be delayed."
+  },
+  {
+    name: 'Paper Bag',
+    type: 'recycle',
+    icon: 'images/paperBag.png',
+    explanation: "This type of paper can be recycled. Unlike paper towels, the fibers of the bag are long enough to be processed at recycling facilities and made into new products."
+  }
+];
+
+const level3Items = [
+  {
+    name: 'Clear Plastic Container',
+    type: 'recycle',
+    icon: 'images/PlasticContainer.jpg',
+    explanation: "This type of plastic, such as the containers you get your fruit in, is accepted as recycling. Just be sure that it is clean first!"
+  },
+  {
+    name: 'Hot Coffee Cup',
+    type: 'trash',
+    icon: 'images/Coffee.jpg',
+    explanation: "These cups often have a thin, waxy lining on the inside to contain hot liquids. This layer is plastic, and recycling facilities are unable to separate it from the paper cup."
+  },
+  {
+    name: '#7 PLA Plastics',
+    type: 'trash',
+    icon: 'images/7Plastic.jpg',
+    explanation: "Don't be misled: these are plant-based materials made to mimic plastic. Most facilities are not currently accepting #7 PLA 'plastics' for recycling or compost."
+  },
+  {
+    name: 'Aluminum Foil',
+    type: 'recycle',
+    icon: 'images/AluminiumFoil.jpg',
+    explanation: "Clean aluminum foil is infinitely recyclable, meaning it doesn't degrade when it's turned into a new product. Just make sure it's clean before you recycle it!"
+  },
+  {
+    name: 'Shredded Paper',
+    type: 'trash',
+    icon: 'images/ShreddedPaper.png',
+    explanation: "These slices of paper are too small to be sorted by recycling facility machines and can often clog the machinery."
+  },
+  {
+    name: 'Shampoo Bottle',
+    type: 'recycle',
+    icon: 'images/Shampoo.png',
+    explanation: "These are typically made of an easy-to-recycle plastic."
   }
 ];
 
 // Explanations for feedback
 const EXPLANATIONS = {
-  'Aluminum Can': 'Metal cans are always recyclable and can be recycled infinitely.',
-  'Plastic Water Bottle': 'Clean plastic bottles are recyclable. Remember to empty them first!',
-  'Plastic Bag': 'Plastic bags tangle in recycling machinery and belong in the landfill.',
-  'Candy/Chip Bag': 'Multi-layer packaging cannot be separated for recycling.',
-  'Clear Plastic Container': 'Clear plastic containers (except #7 PLA) are recyclable.',
-  'Plastic Detergent Jug': 'Plastic jugs and bottles are recyclable. Give them a quick rinse!',
-  'Hot Coffee Cup': 'Coffee cups have a plastic lining that prevents recycling.',
-  'Paper Towel': 'Used paper towels cannot be recycled and belong in the landfill.',
-  '#7 PLA Plastics': 'Plant-based plastics require special processing and go to landfill.',
-  'Milk Carton': 'Modern recycling facilities can process cartons.',
-  'Aluminum Foil': 'Clean aluminum foil can be recycled with other metals.',
-  'Plastic Utensils': 'Disposable utensils are too small and mixed for recycling.'
+  'Aluminum Can': "Aluminum is infinitely recyclable, meaning it doesn't degrade when it's turned into a new product.",
+  'Paper Towel': "The fibers in this type of paper are too short to be recycled into new paper products. It is also common for them to be contaminated with food waste.",
+  'Plastic Water Bottle': "Plastic bottles are made from an easy-to-recycle plastic. The cap can also be recycled if you leave it on the bottle!",
+  'Candy/Chip Bag': "Candy wrappers and chip bags are typically a mixture of different materials such as plastic, paper, and aluminum. Recycling facilities are unable to separate these materials.",
+  'Red Solo Cup': "These cups are made of a hard, brittle plastic that, when melted down (as many companies do to make recycled plastic into new products) release dangerous chemicals.",
+  'Glass Bottle': "Glass used in glass bottles is infinitely recyclable and can be crushed down and melted into new products without degrading.",
+  'Plastic Bag': "Plastic bags get tangled in recycling facility machines, causing the entire recycling process to be delayed.",
+  'Plastic Utensils': "These are too small to be sorted at recycling facilities.",
+  'Milk or Juice Carton': "While these cartons have a waxy feel to them, like the hot coffee cup, there is a market for recycled cartons to be turned into products such as drywall. This market does not exist for hot coffee cups.",
+  'Plastic Detergent Jug': "These are made of a durable plastic that can easily be reprocessed into new products. Just be sure to give it a quick rinse before you recycle it!",
+  'Plastic Wrap': "Plastic wrap gets tangled in recycling facility machines, causing the entire recycling process to be delayed.",
+  'Paper Bag': "This type of paper can be recycled. Unlike paper towels, the fibers of the bag are long enough to be processed at recycling facilities and made into new products.",
+  'Clear Plastic Container': "This type of plastic, such as the containers you get your fruit in, is accepted as recycling. Just be sure that it is clean first!",
+  'Hot Coffee Cup': "These cups often have a thin, waxy lining on the inside to contain hot liquids. This layer is plastic, and recycling facilities are unable to separate it from the paper cup.",
+  '#7 PLA Plastics': "Don't be misled: these are plant-based materials made to mimic plastic. Most facilities are not currently accepting #7 PLA 'plastics' for recycling or compost.",
+  'Aluminum Foil': "Clean aluminum foil is infinitely recyclable, meaning it doesn't degrade when it's turned into a new product. Just make sure it's clean before you recycle it!",
+  'Shredded Paper': "These slices of paper are too small to be sorted by recycling facility machines and can often clog the machinery.",
+  'Shampoo Bottle': "These are typically made of an easy-to-recycle plastic."
 };
 
 // Badge definitions
@@ -255,7 +297,7 @@ function generateItemList(level) {
     <div class="tutorial-item">
       <img src="${item.icon}" alt="${item.name}">
       <div class="tutorial-item-info">
-        <div class="tutorial-item-name">${item.name} → ${item.type}</div>
+        <div class="tutorial-item-name">${item.name} → ${item.type === 'recycle' ? 'Recycle' : 'Landfill'}</div>
         <div class="tutorial-item-explanation">${item.explanation}</div>
       </div>
     </div>
@@ -543,9 +585,9 @@ function showFeedback(correct, item, overrideMsg) {
 
   if (item && EXPLANATIONS[item.name]) {
     if (correct) {
-      explanationEl.textContent = `${item.name} belongs in ${item.type}. ${EXPLANATIONS[item.name]}`;
+      explanationEl.textContent = `${item.name} belongs in ${item.type === 'recycle' ? 'recycling' : 'landfill'}. ${EXPLANATIONS[item.name]}`;
     } else {
-      explanationEl.textContent = `${item.name} actually belongs in ${item.type}. ${EXPLANATIONS[item.name]}`;
+      explanationEl.textContent = `${item.name} actually belongs in ${item.type === 'recycle' ? 'recycling' : 'landfill'}. ${EXPLANATIONS[item.name]}`;
     }
   } else {
     explanationEl.textContent = correct ? 'Correct sorting!' : 'Wrong bin!';
