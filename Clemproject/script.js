@@ -13,7 +13,8 @@ function showScreen(screenId) {
     document.getElementById(`${screenId}Screen`).classList.add('active');
   }
 }
-
+let sortStartTime = null;
+let sortedItems = 0;
 function updatePoints(delta) {
   points = Math.max(0, points + delta);
   levelStats.totalPoints += delta;
@@ -124,7 +125,7 @@ const level3Items = [
   {
     name: '#7 PLA Plastics',
     type: 'trash',
-    icon: 'images/7Plastic.jpg',
+    icon: 'images/7plastic.png',
     explanation: "Don't be misled: these are plant-based materials made to mimic plastic. Most facilities are not currently accepting #7 PLA 'plastics' for recycling or compost."
   },
   {
@@ -320,6 +321,10 @@ function initializeLevel(level) {
     totalPoints: 0
   };
   
+  // Reset speed sorting tracker
+  sortStartTime = null;
+  sortedItems = 0;
+  
   itemIndex = 0;
   progress = 0;
   currentItem = null;
@@ -378,6 +383,24 @@ function spawnItem() {
 
 function sortItem(binType) {
   if (!currentItem) return;
+
+  // Start tracking when first item is sorted
+  if (sortStartTime === null) {
+    sortStartTime = Date.now();
+    sortedItems = 0;
+  }
+  
+  // Count this item
+  sortedItems++;
+  
+  // Check for Speed Sorter badge (5 items in under 30 seconds)
+  if (sortedItems >= 5) {
+    const elapsedTime = (Date.now() - sortStartTime) / 1000; // Convert to seconds
+    if (elapsedTime < 30 && !earnedBadges.includes('Speed Sorter')) {
+      earnedBadges.push('Speed Sorter');
+      updateBadges();
+    }
+  }
 
   const isRecyclable = currentItem.type === 'recycle';
   const correct = (binType === currentItem.type);

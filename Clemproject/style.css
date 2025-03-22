@@ -524,3 +524,8 @@ h1 {
     width: 100%;
   }
 }
+/* Style for the tutorial "Start Level 1" button */
+.tutorial-content .button {
+  margin-top: 1.5rem;
+  width: 100%;
+}
