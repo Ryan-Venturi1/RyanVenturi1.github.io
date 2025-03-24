@@ -59,13 +59,13 @@ const level1Items = [
   {
     name: 'Red Solo Cup',
     type: 'trash',
-    icon: 'images/solocup.png',
+    icon: 'images/solo.png',
     explanation: "These cups are made of a hard, brittle plastic that, when melted down (as many companies do to make recycled plastic into new products) release dangerous chemicals."
   },
   {
     name: 'Glass Bottle',
     type: 'recycle',
-    icon: 'images/glassbottle2.png',
+    icon: 'images/glass.png',
     explanation: "Glass used in glass bottles is infinitely recyclable and can be crushed down and melted into new products without degrading."
   }
 ];
