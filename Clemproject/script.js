@@ -137,13 +137,13 @@ const level3Items = [
   {
     name: 'Shredded Paper',
     type: 'trash',
-    icon: 'images/shreddedpaper.png',
+    icon: 'images/shreddedpaper2.png',
     explanation: "These slices of paper are too small to be sorted by recycling facility machines and can often clog the machinery."
   },
   {
     name: 'Shampoo Bottle',
     type: 'recycle',
-    icon: 'images/shampoo.png',
+    icon: 'images/shampoo2.png',
     explanation: "These are typically made of an easy-to-recycle plastic."
   }
 ];
