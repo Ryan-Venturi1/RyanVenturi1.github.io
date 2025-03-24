@@ -137,7 +137,7 @@ const level3Items = [
   {
     name: 'Shredded Paper',
     type: 'trash',
-    icon: 'images/shrepaper2.png',
+    icon: 'images/paper2.png',
     explanation: "These slices of paper are too small to be sorted by recycling facility machines and can often clog the machinery."
   },
   {
