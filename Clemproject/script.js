@@ -65,7 +65,7 @@ const level1Items = [
   {
     name: 'Glass Bottle',
     type: 'recycle',
-    icon: 'images/glassbottle.png',
+    icon: 'images/glassbottle2.png',
     explanation: "Glass used in glass bottles is infinitely recyclable and can be crushed down and melted into new products without degrading."
   }
 ];
