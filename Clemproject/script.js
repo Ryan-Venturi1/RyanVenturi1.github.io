@@ -35,37 +35,37 @@ const level1Items = [
   {
     name: 'Aluminum Can',
     type: 'recycle',
-    icon: 'images/Can.png',
+    icon: 'images/aluminumcan.png',
     explanation: "Aluminum is infinitely recyclable, meaning it doesn't degrade when it's turned into a new product."
   },
   {
     name: 'Paper Towel',
     type: 'trash',
-    icon: 'images/PaperTowel.jpg',
+    icon: 'images/papertowel.png',
     explanation: "The fibers in this type of paper are too short to be recycled into new paper products. It is also common for them to be contaminated with food waste."
   },
   {
     name: 'Plastic Water Bottle',
     type: 'recycle',
-    icon: 'images/Plastic.jpg',
+    icon: 'images/waterbottle.png',
     explanation: "Plastic bottles are made from an easy-to-recycle plastic. The cap can also be recycled if you leave it on the bottle!"
   },
   {
     name: 'Candy/Chip Bag',
     type: 'trash',
-    icon: 'images/Candy.jpg',
+    icon: 'images/candy.png',
     explanation: "Candy wrappers and chip bags are typically a mixture of different materials such as plastic, paper, and aluminum. Recycling facilities are unable to separate these materials."
   },
   {
     name: 'Red Solo Cup',
     type: 'trash',
-    icon: 'images/SoloCup.png',
+    icon: 'images/solocup.png',
     explanation: "These cups are made of a hard, brittle plastic that, when melted down (as many companies do to make recycled plastic into new products) release dangerous chemicals."
   },
   {
     name: 'Glass Bottle',
     type: 'recycle',
-    icon: 'images/Glassbottle.png',
+    icon: 'images/glassbottle.png',
     explanation: "Glass used in glass bottles is infinitely recyclable and can be crushed down and melted into new products without degrading."
   }
 ];
@@ -74,37 +74,37 @@ const level2Items = [
   {
     name: 'Plastic Bag',
     type: 'trash',
-    icon: 'images/Bag.jpg',
+    icon: 'images/bag.png',
     explanation: "Plastic bags get tangled in recycling facility machines, causing the entire recycling process to be delayed."
   },
   {
     name: 'Plastic Utensils',
     type: 'trash',
-    icon: 'images/PlasticUtensials.jpg',
+    icon: 'images/utsensik.png',
     explanation: "These are too small to be sorted at recycling facilities."
   },
   {
     name: 'Milk or Juice Carton',
     type: 'recycle',
-    icon: 'images/MilkandJuice.jpg',
+    icon: 'images/milk.png',
     explanation: "While these cartons have a waxy feel to them, like the hot coffee cup, there is a market for recycled cartons to be turned into products such as drywall. This market does not exist for hot coffee cups."
   },
   {
     name: 'Plastic Detergent Jug',
     type: 'recycle',
-    icon: 'images/Laundry.jpg',
+    icon: 'images/laundry.png',
     explanation: "These are made of a durable plastic that can easily be reprocessed into new products. Just be sure to give it a quick rinse before you recycle it!"
   },
   {
     name: 'Plastic Wrap',
     type: 'trash',
-    icon: 'images/PlasticWrap.png',
+    icon: 'images/wrap.png',
     explanation: "Plastic wrap gets tangled in recycling facility machines, causing the entire recycling process to be delayed."
   },
   {
     name: 'Paper Bag',
     type: 'recycle',
-    icon: 'images/paperBag.png',
+    icon: 'images/brownbag.png',
     explanation: "This type of paper can be recycled. Unlike paper towels, the fibers of the bag are long enough to be processed at recycling facilities and made into new products."
   }
 ];
@@ -113,13 +113,13 @@ const level3Items = [
   {
     name: 'Clear Plastic Container',
     type: 'recycle',
-    icon: 'images/PlasticContainer.jpg',
+    icon: 'images/Plasticontainer.png',
     explanation: "This type of plastic, such as the containers you get your fruit in, is accepted as recycling. Just be sure that it is clean first!"
   },
   {
     name: 'Hot Coffee Cup',
     type: 'trash',
-    icon: 'images/Coffee.jpg',
+    icon: 'images/coffeecup.png',
     explanation: "These cups often have a thin, waxy lining on the inside to contain hot liquids. This layer is plastic, and recycling facilities are unable to separate it from the paper cup."
   },
   {
@@ -131,19 +131,19 @@ const level3Items = [
   {
     name: 'Aluminum Foil',
     type: 'recycle',
-    icon: 'images/AluminiumFoil.jpg',
+    icon: 'images/foil.png',
     explanation: "Clean aluminum foil is infinitely recyclable, meaning it doesn't degrade when it's turned into a new product. Just make sure it's clean before you recycle it!"
   },
   {
     name: 'Shredded Paper',
     type: 'trash',
-    icon: 'images/ShreddedPaper.png',
+    icon: 'images/shreddedpaper.png',
     explanation: "These slices of paper are too small to be sorted by recycling facility machines and can often clog the machinery."
   },
   {
     name: 'Shampoo Bottle',
     type: 'recycle',
-    icon: 'images/Shampoo.png',
+    icon: 'images/shampoo.png',
     explanation: "These are typically made of an easy-to-recycle plastic."
   }
 ];
