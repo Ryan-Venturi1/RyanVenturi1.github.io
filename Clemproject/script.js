@@ -123,10 +123,10 @@ const level3Items = [
     explanation: "These cups often have a thin, waxy lining on the inside to contain hot liquids. This layer is plastic, and recycling facilities are unable to separate it from the paper cup."
   },
   {
-    name: '#7 PLA Plastics',
+    name: 'Bioplastics',
     type: 'trash',
     icon: 'images/7plastic.png',
-    explanation: "Don't be misled: these are plant-based materials made to mimic plastic. Most facilities are not currently accepting #7 PLA 'plastics' for recycling or compost."
+    explanation: "Don't be misled: these are plant-based materials made to mimic plastic. Most facilities are not currently accepting Bioplastics for recycling or compost."
   },
   {
     name: 'Aluminum Foil',
@@ -164,7 +164,7 @@ const EXPLANATIONS = {
   'Paper Bag': "This type of paper can be recycled. Unlike paper towels, the fibers of the bag are long enough to be processed at recycling facilities and made into new products.",
   'Clear Plastic Container': "This type of plastic, such as the containers you get your fruit in, is accepted as recycling. Just be sure that it is clean first!",
   'Hot Coffee Cup': "These cups often have a thin, waxy lining on the inside to contain hot liquids. This layer is plastic, and recycling facilities are unable to separate it from the paper cup.",
-  '#7 PLA Plastics': "Don't be misled: these are plant-based materials made to mimic plastic. Most facilities are not currently accepting #7 PLA 'plastics' for recycling or compost.",
+  'Bioplastics': "Don't be misled: these are plant-based materials made to mimic plastic. Most facilities are not currently accepting Bioplastics for recycling or compost.",
   'Aluminum Foil': "Clean aluminum foil is infinitely recyclable, meaning it doesn't degrade when it's turned into a new product. Just make sure it's clean before you recycle it!",
   'Shredded Paper': "These slices of paper are too small to be sorted by recycling facility machines and can often clog the machinery.",
   'Shampoo Bottle': "These are typically made of an easy-to-recycle plastic."
