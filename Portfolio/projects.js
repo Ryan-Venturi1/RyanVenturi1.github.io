@@ -33,98 +33,93 @@ const projects = [
         description:
           "Modality Matching connects users with therapists who specialize in the therapy styles that best suit their individual needs. Leveraging modern JavaScript and AI techniques, the system delivers personalized matches based on therapeutic modalities.",
         skills: ["JavaScript", "AI", "Modality"],
-        link: "https://example.com/modality-matching" 
+        link: "https://pleiadesmh.com/mainwebsite/modalitymatching.html" 
       },
       { 
         title: "Personality Matching", 
         description:
           "Personality Matching allows users to complete a Big Five personality assessment. Based on their results, the system matches them with therapists whose personality profiles align, ensuring an optimal therapeutic relationship.",
         skills: ["JavaScript", "CSS", "AI"],
-        link: "https://example.com/personality-matching" 
+        link: "https://pleiadesmh.com/mainwebsite/personalitytest.html" 
       },
       { 
         title: "Symptom Based Matching", 
         description:
           "Symptom Based Matching enables users to complete a comprehensive mental health screener to identify conditions such as anxiety, depression, BPD, addiction, and eating disorders. Once the symptoms are analyzed, the platform connects users with therapists specialized in addressing their specific needs.",
         skills: ["JavaScript", "AI", "Mental Health"],
-        link: "https://example.com/symptom-based-matching" 
+        link: "https://pleiadesmh.com/mainwebsite/test.html" 
       },
       { 
         title: "Main Website", 
         description:
           "The main website, built entirely from scratch, provides essential information for users and therapists. It clearly communicates our mission, services, and values through engaging modern web design.",
         skills: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-        link: "https://example.com/main-website" 
+        link: "https://pleiadesmh.com/mainwebsite/home.html" 
       },
       { 
         title: "Functioning Sign In and Sign Ups", 
         description:
           "This project implements a streamlined sign-in and sign-up system that enables therapists and users to securely create accounts. It supports both Google authentication and traditional registration methods, ensuring accurate user information and fraud prevention.",
         skills: ["JavaScript", "Authentication", "Google OAuth", "Security", "Backend Development"],
-        link: "https://example.com/sign-in-sign-ups" 
+        link: "https://pleiadesmh.com/Authentication/sign-up-client.html" 
       },
       { 
         title: "Joke API", 
         description:
           "The Joke API integration displays a daily joke on both client and therapist dashboards, offering users a light-hearted moment as they navigate the platform.",
         skills: ["JavaScript", "API Integration", "REST"],
-        link: "https://example.com/joke-api" 
+        link: "https://pleiadesmh.com/ClientSide/overview.html" 
       },
       { 
         title: "Compatibility Matching", 
         description:
           "Compatibility Matching enables users to enter basic details—such as interests, location, insurance type, and price range—which are analyzed against our extensive therapist database. The system then returns the top ten therapists ranked by a compatibility score out of 100%.",
         skills: ["JavaScript", "Data Matching", "Algorithm Design", "API Integration"],
-        link: "https://example.com/compatibility-matching" 
+        link: "https://pleiadesmh.com/ClientSide/viewcompatibletherapists.html" 
       },
       { 
         title: "Daily Telehealth", 
         description:
           "Daily Telehealth streamlines online therapy sessions by allowing therapists to set up secure, HIPAA-compliant virtual appointments. Clients can quickly join automated telehealth rooms without any setup hassle, ensuring a smooth and safe experience.",
         skills: ["JavaScript", "Video Conferencing", "Telehealth", "HIPAA Compliance"],
-        link: "https://example.com/daily-telehealth" 
       },
       { 
         title: "Scheduling System", 
         description:
           "The Scheduling System enables users to book appointments with therapists for in-person, hybrid, or online sessions. Therapists can integrate their Google or Outlook calendars and manage their availability using a drag-and-drop interface that automatically generates optimal appointment slots with built-in breaks.",
         skills: ["JavaScript", "Calendar Integration", "Drag-and-Drop UI", "Scheduling Algorithms"],
-        link: "https://example.com/scheduling-system" 
       },
       { 
         title: "Encrypted Messaging System", 
         description:
           "This encrypted messaging system enables secure communication between clients and therapists. It supports the exchange of messages, progress updates, and screening responses while keeping all sensitive information confidential.",
         skills: ["JavaScript", "Encryption", "Messaging", "Security"],
-        link: "https://example.com/encrypted-messaging-system" 
       },
       { 
         title: "Screeners and Progress Checks", 
         description:
           "Therapists can easily send progress checks and screening questionnaires to clients with just a few clicks. The system also allows the creation of custom assessments, the use of pre-designed templates, or access to a shared marketplace of templates for all therapists.",
         skills: ["JavaScript", "UI/UX", "Survey Tools", "Template Management"],
-        link: "https://example.com/screeners-progress-checks" 
       },
       { 
         title: "Notes", 
         description:
           "The tailored notes system enables therapists to create both templated and custom notes for each client. These notes are automatically saved and organized under the user's profile, simplifying insurance claims and administrative tasks.",
         skills: ["JavaScript", "Notes Management", "UI/UX", "Data Storage"],
-        link: "https://example.com/notes" 
       },
       { 
         title: "Goodnews Area", 
         description:
           "The Goodnews Area uses a built-in RSS reader from the Goodnews Network to display the top five uplifting headlines on the main dashboard, providing users with daily inspiration and positive news.",
         skills: ["JavaScript", "RSS Integration", "API Integration", "UI/UX"],
-        link: "https://example.com/goodness-area" 
+        link: "https://pleiadesmh.com/ClientSide/overview.html" 
       },
       { 
         title: "Weather API", 
         description:
           "The Weather API integration, available on both client and therapist dashboards, displays current weather information in Fahrenheit or Celsius, helping users plan their day with real-time updates.",
         skills: ["JavaScript", "API Integration", "Weather Data", "Responsive Design"],
-        link: "https://example.com/weather-api" 
+        link: "https://pleiadesmh.com/ClientSide/overview.html" 
       }
     ],
     link: "https://pleiadesmh.com/mainwebsite/home.html"
@@ -136,7 +131,7 @@ const projects = [
     shortdescription: "A mental health nonprofit designed by teens for teens.",
     longdescription:
       "As the former CEO and Founder—while still a high school sophomore—I set out to build an app that revolutionizes how people access mental health treatment. This journey led us to create a free resource platform that combines open-source content with in-house materials to help teens develop effective coping mechanisms. At its peak, IvySky—operating as a fully registered 501(c)(3)—assisted teens in need with a team of 55 therapists, developers, marketers, and doctors, securing up to $60,000 in funding and reaching 500 daily active users. We are currently developing a new platform. Click below to learn more about IvySky.",
-    images: ["ivyskylogo.png"],
+    images: ["ivysky.png"],
     links: {
       linkedin: "https://www.linkedin.com/company/ivysky",
       appStore: "https://apps.apple.com/us/app/ivysky-mental-health/id1626276102",

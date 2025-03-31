@@ -219,7 +219,7 @@ function createModalContent(project) {
               ${sub.skills ? `<div class="subproject-skills">
                 ${sub.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
               </div>` : ''}
-              <a href="${sub.link}" class="subproject-link" target="_blank" rel="noopener">View Live Version</a>
+              ${sub.link ? `<a href="${sub.link}" class="subproject-link" target="_blank" rel="noopener">View Live Version</a>` : ''}
             </div>
           `).join('')}
         </div>
@@ -327,8 +327,11 @@ function updateProjectsGrid(projectsToShow) {
     const firstImage = project.images && project.images.length > 0 ? project.images[0] : null;
     const isVideo = firstImage && (firstImage.endsWith('.mov') || firstImage.endsWith('.mp4'));
     
+    // Add a special class for the specified projects
+    const fullCoverClass = [1, 2, 6, 7, 9].includes(project.id) ? 'full-cover-image' : '';
+    
     return `
-      <div class="project-card" onclick="openProjectModal(${project.id})">
+      <div class="project-card ${fullCoverClass}" onclick="openProjectModal(${project.id})">
         <div class="project-image">
           ${isVideo ? 
             `<video src="${firstImage}" class="preview-video" muted loop>
@@ -352,7 +355,6 @@ function updateProjectsGrid(projectsToShow) {
     `;
   }).join('');
 }
-
 // Close modal when clicking outside content
 document.getElementById('project-modal').addEventListener('click', (e) => {
   if (e.target.id === 'project-modal') {

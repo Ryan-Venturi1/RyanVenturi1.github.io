@@ -279,8 +279,8 @@ button {
   ==========================================================================
 */
 .section {
-  min-height: 100vh;
-  padding: 8rem 2rem;
+  min-height: auto;
+  padding: 5rem 2rem;
   position: relative;
   display: flex;
   align-items: center;
@@ -413,7 +413,7 @@ button {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 2rem 2rem;
   background: var(--background);
   color: var(--text);
 }
@@ -630,11 +630,18 @@ button {
 .tech-tag {
   display: inline-block;
   padding: 0.25rem 0.5rem;
-  background: var(--primary-light);
-  color: #fff;
-  border-radius: 6px;
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
   font-size: 0.75rem;
   margin: 0 0.25rem 0.25rem 0;
+  transition: none;
+}
+
+.tech-tag:hover {
+  transform: none;
+  background: transparent;
 }
 
 /*  
@@ -645,7 +652,7 @@ button {
 .about-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
   margin-top: 3rem;
 }
 
@@ -658,12 +665,23 @@ button {
   box-shadow: 0 4px 6px -1px var(--shadow-color);
 }
 
-.skills-card, .achievements-card {
+.skills-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 24px;
   padding: 2rem;
   box-shadow: 0 4px 6px -1px var(--shadow-color);
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.achievements-card, .timeline-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px var(--shadow-color);
+  grid-column: span 1;
 }
 
 .card-title {
@@ -674,11 +692,7 @@ button {
 }
 
 .about-photo {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  margin: 0 auto 1.5rem;
-  display: block;
+  display: none;
 }
 
 .skills-list {
@@ -782,6 +796,10 @@ button {
 
   .profile-card, .timeline-card {
     grid-column: span 1;
+  }
+  
+  .skills-card {
+    grid-row: span 1;
   }
 }
 
@@ -1072,20 +1090,6 @@ button {
   gap: 0.5rem;
 }
 
-.tech-tag {
-  background: var(--primary-light);
-  color: white;
-  padding: 0.3rem 1rem;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  transition: transform 0.2s ease;
-}
-
-.tech-tag:hover {
-  transform: translateY(-2px);
-}
-
 .modal-links {
   padding: 0 1.5rem 1.5rem;
   display: flex;
@@ -1202,11 +1206,6 @@ button {
 @media (max-width: 480px) {
   .image-carousel {
     height: 250px;
-  }
-
-  .tech-tag {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
   }
 
   .modal-link {
@@ -1352,3 +1351,23 @@ button {
   font-size: 1.1rem;
 }
 
+/* Adjustments for about and contact sections */
+#about {
+  padding-bottom: 3rem;
+}
+
+#contact {
+  padding-top: 3rem;
+}
+
+/* Projects section spacing */
+#projects {
+  padding-top: 2rem;
+}
+.full-cover-image .image-container {
+  background-size: cover !important;
+}
+
+.full-cover-image .preview-video {
+  object-fit: cover !important;
+}
