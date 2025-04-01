@@ -599,3 +599,5 @@ h1 {
     padding-right: 80px; /* Space for the background image */
   }
 }
+
+/*Does not include the tutorial button style as it is already defined above*/
