@@ -529,3 +529,73 @@ h1 {
   margin-top: 1.5rem;
   width: 100%;
 }
+/* Keep the existing CSS and update the media queries */
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .bins {
+    /* Change from column to row layout with wrapping */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .bin {
+    /* Set a fixed width instead of 100% */
+    width: 120px;
+    height: 150px;
+    background-position: center 20px;
+    background-size: 60% auto;
+  }
+  
+  .bin-label {
+    font-size: 0.9rem;
+    bottom: 0.3rem;
+  }
+  
+  .conveyor {
+    height: 100px;
+  }
+  
+  .item {
+    width: 60px;
+    height: 60px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .level-tutorial-modal .tutorial-content {
+    padding: 1rem;
+  }
+}
+
+/* Add an even smaller breakpoint for very small devices */
+@media (max-width: 350px) {
+  .bins {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bin {
+    width: 100%;
+    max-width: 250px;
+    height: 100px;
+    background-position: right 20px center;
+    background-size: auto 70%;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+  }
+  
+  .bin-label {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: auto;
+    text-align: left;
+    padding-right: 80px; /* Space for the background image */
+  }
+}
