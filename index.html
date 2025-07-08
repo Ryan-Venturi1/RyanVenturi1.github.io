@@ -1,9 +1,31 @@
+<!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ryan Venturi - Redirecting to Portfolio</title>
+        <meta http-equiv="refresh" content="0;url=./Portfolio/index.html">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin-top: 100px;
+                background-color: #f5f5f5;
+            }
+            .loading {
+                margin-top: 20px;
+                color: #666;
+            }
+        </style>
+    </head>
     <body>
-        <body>
-            <h1>Welcome!</h1>
-            <p>Redirecting to Ryan Venturi's Portfolio...</p>
-            <p class="loading">If you are not redirected automatically, <a href="\Portfolio\index.html">click here</a></p>
-        </body>
+        <h1>Welcome!</h1>
+        <p>Redirecting to Ryan Venturi's Portfolio...</p>
+        <p class="loading">If you are not redirected automatically, <a href="./Portfolio/index.html">click here</a></p>
+        
+        <script>
+            // JavaScript redirect - immediate
+            window.location.href = './Portfolio/index.html';
+        </script>
+    </body>
 </html>
