@@ -1,6 +1,116 @@
 const projects = [
   {
     id: 1,
+    title: "AI Skin Cancer Detector",
+    subtitle: "TensorFlow-Powered Medical Diagnostics",
+    shortdescription:
+      "A locally trained machine learning model using TensorFlow to detect 25 types of skin cancer with 90% accuracy and under 1% false negatives.",
+    longdescription:
+      "A comprehensive skin cancer detection system built using machine learning and computer vision technologies. Leveraging a dataset of 25 different skin cancer types containing over 250,000 images, I developed both a front-end interface and backend infrastructure powered by TensorFlow. The TensorFlow model underwent 25 training iterations to achieve an impressive 90% recognition accuracy rate. The system's design prioritizes patient safety by maintaining false negatives under 1% - when uncertain, the model consistently recommends users consult a doctor rather than providing false reassurance. This conservative approach ensures reliable medical guidance for users. Built as a 2-week project, this free, at-home skin cancer detector demonstrates the real-world application potential of machine learning in healthcare. The project showcases advanced TensorFlow implementation and computer vision techniques applied to medical diagnostics. Future development plans include expanding the model to detect acne types, wound infections, and bruising patterns to provide comprehensive at-home health monitoring capabilities. *Note: Currently only the front-end is operational at the live link, as the TensorFlow model has been taken down for computing cost considerations.*",
+    images: [],
+    technologies: [
+      "TensorFlow",
+      "Python",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Machine Learning",
+      "Computer Vision",
+      "Medical AI"
+    ],
+    link: "https://warm-panda-1f5f57.netlify.app/"
+  },
+
+  {
+    id: 2,
+    title: "Paradise VR Soundscape",
+    subtitle: "Immersive WebXR Virtual Reality Experience",
+    shortdescription:
+      "An immersive WebXR virtual reality experience featuring dynamic 3D environments synchronized with nature sounds and music, accessible on Meta Quest 3 and all WebXR devices.",
+    longdescription:
+      "An advanced virtual reality project that showcases the full potential of immersive VR technology, specifically developed for the Meta Quest 3 platform. This innovative web application creates a virtual soundscape that mirrors the functionality of Samsung's 2D wall display but extends it into a fully immersive 3D environment. The platform features over 8 integrated nature sounds accessible through APIs, combined with 4 automatically shuffled radio playlists sourced from SoundCloud's free URL service. Using Three.js for sophisticated 3D animations, I developed over 20 distinct immersive experiences ranging from nightclub-style environments to mesmerizing visual displays that respond dynamically to the audio. The application's therapeutic potential is significant - it could be expanded to assist individuals with anxiety by providing calming, meditative environments. The backgrounds rotate in randomized sequences and fully synchronize with the music, creating a seamless audio-visual experience. Built with WebXR compatibility, the application works across all WebXR-enabled devices, with full 2D and 3D music controls. The project demonstrates advanced understanding of VR development, spatial audio integration, and cross-platform compatibility in virtual reality environments. This project represents a significant step in my exploration of VR as a Meta developer and showcases the potential for therapeutic applications in virtual reality experiences.",
+    images: [],
+    technologies: [
+      "WebXR",
+      "Three.js",
+      "JavaScript",
+      "Meta Quest 3",
+      "SoundCloud API",
+      "HTML",
+      "CSS",
+      "VR Development",
+      "Spatial Audio"
+    ],
+    link: "https://paradisemh.netlify.app/"
+  },
+
+  {
+    id: 3,
+    title: "Meta OS VR Interface Clone",
+    subtitle: "WebXR-Based Virtual Operating System",
+    shortdescription:
+      "A functional Meta OS replica built in WebXR, featuring movable tabs, window creation, live widgets, and VR system interaction across all VR-enabled devices.",
+    longdescription:
+      "A comprehensive exploration of Meta OS development that addresses the limitations of the existing ecosystem. While Meta OS presents a clean and modern interface, the development experience is hindered by outdated hardware, closed APIs, and challenging underlying code architecture. Built as a one-week class project, this functional Meta OS replica demonstrates the potential for more accessible VR operating system development. The system successfully implements core Meta OS features including movable tabs, dynamic window creation, live widget functionality, and comprehensive VR space interaction. Developed using WebXR framework, the application ensures cross-platform compatibility, allowing any VR-enabled device to connect and interact with the virtual operating system. This approach overcomes many of the hardware limitations present in the official Meta OS development environment. While the visual polish may not match the original Meta OS aesthetic, the project successfully proves the concept of building accessible VR operating systems using open web technologies. The implementation showcases the potential for developers to create VR interfaces without being constrained by proprietary development tools and closed ecosystems. This project represents a significant step toward democratizing VR operating system development and highlights the possibilities of WebXR as a platform for immersive computing experiences.",
+    images: [],
+    technologies: [
+      "WebXR",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Three.js",
+      "VR Development",
+      "Meta OS",
+      "Operating Systems"
+    ],
+    link: "https://part4.netlify.app/"
+  },
+
+  {
+    id: 4,
+    title: "AR Nutrition Scanner",
+    subtitle: "Augmented Reality Health & Nutrition Tool",
+    shortdescription:
+      "An augmented reality barcode scanner with AR overlay that displays nutrition facts, healthiness scores, and product comparisons for informed grocery shopping decisions.",
+    longdescription:
+      "An innovative solution addressing the challenge of making informed nutritional choices while grocery shopping. Modern nutrition labeling often makes it difficult to quickly assess what's healthy and what isn't, especially when comparing multiple products. This AR-enabled barcode scanner transforms the shopping experience by providing instant, comprehensive nutritional information through augmented reality overlays. Using a phone or VR device, users can scan any product to spawn an interactive AR tab displaying detailed nutrition facts and calculated healthiness scores. The system leverages device orientation data available on most Android and iOS devices to create seamless AR experiences. A standout feature is the ability to scan and compare up to 10 products simultaneously, with each window dynamically generated to show real, accurate information sourced from open-source nutrition APIs. Built as a two-week class project, the application demonstrates the practical application of AR technology in everyday decision-making. The cross-platform compatibility ensures accessibility across all devices, making healthy choices more accessible to a broader audience. Future development plans include integrating machine learning and computer vision capabilities to enable product recognition through simple photography, eliminating the need for barcode scanning while maintaining the same comprehensive nutritional analysis. This project showcases the potential for AR technology to solve real-world problems and empower consumers to make better health decisions through accessible, accurate information.",
+    images: [],
+    technologies: [
+      "Augmented Reality",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Barcode Scanning",
+      "Nutrition APIs",
+      "Mobile Development",
+      "Computer Vision"
+    ],
+    link: "https://arfoodnutritionapp.netlify.app/"
+  },
+
+  {
+    id: 5,
+    title: "AI-Powered Hotel Demo Generator",
+    subtitle: "Multi-AI Business Automation System",
+    shortdescription:
+      "An automated demo creation system that reduced hotel demo production time from 2.5 hours to 20 minutes, powered by multiple AI models and enabling 5x faster business scaling.",
+    longdescription:
+      "A transformative business solution developed during my internship at FreeGuides that addressed the company's critical growth bottleneck: demo creation. Through analysis, I identified that providing hotel demos resulted in an 85% sign-up rate within the first week, but the 2.5-hour creation time severely limited scalability. My AI-powered demo generation system revolutionized this process, reducing creation time to just 20 minutes - a 750% efficiency improvement that enabled 5x more demos per time period. The system leverages a sophisticated multi-AI architecture including GPT-4.0, DALL-E for image generation, and Google's Gemini 2.5 Flash and Gemini 1.5 Pro/Flash models. The streamlined input process requires only basic hotel information: name, location links, city, brand requirements, and on-property restaurants. From this minimal input, the system generates comprehensive hotel compendiums including check-in/check-out times, WiFi details, room accommodations, welcome sections, area history, and hotel background. Integration with Google Places API enables real-world data population, automatically incorporating 27 actual local attractions to create accurate recommendation sections. The image generation component produces custom tour guides, introduction materials, cover photos, tour stops, scripts, and proprietary tour elements - all simultaneously. A secondary AI agent handles data formatting, converting all generated content into proper JSON format and automatically exporting to Firebase for immediate live frontend viewing. The entire pipeline from input to published demo is fully automated. Since implementation two weeks ago (as of July 8th), the system has enabled the onboarding of over 50 additional hotels, demonstrating significant business impact and scalability improvements for the company's growth strategy. *Note: Live demo unavailable due to proprietary use by internship company.*",
+    images: [],
+    technologies: [
+      "GPT-4.0",
+      "DALL-E",
+      "Google Gemini",
+      "Google Places API",
+      "Firebase",
+      "JavaScript",
+      "JSON",
+      "AI Automation"
+    ]
+  },
+
+  {
+    id: 6,
     title: "Pleiades Mental Health",
     subtitle: "AI-Powered Mental Health Platform",
     shortdescription:
@@ -126,7 +236,7 @@ const projects = [
   },
 
   {
-    id: 2,
+    id: 7,
     title: "IvySky",
     shortdescription: "A mental health nonprofit designed by teens for teens.",
     longdescription:
@@ -145,7 +255,7 @@ const projects = [
   },
 
   {
-    id: 3,
+    id: 8,
     title: "Physical Computing Meets Botany",
     shortdescription:
       "State-of-the-art autonomous garden system powered by Arduino",
@@ -178,7 +288,7 @@ const projects = [
   },
 
   {
-    id: 4,
+    id: 9,
     title: "Smart Home Desk Lighting System",
     shortdescription:
       "Bluetooth-Connected Voice-Activated Desk Lighting System",
@@ -201,7 +311,7 @@ const projects = [
   },
 
   {
-    id: 5,
+    id: 10,
     title: "Opera Flyer Design",
     shortdescription:
       "A design challenge to create a new poster for the Colorado Opera that incorporates all text from their schedule.",
@@ -215,7 +325,7 @@ const projects = [
   },
 
   {
-    id: 6,
+    id: 11,
     title: "Soda Cans",
     shortdescription:
       "Brand identity and packaging design challenge for a fictional beverage company",
@@ -232,7 +342,7 @@ const projects = [
   },
 
   {
-    id: 7,
+    id: 12,
     title: "Client Matching System",
     shortdescription:
       "State-of-the-art AI-driven matching system to help clients find the right therapist.",
@@ -249,7 +359,7 @@ const projects = [
   },
 
   {
-    id: 8,
+    id: 13,
     title: "Artificial Intelligence Content Moderation System",
     shortdescription:
       "AI-driven content moderation system for a community platform, achieving 98% accuracy and continuously improving with each input.",
@@ -264,7 +374,7 @@ const projects = [
   },
 
   {
-    id: 9,
+    id: 14,
     title: "Encrypted Messaging System",
     shortdescription:
       "Proprietary HIPAA-compliant encrypted messaging system for therapists and clients, enabling safe yet accessible communication.",
@@ -278,7 +388,7 @@ const projects = [
   },
 
   {
-    id: 10,
+    id: 15,
     title: "OpenEMR Patient Management System",
     shortdescription:
       "A proprietary patient management system for Pleiades, built on the open-source OpenEMR system.",
@@ -294,7 +404,7 @@ const projects = [
   },
 
   {
-    id: 11,
+    id: 16,
     title: "The Oasis",
     shortdescription:
       "Although not publicly available, the Oasis platform—integrated within the Pleiades ecosystem—utilizes over 60 APIs, AI, modern UI/UX dashboard design, and other cutting-edge technologies to deliver unique, state-of-the-art support.",
@@ -325,7 +435,7 @@ const projects = [
   },
 
   {
-    id: 12,
+    id: 17,
     title: "Prompt Engineering and AI Applications",
     shortdescription:
       "Extensive experience with leading AI models and their applications, including API integrations, AI model development, and TensorFlow training.",
