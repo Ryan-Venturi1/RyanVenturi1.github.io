@@ -618,11 +618,21 @@ button {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  color: var(--text);
+}
+.project-subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+  font-style: italic;
+  opacity: 0.9;
 }
 .project-description {
   font-size: 0.95rem;
   color: var(--text-secondary);
   margin-bottom: 0.75rem;
+  line-height: 1.5;
 }
 .project-tech {
   margin-top: auto;
@@ -1064,8 +1074,18 @@ button {
   font-size: 2rem;
   font-weight: 700;
   color: var(--text);
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
   padding: 1.5rem 1.5rem 0;
+}
+
+.modal-subtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--primary);
+  font-style: italic;
+  margin: 0 0 1rem;
+  padding: 0 1.5rem;
+  opacity: 0.9;
 }
 
 .modal-description {
@@ -1074,13 +1094,22 @@ button {
 }
 
 .short-desc {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface-hover);
+  padding: 1rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 .long-desc {
   font-size: 1rem;
   line-height: 1.6;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
 }
 
 .modal-tech {
@@ -1297,44 +1326,80 @@ button {
   .contact-layout {
     grid-template-columns: 1fr;
   }
-  
-  /* Mobile project filters with horizontal scroll */
-  .project-filters {
-    display: flex;
-    justify-content: flex-start;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 0 1rem;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    /* Hide scrollbar */
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-  }
-  
-  .project-filters::-webkit-scrollbar {
-    display: none; /* WebKit */
-  }
-  
-  .filter-btn {
-    flex-shrink: 0; /* Prevent buttons from shrinking */
-    white-space: nowrap;
-    padding: 0.75rem 1.25rem;
-    min-width: auto;
-  }
 }
 
 .project-filters {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1rem;
   margin-bottom: 3rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  white-space: nowrap;
+  position: relative;
+  /* Hide scrollbar but keep functionality */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  /* Start scrolled to the right to show "All Projects" first */
+  scroll-behavior: smooth;
+}
+
+.project-filters::-webkit-scrollbar {
+  display: none; /* WebKit browsers */
+}
+
+/* Arrow indicators */
+.project-filters-container {
+  position: relative;
+}
+
+.scroll-arrow {
+  position: absolute;
+  top: -50px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 0.8rem;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-arrow:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.scroll-arrow.left {
+  left: 8px;
+}
+
+.scroll-arrow.right {
+  right: 8px;
+}
+
+.scroll-arrow.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .filter-btn {
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+  white-space: nowrap;
   padding: 0.75rem 1.5rem;
   border: 2px solid var(--primary);
   border-radius: 50px;
@@ -1342,6 +1407,7 @@ button {
   color: var(--text);
   font-weight: 500;
   transition: all 0.2s ease;
+  min-width: auto;
 }
 
 .filter-btn.active,

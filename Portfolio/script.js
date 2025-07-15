@@ -244,6 +244,7 @@ function createModalContent(project) {
   return `
     <div class="modal-content">
       <h2>${project.title}</h2>
+      ${project.subtitle ? `<h3 class="modal-subtitle">${project.subtitle}</h3>` : ''}
       ${carouselHTML}
       <div class="modal-description">
         <p class="short-desc">${project.shortdescription}</p>
@@ -344,8 +345,9 @@ function updateProjectsGrid(projectsToShow) {
           </div>
         </div>
         <div class="project-content">
-          <h3>${project.title}</h3>
-          <p>${project.shortdescription}</p>
+          <h3 class="project-title">${project.title}</h3>
+          <h4 class="project-subtitle">${project.subtitle || ''}</h4>
+          <p class="project-description">${project.shortdescription}</p>
           <div class="project-tech">
             ${project.technologies.slice(0, 3).map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
             ${project.technologies.length > 3 ? `<span class="tech-tag">+${project.technologies.length - 3}</span>` : ''}
@@ -447,6 +449,54 @@ function initializeScrolling() {
 }
 function initializeFilters() {
   const filterButtons = document.querySelectorAll('.filter-btn');
+  const filterContainer = document.querySelector('.project-filters');
+  const leftArrow = document.querySelector('.scroll-arrow.left');
+  const rightArrow = document.querySelector('.scroll-arrow.right');
+  
+  // Function to update arrow visibility
+  function updateArrowVisibility() {
+    if (!filterContainer) return;
+    
+    const { scrollLeft, scrollWidth, clientWidth } = filterContainer;
+    const canScrollLeft = scrollLeft > 0;
+    const canScrollRight = scrollLeft < scrollWidth - clientWidth - 1;
+    
+    // Update arrow visibility
+    if (leftArrow) leftArrow.classList.toggle('visible', canScrollLeft);
+    if (rightArrow) rightArrow.classList.toggle('visible', canScrollRight);
+  }
+  
+  // Scroll functions
+  function scrollLeft() {
+    if (filterContainer) {
+      filterContainer.scrollBy({ left: -200, behavior: 'smooth' });
+    }
+  }
+  
+  function scrollRight() {
+    if (filterContainer) {
+      filterContainer.scrollBy({ left: 200, behavior: 'smooth' });
+    }
+  }
+  
+  // Set up scroll event listeners
+  if (filterContainer) {
+    // Initial setup
+    setTimeout(() => {
+      filterContainer.scrollLeft = 0;
+      updateArrowVisibility();
+    }, 100);
+    
+    // Update arrow visibility on scroll
+    filterContainer.addEventListener('scroll', updateArrowVisibility);
+    
+    // Update arrow visibility on window resize
+    window.addEventListener('resize', updateArrowVisibility);
+  }
+  
+  // Arrow button event listeners
+  if (leftArrow) leftArrow.addEventListener('click', scrollLeft);
+  if (rightArrow) rightArrow.addEventListener('click', scrollRight);
   
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -529,24 +579,159 @@ window.toggleDarkMode = toggleDarkMode;
 
 /*
   ==========================================================================
-  6. FORM HANDLING
+  6. FORM HANDLING WITH EMAILJS
   ==========================================================================
 */
+
+// Initialize EmailJS
+(function() {
+  // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+  emailjs.init('mgpPA7bYRE5j1auzp');
+})();
+
 function handleSubmit(event) {
   event.preventDefault();
+  event.stopPropagation();
+  
   const formData = new FormData(event.target);
   const data = Object.fromEntries(formData);
   const submitBtn = event.target.querySelector(".submit-btn");
   const originalText = submitBtn.innerHTML;
 
-  console.log("Form submitted:", data);
-  
-  submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+  // Show loading state
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
   submitBtn.disabled = true;
 
+  // EmailJS template parameters
+  const templateParams = {
+    title: data.message.substring(0, 50) + (data.message.length > 50 ? '...' : ''), // First 50 chars for subject
+    name: data.name,
+    email: data.email,
+    message: data.message,
+  };
+
+  // Send email using EmailJS
+  emailjs.send('service_qpsmc8g', 'template_1ex61bh', templateParams)
+    .then(function(response) {
+      console.log('Email sent successfully:', response);
+      showEmailModal(true);
+      event.target.reset();
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    })
+    .catch(function(error) {
+      console.error('Email failed to send:', error);
+      showEmailModal(false);
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    });
+  
+  return false;
+}
+
+// Make handleSubmit globally available
+window.handleSubmit = handleSubmit;
+
+// Email confirmation modal
+function showEmailModal(success) {
+  // Remove existing modal if present
+  const existingModal = document.getElementById('email-modal');
+  if (existingModal) {
+    existingModal.remove();
+  }
+
+  // Create modal element
+  const modal = document.createElement('div');
+  modal.id = 'email-modal';
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  `;
+
+  const modalContent = document.createElement('div');
+  modalContent.style.cssText = `
+    background: var(--surface);
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+  `;
+
+  if (success) {
+    modalContent.innerHTML = `
+      <div style="color: #10b981; font-size: 4rem; margin-bottom: 1rem;">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h2 style="color: var(--text); margin-bottom: 0.5rem; font-size: 1.5rem;">Email Sent Successfully!</h2>
+      <p style="color: var(--text-secondary); font-size: 1rem;">Thank you for your message. I'll get back to you soon!</p>
+      <div style="margin-top: 2rem; color: var(--text-secondary); font-size: 0.9rem;">
+        Returning to portfolio in <span id="countdown">4</span> seconds...
+      </div>
+    `;
+  } else {
+    modalContent.innerHTML = `
+      <div style="color: #ef4444; font-size: 4rem; margin-bottom: 1rem;">
+        <i class="fas fa-times-circle"></i>
+      </div>
+      <h2 style="color: var(--text); margin-bottom: 0.5rem; font-size: 1.5rem;">Email Failed to Send</h2>
+      <p style="color: var(--text-secondary); font-size: 1rem;">Sorry, there was an error sending your message. Please try again.</p>
+      <div style="margin-top: 2rem; color: var(--text-secondary); font-size: 0.9rem;">
+        Returning to portfolio in <span id="countdown">4</span> seconds...
+      </div>
+    `;
+  }
+
+  modal.appendChild(modalContent);
+  document.body.appendChild(modal);
+
+  // Animate in
   setTimeout(() => {
-    submitBtn.innerHTML = originalText;
-    submitBtn.disabled = false;
-    event.target.reset();
-  }, 3000);
+    modal.style.opacity = '1';
+    modalContent.style.transform = 'scale(1)';
+  }, 10);
+
+  // Countdown and close
+  let timeLeft = 4;
+  const countdownEl = document.getElementById('countdown');
+  const countdownInterval = setInterval(() => {
+    timeLeft--;
+    if (countdownEl) {
+      countdownEl.textContent = timeLeft;
+    }
+    
+    if (timeLeft <= 0) {
+      clearInterval(countdownInterval);
+      modal.style.opacity = '0';
+      modalContent.style.transform = 'scale(0.8)';
+      setTimeout(() => {
+        modal.remove();
+      }, 300);
+    }
+  }, 1000);
+
+  // Allow clicking to close early
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      clearInterval(countdownInterval);
+      modal.style.opacity = '0';
+      modalContent.style.transform = 'scale(0.8)';
+      setTimeout(() => {
+        modal.remove();
+      }, 300);
+    }
+  });
 }

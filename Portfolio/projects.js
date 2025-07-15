@@ -90,8 +90,8 @@ const projects = [
 
   {
     id: 5,
-    title: "AI-Powered Hotel Demo Generator",
-    subtitle: "Multi-AI Business Automation System",
+    title: "Agentic AI Hotel Demo Generator",
+    subtitle: "Agentic multi-modal enabled AI Business Automation System",
     shortdescription:
       "An automated demo creation system that reduced hotel demo production time from 2.5 hours to 20 minutes, powered by multiple AI models and enabling 5x faster business scaling.",
     longdescription:
@@ -99,7 +99,7 @@ const projects = [
     images: [],
     technologies: [
       "GPT-4.0",
-      "DALL-E",
+      "GPT 1 Image Generator",
       "Google Gemini",
       "Google Places API",
       "Firebase",
@@ -111,6 +111,48 @@ const projects = [
 
   {
     id: 6,
+    title: "Pocket Health – AI At-Home Health Monitoring",
+    subtitle: "AI-Powered Daily Health Tracking App",
+    shortdescription:
+      "An AI-powered app for daily at-home health tests, tracking results, and providing personalized recommendations and alerts for early detection of health changes.",
+    longdescription:
+      "Pocket Health is an innovative health monitoring application designed to empower users to track and manage their well-being from home. Building on the success of my previous skin cancer detector, I developed this project as a class assignment with the goal of enabling users to perform multiple at-home tests and receive actionable recommendations powered by AI. The app supports over 10 different vital system tests—including eyes, hearing, movement, heart, and more—using existing consumer devices. Users can take these tests daily, and the AI system saves results, analyzes trends, and proactively alerts users to any significant changes, both positive and negative. Advanced AI algorithms provide predictive analytics and pattern recognition, helping users catch potential health issues early and celebrate improvements. The vision for Pocket Health includes expanding compatibility to sync with devices like WHOOP bands and Apple Watches, increasing the breadth and depth of health data available for analysis. Developed in just one week, Pocket Health demonstrates the potential of AI to deliver real-time, personalized health insights and recommendations, making preventive care more accessible and actionable for everyone.",
+    images: [],
+    technologies: [
+      "TensorFlow",
+      "AI/ML",
+      "React",
+      "Development",
+      "RealWorld"
+    ],
+    link: "https://pockethealth.netlify.app/"
+  },
+
+  {
+    id: 7,
+    title: "FreeGuides Map View Recommendation System",
+    subtitle: "Scalable, Cost-Saving Hotel Recommendations Platform",
+    shortdescription:
+      "A dynamic map view recommendation system for hotels, saving thousands in monthly costs and scaling to 100+ hotels and 20,000+ daily guests.",
+    longdescription:
+      "During my internship at FreeGuides, I was tasked with redesigning the hotel guest-facing recommendation system, which accounted for a fifth of the platform and was the most expensive feature due to repeated API calls. The old UI was poor and each recommendation cost the company around 50 cents, severely limiting scalability. I built a new map view recommendation system that fetches the Google Places API only once per user, caches results, and displays dynamic, filterable pins for satellite view, price, distance, and average rating. The system features a responsive map view for all devices, filter tags, and a modal for each recommendation showing images, name, distance, price, reviews, hours, service options, action buttons, and hotel insights. Hotels can select preferred options to boost their own and partner food and beverage offerings. My caching system ensures data is always up to date, automatically refetching and purging every 3 months, and saving data to Firebase for all users after the first guest views it. This solution eliminated the startup's scalability risk, cut costs by thousands monthly, and is now live in over 100 hotels, serving 20,000+ daily guests and 25,000+ rooms across 25+ brands. The CEO called it the most value-add feature of the platform.",
+    images: [],
+    technologies: [
+      "React",
+      "Firebase",
+      "Google Places API",
+      "JavaScript",
+      "Map View",
+      "Caching",
+      "UI/UX",
+      "Development",
+      "RealWorld"
+    ],
+    link: "https://profile.freeguides.com/fZSetuEu14h1IBw9QWm5UKhIaC22"
+  },
+
+  {
+    id: 8,
     title: "Pleiades Mental Health",
     subtitle: "AI-Powered Mental Health Platform",
     shortdescription:
@@ -236,7 +278,30 @@ const projects = [
   },
 
   {
-    id: 7,
+    id: 9,
+    title: "Apocalypse Water & Power Gravity Battery",
+    subtitle: "Fully Remote Gravity Battery and Water Distribution System",
+    shortdescription:
+      "A large-scale gravity battery and water distribution system using Arduino, solar, Bluetooth, and 3D printing, designed for apocalypse survival and tested on a campus rooftop.",
+    longdescription:
+      "For my 'Hacking the Apocalypse' class, my group was tasked with designing a system to collect, store, distribute, and treat water, as well as power the system in a doomsday scenario. While my teammates built a 3D-printed water wheel, my main contribution was engineering a fully remote gravity battery and water tower system. The solution used solar panels to charge batteries, which then powered a pump to move water to the top of a tower. When battery levels dropped below 30%, solenoid valves triggered water to flow down through the waterwheel, reclaiming power and distributing water for use. The system featured 4 Arduino nanos with Bluetooth modules, 4 55-gallon barrels, a 60ft water pump, car battery, solenoid valves, and 100ft of PVC pipe. Bluetooth connections allowed for remote control of water flow, and the system ran independently for 7 days with no solar input, or up to 17 years with minimal sunlight. 3D printing enabled precise, watertight pipe fittings and adapters. The project was successfully tested on the roof of the Atlas building at CU Boulder, demonstrating the viability of scalable, scavenged-material batteries and remote water/power distribution in a survival scenario.\n\nWhile the water wheel broke during testing, calculations showed up to 85% power reclamation was possible. The project proved the effectiveness of 3D printing and remote control in doomsday engineering, and was praised for its scale and ingenuity.",
+    images: [],
+    technologies: [
+      "Arduino",
+      "Bluetooth",
+      "Solar Power",
+      "Gravity Battery",
+      "3D Printing",
+      "Water Distribution",
+      "Remote Control",
+      "Survival Engineering",
+      "Development",
+      "RealWorld"
+    ]
+  },
+
+  {
+    id: 10,
     title: "IvySky",
     shortdescription: "A mental health nonprofit designed by teens for teens.",
     longdescription:
@@ -255,7 +320,7 @@ const projects = [
   },
 
   {
-    id: 8,
+    id: 11,
     title: "Physical Computing Meets Botany",
     shortdescription:
       "State-of-the-art autonomous garden system powered by Arduino",
@@ -288,7 +353,7 @@ const projects = [
   },
 
   {
-    id: 9,
+    id: 12,
     title: "Smart Home Desk Lighting System",
     shortdescription:
       "Bluetooth-Connected Voice-Activated Desk Lighting System",
@@ -311,7 +376,7 @@ const projects = [
   },
 
   {
-    id: 10,
+    id: 13,
     title: "Opera Flyer Design",
     shortdescription:
       "A design challenge to create a new poster for the Colorado Opera that incorporates all text from their schedule.",
@@ -325,7 +390,7 @@ const projects = [
   },
 
   {
-    id: 11,
+    id: 14,
     title: "Soda Cans",
     shortdescription:
       "Brand identity and packaging design challenge for a fictional beverage company",
@@ -342,7 +407,7 @@ const projects = [
   },
 
   {
-    id: 12,
+    id: 15,
     title: "Client Matching System",
     shortdescription:
       "State-of-the-art AI-driven matching system to help clients find the right therapist.",
@@ -359,7 +424,7 @@ const projects = [
   },
 
   {
-    id: 13,
+    id: 16,
     title: "Artificial Intelligence Content Moderation System",
     shortdescription:
       "AI-driven content moderation system for a community platform, achieving 98% accuracy and continuously improving with each input.",
@@ -374,7 +439,7 @@ const projects = [
   },
 
   {
-    id: 14,
+    id: 17,
     title: "Encrypted Messaging System",
     shortdescription:
       "Proprietary HIPAA-compliant encrypted messaging system for therapists and clients, enabling safe yet accessible communication.",
@@ -388,7 +453,7 @@ const projects = [
   },
 
   {
-    id: 15,
+    id: 18,
     title: "OpenEMR Patient Management System",
     shortdescription:
       "A proprietary patient management system for Pleiades, built on the open-source OpenEMR system.",
@@ -404,7 +469,7 @@ const projects = [
   },
 
   {
-    id: 16,
+    id: 19,
     title: "The Oasis",
     shortdescription:
       "Although not publicly available, the Oasis platform—integrated within the Pleiades ecosystem—utilizes over 60 APIs, AI, modern UI/UX dashboard design, and other cutting-edge technologies to deliver unique, state-of-the-art support.",
@@ -435,7 +500,7 @@ const projects = [
   },
 
   {
-    id: 17,
+    id: 20,
     title: "Prompt Engineering and AI Applications",
     shortdescription:
       "Extensive experience with leading AI models and their applications, including API integrations, AI model development, and TensorFlow training.",
