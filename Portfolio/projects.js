@@ -7,7 +7,7 @@ const projects = [
       "A locally trained machine learning model using TensorFlow to detect 25 types of skin cancer with 90% accuracy and under 1% false negatives.",
     longdescription:
       "A comprehensive skin cancer detection system built using machine learning and computer vision technologies. Leveraging a dataset of 25 different skin cancer types containing over 250,000 images, I developed both a front-end interface and backend infrastructure powered by TensorFlow. The TensorFlow model underwent 25 training iterations to achieve an impressive 90% recognition accuracy rate. The system's design prioritizes patient safety by maintaining false negatives under 1% - when uncertain, the model consistently recommends users consult a doctor rather than providing false reassurance. This conservative approach ensures reliable medical guidance for users. Built as a 2-week project, this free, at-home skin cancer detector demonstrates the real-world application potential of machine learning in healthcare. The project showcases advanced TensorFlow implementation and computer vision techniques applied to medical diagnostics. Future development plans include expanding the model to detect acne types, wound infections, and bruising patterns to provide comprehensive at-home health monitoring capabilities. *Note: Currently only the front-end is operational at the live link, as the TensorFlow model has been taken down for computing cost considerations.*",
-    images: [],
+    images: ["SkinCancer.png"],
     technologies: [
       "TensorFlow",
       "Python",
@@ -29,7 +29,7 @@ const projects = [
       "An immersive WebXR virtual reality experience featuring dynamic 3D environments synchronized with nature sounds and music, accessible on Meta Quest 3 and all WebXR devices.",
     longdescription:
       "An advanced virtual reality project that showcases the full potential of immersive VR technology, specifically developed for the Meta Quest 3 platform. This innovative web application creates a virtual soundscape that mirrors the functionality of Samsung's 2D wall display but extends it into a fully immersive 3D environment. The platform features over 8 integrated nature sounds accessible through APIs, combined with 4 automatically shuffled radio playlists sourced from SoundCloud's free URL service. Using Three.js for sophisticated 3D animations, I developed over 20 distinct immersive experiences ranging from nightclub-style environments to mesmerizing visual displays that respond dynamically to the audio. The application's therapeutic potential is significant - it could be expanded to assist individuals with anxiety by providing calming, meditative environments. The backgrounds rotate in randomized sequences and fully synchronize with the music, creating a seamless audio-visual experience. Built with WebXR compatibility, the application works across all WebXR-enabled devices, with full 2D and 3D music controls. The project demonstrates advanced understanding of VR development, spatial audio integration, and cross-platform compatibility in virtual reality environments. This project represents a significant step in my exploration of VR as a Meta developer and showcases the potential for therapeutic applications in virtual reality experiences.",
-    images: [],
+    images: ["MagicWall.png"],
     technologies: [
       "WebXR",
       "Three.js",
@@ -52,7 +52,7 @@ const projects = [
       "A functional Meta OS replica built in WebXR, featuring movable tabs, window creation, live widgets, and VR system interaction across all VR-enabled devices.",
     longdescription:
       "A comprehensive exploration of Meta OS development that addresses the limitations of the existing ecosystem. While Meta OS presents a clean and modern interface, the development experience is hindered by outdated hardware, closed APIs, and challenging underlying code architecture. Built as a one-week class project, this functional Meta OS replica demonstrates the potential for more accessible VR operating system development. The system successfully implements core Meta OS features including movable tabs, dynamic window creation, live widget functionality, and comprehensive VR space interaction. Developed using WebXR framework, the application ensures cross-platform compatibility, allowing any VR-enabled device to connect and interact with the virtual operating system. This approach overcomes many of the hardware limitations present in the official Meta OS development environment. While the visual polish may not match the original Meta OS aesthetic, the project successfully proves the concept of building accessible VR operating systems using open web technologies. The implementation showcases the potential for developers to create VR interfaces without being constrained by proprietary development tools and closed ecosystems. This project represents a significant step toward democratizing VR operating system development and highlights the possibilities of WebXR as a platform for immersive computing experiences.",
-    images: [],
+    images: ["Metaapp.png"],
     technologies: [
       "WebXR",
       "JavaScript",
@@ -74,7 +74,7 @@ const projects = [
       "An augmented reality barcode scanner with AR overlay that displays nutrition facts, healthiness scores, and product comparisons for informed grocery shopping decisions.",
     longdescription:
       "An innovative solution addressing the challenge of making informed nutritional choices while grocery shopping. Modern nutrition labeling often makes it difficult to quickly assess what's healthy and what isn't, especially when comparing multiple products. This AR-enabled barcode scanner transforms the shopping experience by providing instant, comprehensive nutritional information through augmented reality overlays. Using a phone or VR device, users can scan any product to spawn an interactive AR tab displaying detailed nutrition facts and calculated healthiness scores. The system leverages device orientation data available on most Android and iOS devices to create seamless AR experiences. A standout feature is the ability to scan and compare up to 10 products simultaneously, with each window dynamically generated to show real, accurate information sourced from open-source nutrition APIs. Built as a two-week class project, the application demonstrates the practical application of AR technology in everyday decision-making. The cross-platform compatibility ensures accessibility across all devices, making healthy choices more accessible to a broader audience. Future development plans include integrating machine learning and computer vision capabilities to enable product recognition through simple photography, eliminating the need for barcode scanning while maintaining the same comprehensive nutritional analysis. This project showcases the potential for AR technology to solve real-world problems and empower consumers to make better health decisions through accessible, accurate information.",
-    images: [],
+    images: ["ARScan.png"],
     technologies: [
       "Augmented Reality",
       "JavaScript",
@@ -96,7 +96,7 @@ const projects = [
       "An automated demo creation system that reduced hotel demo production time from 2.5 hours to 20 minutes, powered by multiple AI models and enabling 5x faster business scaling.",
     longdescription:
       "A transformative business solution developed during my internship at FreeGuides that addressed the company's critical growth bottleneck: demo creation. Through analysis, I identified that providing hotel demos resulted in an 85% sign-up rate within the first week, but the 2.5-hour creation time severely limited scalability. My AI-powered demo generation system revolutionized this process, reducing creation time to just 20 minutes - a 750% efficiency improvement that enabled 5x more demos per time period. The system leverages a sophisticated multi-AI architecture including GPT-4.0, DALL-E for image generation, and Google's Gemini 2.5 Flash and Gemini 1.5 Pro/Flash models. The streamlined input process requires only basic hotel information: name, location links, city, brand requirements, and on-property restaurants. From this minimal input, the system generates comprehensive hotel compendiums including check-in/check-out times, WiFi details, room accommodations, welcome sections, area history, and hotel background. Integration with Google Places API enables real-world data population, automatically incorporating 27 actual local attractions to create accurate recommendation sections. The image generation component produces custom tour guides, introduction materials, cover photos, tour stops, scripts, and proprietary tour elements - all simultaneously. A secondary AI agent handles data formatting, converting all generated content into proper JSON format and automatically exporting to Firebase for immediate live frontend viewing. The entire pipeline from input to published demo is fully automated. Since implementation two weeks ago (as of July 8th), the system has enabled the onboarding of over 50 additional hotels, demonstrating significant business impact and scalability improvements for the company's growth strategy. *Note: Live demo unavailable due to proprietary use by internship company.*",
-    images: [],
+    images: ["FreeGuides.png"],
     technologies: [
       "GPT-4.0",
       "GPT 1 Image Generator",
@@ -117,7 +117,7 @@ const projects = [
       "An AI-powered app for daily at-home health tests, tracking results, and providing personalized recommendations and alerts for early detection of health changes.",
     longdescription:
       "Pocket Health is an innovative health monitoring application designed to empower users to track and manage their well-being from home. Building on the success of my previous skin cancer detector, I developed this project as a class assignment with the goal of enabling users to perform multiple at-home tests and receive actionable recommendations powered by AI. The app supports over 10 different vital system tests—including eyes, hearing, movement, heart, and more—using existing consumer devices. Users can take these tests daily, and the AI system saves results, analyzes trends, and proactively alerts users to any significant changes, both positive and negative. Advanced AI algorithms provide predictive analytics and pattern recognition, helping users catch potential health issues early and celebrate improvements. The vision for Pocket Health includes expanding compatibility to sync with devices like WHOOP bands and Apple Watches, increasing the breadth and depth of health data available for analysis. Developed in just one week, Pocket Health demonstrates the potential of AI to deliver real-time, personalized health insights and recommendations, making preventive care more accessible and actionable for everyone.",
-    images: [],
+    images: ["PocketHealth.png"],
     technologies: [
       "TensorFlow",
       "AI/ML",
@@ -136,7 +136,7 @@ const projects = [
       "A dynamic map view recommendation system for hotels, saving thousands in monthly costs and scaling to 100+ hotels and 20,000+ daily guests.",
     longdescription:
       "During my internship at FreeGuides, I was tasked with redesigning the hotel guest-facing recommendation system, which accounted for a fifth of the platform and was the most expensive feature due to repeated API calls. The old UI was poor and each recommendation cost the company around 50 cents, severely limiting scalability. I built a new map view recommendation system that fetches the Google Places API only once per user, caches results, and displays dynamic, filterable pins for satellite view, price, distance, and average rating. The system features a responsive map view for all devices, filter tags, and a modal for each recommendation showing images, name, distance, price, reviews, hours, service options, action buttons, and hotel insights. Hotels can select preferred options to boost their own and partner food and beverage offerings. My caching system ensures data is always up to date, automatically refetching and purging every 3 months, and saving data to Firebase for all users after the first guest views it. This solution eliminated the startup's scalability risk, cut costs by thousands monthly, and is now live in over 100 hotels, serving 20,000+ daily guests and 25,000+ rooms across 25+ brands. The CEO called it the most value-add feature of the platform.",
-    images: [],
+    images: ["Map.png"],
     technologies: [
       "React",
       "Firebase",
@@ -285,7 +285,7 @@ const projects = [
       "A large-scale gravity battery and water distribution system using Arduino, solar, Bluetooth, and 3D printing, designed for apocalypse survival and tested on a campus rooftop.",
     longdescription:
       "For my 'Hacking the Apocalypse' class, my group was tasked with designing a system to collect, store, distribute, and treat water, as well as power the system in a doomsday scenario. While my teammates built a 3D-printed water wheel, my main contribution was engineering a fully remote gravity battery and water tower system. The solution used solar panels to charge batteries, which then powered a pump to move water to the top of a tower. When battery levels dropped below 30%, solenoid valves triggered water to flow down through the waterwheel, reclaiming power and distributing water for use. The system featured 4 Arduino nanos with Bluetooth modules, 4 55-gallon barrels, a 60ft water pump, car battery, solenoid valves, and 100ft of PVC pipe. Bluetooth connections allowed for remote control of water flow, and the system ran independently for 7 days with no solar input, or up to 17 years with minimal sunlight. 3D printing enabled precise, watertight pipe fittings and adapters. The project was successfully tested on the roof of the Atlas building at CU Boulder, demonstrating the viability of scalable, scavenged-material batteries and remote water/power distribution in a survival scenario.\n\nWhile the water wheel broke during testing, calculations showed up to 85% power reclamation was possible. The project proved the effectiveness of 3D printing and remote control in doomsday engineering, and was praised for its scale and ingenuity.",
-    images: [],
+    images: ["GB1.jpg", "GB2.jpg", "GB3.jpg", "GB4.jpg", "GB5.jpg", "GB6.jpg", "GB7.jpg"],
     technologies: [
       "Arduino",
       "Bluetooth",
@@ -505,10 +505,10 @@ const projects = [
     shortdescription:
       "Extensive experience with leading AI models and their applications, including API integrations, AI model development, and TensorFlow training.",
     technologies: [
-      "ChatGPT 4.0, 1.0, 1.0 Mini",
-      "OpenAI Sora",
-      "DALL·E Image Generator",
-      "Claude (Sonnet and Claude Projects)",
+      "ChatGPT 5.0",
+      "OpenAI Sora 1/2",
+      "GPT Image Generator",
+      "Claude (Sonnet 4.5 and Claude Code)",
       "Google Gemini (Multimodal Image Trainer)",
       "TensorFlow",
       "OpenAI API",
