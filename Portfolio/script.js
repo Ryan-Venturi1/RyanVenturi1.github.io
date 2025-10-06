@@ -334,12 +334,12 @@ function updateProjectsGrid(projectsToShow) {
     return `
       <div class="project-card ${fullCoverClass}" onclick="openProjectModal(${project.id})">
         <div class="project-image">
-          ${isVideo ? 
+          ${firstImage ? (isVideo ?
             `<video src="${firstImage}" class="preview-video" muted loop>
               Your browser does not support the video tag.
              </video>` :
             `<div class="image-container" style="background-image: url('${firstImage}')"></div>`
-          }
+          ) : `<div class="image-container" style="background-color: #1a1a2e;"></div>`}
           <div class="project-overlay">
             <span class="view-project">View Details</span>
           </div>
@@ -374,9 +374,9 @@ function initializeAnimations() {
 
   // Hero animations
   const heroAnimations = [
-    { element: ".hero-title", y: 80, delay: 0 },
-    { element: ".hero-subtitle", y: 50, delay: 0.3 },
-    { element: ".cta-button", y: 30, delay: 0.6 }
+    { element: ".landing-title", y: 80, delay: 0 },
+    { element: ".landing-subtitle", y: 50, delay: 0.3 },
+    { element: ".view-work-btn", y: 30, delay: 0.6 }
   ];
 
   heroAnimations.forEach(({ element, y, delay }) => {
