@@ -110,6 +110,20 @@
   </div>
 </section>
 
+<!-- Industry Work Section -->
+<section id="industry-work" class="section" tabindex="-1">
+  <div class="section-container">
+    <h2 class="section-title">Industry Work</h2>
+    <div id="industry-modal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeIndustryModal()">×</button>
+        <div id="industry-modal-content"></div>
+      </div>
+    </div>
+    <div class="industry-projects-grid" id="industryProjectsGrid"></div>
+  </div>
+</section>
+
 <!-- Projects Section -->
 <section id="projects" class="section" tabindex="-1">
   <div class="section-container">
@@ -242,66 +256,75 @@
         <!-- Timeline - Spans 2 columns -->
         <div class="timeline-card">
           <h3 class="card-title">Experience Timeline</h3>
-          <div class="timeline">
-            <!-- Existing items -->
-              <div class="timeline-item">
-              <span class="timeline-dot"></span>
-              <div class="timeline-content">
-                <h4>A Lot Media AI Engineer</h4>
-                <div class="timeline-date">September 2025 - Present</div>
-                <p>Developed the most intuitive parking lot database, enhancing user experience and operational efficiency. Contributed by adding over 300,000 classified POI's to assist them in marketing sales to better targets to find clients.</p>
+          <div class="timeline-container">
+            <button class="timeline-nav-btn prev" onclick="scrollTimeline(-1)" aria-label="Previous experiences">
+              <i class="fas fa-chevron-up"></i>
+            </button>
+            <div class="timeline-wrapper">
+              <div class="timeline" id="experienceTimeline">
+                <div class="timeline-item">
+                  <span class="timeline-dot"></span>
+                  <div class="timeline-content">
+                    <h4>A Lot Media AI Engineer</h4>
+                    <div class="timeline-date">September 2025 - Present</div>
+                    <p>Developed the most intuitive parking lot database, enhancing user experience and operational efficiency. Contributed by adding over 300,000 classified POI's to assist them in marketing sales to better targets to find clients.</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-dot"></span>
+                  <div class="timeline-content">
+                    <h4>Harymonx AI Consultant</h4>
+                    <div class="timeline-date">September 2025 - Present</div>
+                    <p>Assists Harymonx with data development and AI integration across their network of partner companies.</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-dot"></span>
+                  <div class="timeline-content">
+                    <h4>FreeGuides AI Engineering Intern</h4>
+                    <div class="timeline-date">May 2025 - Present</div>
+                    <p>Contributed to the development of AI-driven tools and resources. These tools modernized over 50% of the existing codebase, cut down API costs by 85%, and contributed to a 50% increase in demos generated.</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-dot"></span>
+                  <div class="timeline-content">
+                    <h4>Pleiades Mental Health</h4>
+                    <div class="timeline-date">January 2024 - Present</div>
+                    <p>Founder and CIO, built an innovative mental health platform integrating AI and holistic therapy.</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-dot"></span>
+                  <div class="timeline-content">
+                    <h4>Zero Waste Outreach Team</h4>
+                    <div class="timeline-date">Summer 2023 - Present</div>
+                    <p>Directed digital strategy and organized campus events, reaching over 10,000 students annually.</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-dot"></span>
+                  <div class="timeline-content">
+                    <h4>Environmental Center Unhouse Assistance Program</h4>
+                    <div class="timeline-date">June 2024 - Present</div>
+                    <p>Launched a program that collected and distributed over 750 pounds of essential supplies to 1,400+ unhoused individuals.</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-dot"></span>
+                  <div class="timeline-content">
+                    <h4>University Memorial Center Board</h4>
+                    <div class="timeline-date">2024 - Present</div>
+                    <p>Contributed to financial, marketing, and operational strategies impacting over 7,500 daily visitors.</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="timeline-item">
-              <span class="timeline-dot"></span>
-              <div class="timeline-content">
-                <h4>Harymonx AI Consultant</h4>
-                <div class="timeline-date">September 2025 - Present</div>
-                <p>Assists Harymonx with data development and AI integration across their network of partner companies.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="timeline-dot"></span>
-              <div class="timeline-content">
-                <h4>FreeGuides AI Engineering Intern</h4>
-                <div class="timeline-date">May 2025 - Present</div>
-                <p>Contributed to the development of AI-driven tools and resources. These tools modernized over 50% of the existing codebase, cut down API costs by 85%, and contributed to a 50% increase in demos generated.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="timeline-dot"></span>
-              <div class="timeline-content">
-                <h4>Pleiades Mental Health</h4>
-                <div class="timeline-date">January 2024 - Present</div>
-                <p>Founder and CIO, built an innovative mental health platform integrating AI and holistic therapy.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="timeline-dot"></span>
-              <div class="timeline-content">
-                <h4>Zero Waste Outreach Team</h4>
-                <div class="timeline-date">Summer 2023 - Present</div>
-                <p>Directed digital strategy and organized campus events, reaching over 10,000 students annually.</p>
-              </div>
-            </div>
-            <!-- New timeline items -->
-            <div class="timeline-item">
-              <span class="timeline-dot"></span>
-              <div class="timeline-content">
-                <h4>Environmental Center Unhouse Assistance Program</h4>
-                <div class="timeline-date">June 2024 - Present</div>
-                <p>Launched a program that collected and distributed over 750 pounds of essential supplies to 1,400+ unhoused individuals.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="timeline-dot"></span>
-              <div class="timeline-content">
-                <h4>University Memorial Center Board</h4>
-                <div class="timeline-date">2024 - Present</div>
-                <p>Contributed to financial, marketing, and operational strategies impacting over 7,500 daily visitors.</p>
-              </div>
-            </div>
+            <button class="timeline-nav-btn next" onclick="scrollTimeline(1)" aria-label="Next experiences">
+              <i class="fas fa-chevron-down"></i>
+            </button>
           </div>
+          <div class="timeline-indicators" id="timelineIndicators"></div>
         </div>
       </div>
     </div>

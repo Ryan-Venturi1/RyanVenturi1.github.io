@@ -576,7 +576,99 @@ button {
     font-size: 3rem;
   }
 }
-/*  
+/*
+  ==========================================================================
+  4.5. INDUSTRY WORK
+  ==========================================================================
+*/
+.industry-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.industry-project-card {
+  background: var(--surface);
+  border-radius: 24px;
+  border: 2px solid var(--primary);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.industry-project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.3),
+              0 8px 20px -6px var(--shadow-color);
+}
+
+.industry-project-card .project-image {
+  height: 220px;
+}
+
+.industry-project-card .project-content {
+  padding: 1.5rem;
+}
+
+.industry-project-card .project-title {
+  font-size: 1.35rem;
+}
+
+.industry-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, var(--primary), #8b5cf6);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.industry-badge i {
+  font-size: 0.8rem;
+}
+
+.click-hint {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  border: 1px dashed var(--primary);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.industry-project-card:hover .click-hint {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+  transform: scale(1.02);
+}
+
+.click-hint i {
+  animation: point 1s ease-in-out infinite;
+}
+
+@keyframes point {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
+
+/*
   ==========================================================================
   5. PROJECTS
   ==========================================================================
@@ -813,7 +905,131 @@ button {
   }
 }
 
-/* Timeline */
+/* Timeline with Scrolling */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeline-wrapper {
+  width: 100%;
+  overflow: hidden;
+  max-height: 320px;
+  position: relative;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease;
+}
+
+.timeline-nav-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.timeline-nav-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.timeline-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.timeline-indicators {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.timeline-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.timeline-indicator.active {
+  background: var(--primary);
+  transform: scale(1.3);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 40px;
+  padding-bottom: 1.5rem;
+  min-height: 120px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: 3px solid var(--surface);
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 20px;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-content h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+}
+
+.timeline-date {
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Legacy styles for compatibility */
 .experience-timeline::before {
   content: '';
   position: absolute;
@@ -823,31 +1039,13 @@ button {
   width: 2px;
   background: var(--border);
 }
-.timeline-item {
-  position: relative;
-  margin-left: 40px;
-  margin-bottom: 2rem;
-}
-.timeline-item::before {
-  position: absolute;
-  top: 0;
-  left: -10px;
-  width: 20px;
-  height: 20px;
-  background: var(--primary);
-  border-radius: 50%;
-  border: 2px solid #fff;
-}
+
 .timeline-title {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
-.timeline-date {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
-}
+
 .timeline-description {
   font-size: 0.9rem;
   color: var(--text-secondary);
@@ -960,7 +1158,9 @@ button {
 */
 
 /* Modal Base */
-#project-modal {
+#project-modal,
+#industry-modal,
+#subproject-modal {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.75);
@@ -975,7 +1175,13 @@ button {
   padding: 1.5rem;
 }
 
-#project-modal.active {
+#subproject-modal {
+  z-index: 1100;
+}
+
+#project-modal.active,
+#industry-modal.active,
+#subproject-modal.active {
   opacity: 1;
   visibility: visible;
 }
@@ -994,7 +1200,9 @@ button {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-#project-modal.active .modal-content {
+#project-modal.active .modal-content,
+#industry-modal.active .modal-content,
+#subproject-modal.active .modal-content {
   transform: scale(1);
   opacity: 1;
 }
@@ -1076,6 +1284,12 @@ button {
   color: var(--text);
   margin: 0 0 0.5rem;
   padding: 1.5rem 1.5rem 0;
+}
+
+/* Override padding for subproject modal title */
+#subproject-modal .modal-content h2,
+#subproject-modal .subproject-modal-title {
+  padding: 0;
 }
 
 .modal-subtitle {
@@ -1194,15 +1408,112 @@ button {
   margin-top: 1rem;
 }
 
+.subprojects-section {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
+
+.subprojects-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.subprojects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
 .subproject-card {
-  background: var(--surface);
+  background: var(--surface-hover, rgba(0,0,0,0.05));
+  border: 1px solid var(--border);
   border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .subproject-card:hover {
   transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.15);
+}
+
+.subproject-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.subproject-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.subproject-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 4px;
+}
+
+.subproject-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.subproject-link:hover {
+  background: var(--primary-dark, #4f46e5);
+  transform: translateY(-2px);
+}
+
+/* Subproject Modal Content Styling */
+#subproject-modal-body {
+  padding: 1.5rem;
+}
+
+.subproject-modal-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
+.subproject-modal-desc {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.subproject-modal-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 /* Responsive Adjustments */

@@ -4,7 +4,7 @@
   1. GLOBAL VARS & PROJECT DATA
   ==========================================================================
 */
-import { projects, skills } from './projects.js';
+import { projects, industryProjects, skills } from './projects.js';
 
 
 let isDarkMode = localStorage.getItem('theme') === 'dark' || 
@@ -314,9 +314,11 @@ function closeSubprojectModal() {
   const modal = document.getElementById('subproject-modal');
   if (modal) {
     modal.classList.remove('active');
-    document.body.style.overflow = '';
+    // Don't reset overflow since industry modal is still open
   }
 }
+
+window.closeSubprojectModal = closeSubprojectModal;
 
 
 
@@ -537,9 +539,295 @@ function filterProjects(category) {
 
 
 
+// Render Industry Projects Grid
+function updateIndustryProjectsGrid() {
+  const grid = document.getElementById('industryProjectsGrid');
+  if (!grid) return;
+
+  grid.innerHTML = industryProjects.map(project => {
+    const firstImage = project.images && project.images.length > 0 ? project.images[0] : null;
+    const isVideo = firstImage && (firstImage.endsWith('.mov') || firstImage.endsWith('.mp4'));
+    const subprojectCount = project.subprojects ? project.subprojects.length : 0;
+
+    return `
+      <div class="industry-project-card" onclick="openIndustryModal(${project.id})">
+        ${subprojectCount > 0 ? `
+          <div class="industry-badge">
+            <i class="fas fa-layer-group"></i>
+            <span>${subprojectCount} Projects</span>
+          </div>
+        ` : ''}
+        <div class="project-image">
+          ${firstImage ? (isVideo ?
+            `<video src="${firstImage}" class="preview-video" muted loop>
+              Your browser does not support the video tag.
+             </video>` :
+            `<div class="image-container" style="background-image: url('${firstImage}')"></div>`
+          ) : `<div class="image-container" style="background-color: #1a1a2e;"></div>`}
+          <div class="project-overlay">
+            <span class="view-project"><i class="fas fa-expand-alt"></i> Explore Projects</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">${project.title}</h3>
+          <h4 class="project-subtitle">${project.subtitle || ''}</h4>
+          <p class="project-description">${project.shortdescription}</p>
+          <div class="project-tech">
+            ${project.technologies.slice(0, 3).map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+            ${project.technologies.length > 3 ? `<span class="tech-tag">+${project.technologies.length - 3}</span>` : ''}
+          </div>
+          ${subprojectCount > 0 ? `
+            <div class="click-hint">
+              <i class="fas fa-hand-pointer"></i> Click to see ${subprojectCount} individual projects
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// Open Industry Project Modal
+function openIndustryModal(projectId) {
+  const project = industryProjects.find(p => p.id === projectId);
+  const modal = document.getElementById('industry-modal');
+  const modalContent = document.getElementById('industry-modal-content');
+
+  if (!project || !modal) return;
+
+  scrollPosition = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollPosition}px`;
+  document.body.style.width = '100%';
+
+  const hasMultipleImages = project.images && project.images.length > 1;
+  const hasSubprojects = project.subprojects && project.subprojects.length > 0;
+
+  modalContent.innerHTML = `
+    <div class="modal-grid">
+      <div class="modal-image-section">
+        ${hasMultipleImages ? `
+          <div class="image-carousel">
+            ${project.images.map((img, index) => {
+              const isVideo = img.endsWith('.mov') || img.endsWith('.mp4');
+              return isVideo ?
+                `<video src="${img}" class="carousel-image ${index === 0 ? 'active' : ''}" controls>
+                   Your browser does not support the video tag.
+                 </video>` :
+                `<img src="${img}" alt="${project.title}" class="carousel-image ${index === 0 ? 'active' : ''}">`;
+            }).join('')}
+            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+            <div class="carousel-indicators">
+              ${project.images.map((_, index) =>
+                `<button class="carousel-indicator ${index === 0 ? 'active' : ''}" data-index="${index}"></button>`
+              ).join('')}
+            </div>
+          </div>
+        ` : project.images && project.images.length > 0 ? `
+          ${project.images[0].endsWith('.mov') || project.images[0].endsWith('.mp4') ?
+            `<video src="${project.images[0]}" class="modal-single-image" controls>
+               Your browser does not support the video tag.
+             </video>` :
+            `<img src="${project.images[0]}" alt="${project.title}" class="modal-single-image">`
+          }
+        ` : ''}
+      </div>
+      <div class="modal-details">
+        <h2 class="modal-title">${project.title}</h2>
+        ${project.subtitle ? `<h3 class="modal-subtitle">${project.subtitle}</h3>` : ''}
+        <p class="modal-description">${project.longdescription || project.shortdescription}</p>
+        <div class="modal-tech">
+          ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+        </div>
+        ${project.link ? `
+          <a href="${project.link}" target="_blank" class="modal-link">
+            <i class="fas fa-external-link-alt"></i> View Live Project
+          </a>
+        ` : ''}
+        ${hasSubprojects ? `
+          <div class="subprojects-section">
+            <h4 class="subprojects-title">Project Components</h4>
+            <div class="subprojects-grid">
+              ${project.subprojects.map((sub, index) => `
+                <div class="subproject-card" onclick="event.stopPropagation(); openIndustrySubprojectModal(${project.id}, ${index})">
+                  <h5 class="subproject-name">${sub.title}</h5>
+                  <p class="subproject-desc">${sub.description.substring(0, 100)}...</p>
+                  <div class="subproject-skills">
+                    ${sub.skills ? sub.skills.slice(0, 3).map(skill => `<span class="skill-tag">${skill}</span>`).join('') : ''}
+                  </div>
+                  ${sub.link ? `
+                    <a href="${sub.link}" target="_blank" class="subproject-link" onclick="event.stopPropagation();">
+                      <i class="fas fa-external-link-alt"></i> View Live
+                    </a>
+                  ` : ''}
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+      </div>
+    </div>
+  `;
+
+  modal.classList.add('active');
+  if (hasMultipleImages) {
+    initializeCarousel();
+  }
+}
+
+// Open Industry Subproject Modal
+function openIndustrySubprojectModal(projectId, subprojectIndex) {
+  const project = industryProjects.find(p => p.id === projectId);
+  if (!project || !project.subprojects || !project.subprojects[subprojectIndex]) return;
+
+  const subproject = project.subprojects[subprojectIndex];
+
+  let modal = document.getElementById('subproject-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'subproject-modal';
+    modal.innerHTML = `
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeSubprojectModal()">×</button>
+        <div id="subproject-modal-body" style="padding: 1.5rem;"></div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    // Click outside to close
+    modal.addEventListener('click', (e) => {
+      if (e.target.id === 'subproject-modal') {
+        closeSubprojectModal();
+      }
+    });
+  }
+
+  const modalBody = document.getElementById('subproject-modal-body');
+  modalBody.innerHTML = `
+    <h2 class="subproject-modal-title">${subproject.title}</h2>
+    <p class="subproject-modal-desc">${subproject.description}</p>
+    ${subproject.skills ? `
+      <div class="subproject-modal-tech">
+        ${subproject.skills.map(skill => `<span class="tech-tag">${skill}</span>`).join('')}
+      </div>
+    ` : ''}
+    ${subproject.link ? `
+      <a href="${subproject.link}" target="_blank" class="modal-link">
+        <i class="fas fa-external-link-alt"></i> View Live
+      </a>
+    ` : ''}
+  `;
+
+  modal.classList.add('active');
+}
+
+// Close Industry Modal
+function closeIndustryModal() {
+  const modal = document.getElementById('industry-modal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollPosition);
+  }
+}
+
+// Expose functions globally
+window.openIndustryModal = openIndustryModal;
+window.closeIndustryModal = closeIndustryModal;
+window.openIndustrySubprojectModal = openIndustrySubprojectModal;
+
+// Add click outside to close for industry modal
+document.addEventListener('DOMContentLoaded', () => {
+  const industryModal = document.getElementById('industry-modal');
+  if (industryModal) {
+    industryModal.addEventListener('click', (e) => {
+      if (e.target.id === 'industry-modal') {
+        closeIndustryModal();
+      }
+    });
+  }
+});
+
+// Timeline Scrolling Feature
+let timelineIndex = 0;
+const itemsToShow = 2;
+
+function initializeTimeline() {
+  const timeline = document.getElementById('experienceTimeline');
+  const indicators = document.getElementById('timelineIndicators');
+  if (!timeline || !indicators) return;
+
+  const items = timeline.querySelectorAll('.timeline-item');
+  const totalPages = Math.ceil(items.length / itemsToShow);
+
+  // Create indicators
+  indicators.innerHTML = '';
+  for (let i = 0; i < totalPages; i++) {
+    const indicator = document.createElement('button');
+    indicator.className = `timeline-indicator ${i === 0 ? 'active' : ''}`;
+    indicator.onclick = () => goToTimelinePage(i);
+    indicators.appendChild(indicator);
+  }
+
+  updateTimelineView();
+}
+
+function scrollTimeline(direction) {
+  const timeline = document.getElementById('experienceTimeline');
+  if (!timeline) return;
+
+  const items = timeline.querySelectorAll('.timeline-item');
+  const totalPages = Math.ceil(items.length / itemsToShow);
+
+  timelineIndex += direction;
+  if (timelineIndex < 0) timelineIndex = 0;
+  if (timelineIndex >= totalPages) timelineIndex = totalPages - 1;
+
+  updateTimelineView();
+}
+
+function goToTimelinePage(page) {
+  timelineIndex = page;
+  updateTimelineView();
+}
+
+function updateTimelineView() {
+  const timeline = document.getElementById('experienceTimeline');
+  const indicators = document.querySelectorAll('.timeline-indicator');
+  const prevBtn = document.querySelector('.timeline-nav-btn.prev');
+  const nextBtn = document.querySelector('.timeline-nav-btn.next');
+
+  if (!timeline) return;
+
+  const items = timeline.querySelectorAll('.timeline-item');
+  const totalPages = Math.ceil(items.length / itemsToShow);
+  const itemHeight = items[0] ? items[0].offsetHeight + 24 : 140;
+
+  // Scroll to the correct position
+  const offset = timelineIndex * itemsToShow * itemHeight;
+  timeline.style.transform = `translateY(-${offset}px)`;
+
+  // Update indicators
+  indicators.forEach((ind, i) => {
+    ind.classList.toggle('active', i === timelineIndex);
+  });
+
+  // Update button states
+  if (prevBtn) prevBtn.disabled = timelineIndex === 0;
+  if (nextBtn) nextBtn.disabled = timelineIndex >= totalPages - 1;
+}
+
+window.scrollTimeline = scrollTimeline;
+window.goToTimelinePage = goToTimelinePage;
+
 // Initialize projects on page load
 document.addEventListener('DOMContentLoaded', () => {
   updateProjectsGrid(projects);
+  updateIndustryProjectsGrid();
+  initializeTimeline();
 });
 
 function initializeObserver() {

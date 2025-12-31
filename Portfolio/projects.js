@@ -90,27 +90,6 @@ const projects = [
 
   {
     id: 5,
-    title: "Agentic AI Hotel Demo Generator",
-    subtitle: "Agentic multi-modal enabled AI Business Automation System",
-    shortdescription:
-      "An automated demo creation system that reduced hotel demo production time from 2.5 hours to 20 minutes, powered by multiple AI models and enabling 5x faster business scaling.",
-    longdescription:
-      "A transformative business solution developed during my internship at FreeGuides that addressed the company's critical growth bottleneck: demo creation. Through analysis, I identified that providing hotel demos resulted in an 85% sign-up rate within the first week, but the 2.5-hour creation time severely limited scalability. My AI-powered demo generation system revolutionized this process, reducing creation time to just 20 minutes - a 750% efficiency improvement that enabled 5x more demos per time period. The system leverages a sophisticated multi-AI architecture including GPT-4.0, DALL-E for image generation, and Google's Gemini 2.5 Flash and Gemini 1.5 Pro/Flash models. The streamlined input process requires only basic hotel information: name, location links, city, brand requirements, and on-property restaurants. From this minimal input, the system generates comprehensive hotel compendiums including check-in/check-out times, WiFi details, room accommodations, welcome sections, area history, and hotel background. Integration with Google Places API enables real-world data population, automatically incorporating 27 actual local attractions to create accurate recommendation sections. The image generation component produces custom tour guides, introduction materials, cover photos, tour stops, scripts, and proprietary tour elements - all simultaneously. A secondary AI agent handles data formatting, converting all generated content into proper JSON format and automatically exporting to Firebase for immediate live frontend viewing. The entire pipeline from input to published demo is fully automated. Since implementation two weeks ago (as of July 8th), the system has enabled the onboarding of over 50 additional hotels, demonstrating significant business impact and scalability improvements for the company's growth strategy. *Note: Live demo unavailable due to proprietary use by internship company.*",
-    images: ["FreeGuides.png"],
-    technologies: [
-      "GPT-4.0",
-      "GPT 1 Image Generator",
-      "Google Gemini",
-      "Google Places API",
-      "Firebase",
-      "JavaScript",
-      "JSON",
-      "AI Automation"
-    ]
-  },
-
-  {
-    id: 6,
     title: "Pocket Health – AI At-Home Health Monitoring",
     subtitle: "AI-Powered Daily Health Tracking App",
     shortdescription:
@@ -129,156 +108,7 @@ const projects = [
   },
 
   {
-    id: 7,
-    title: "FreeGuides Map View Recommendation System",
-    subtitle: "Scalable, Cost-Saving Hotel Recommendations Platform",
-    shortdescription:
-      "A dynamic map view recommendation system for hotels, saving thousands in monthly costs and scaling to 100+ hotels and 20,000+ daily guests.",
-    longdescription:
-      "During my internship at FreeGuides, I was tasked with redesigning the hotel guest-facing recommendation system, which accounted for a fifth of the platform and was the most expensive feature due to repeated API calls. The old UI was poor and each recommendation cost the company around 50 cents, severely limiting scalability. I built a new map view recommendation system that fetches the Google Places API only once per user, caches results, and displays dynamic, filterable pins for satellite view, price, distance, and average rating. The system features a responsive map view for all devices, filter tags, and a modal for each recommendation showing images, name, distance, price, reviews, hours, service options, action buttons, and hotel insights. Hotels can select preferred options to boost their own and partner food and beverage offerings. My caching system ensures data is always up to date, automatically refetching and purging every 3 months, and saving data to Firebase for all users after the first guest views it. This solution eliminated the startup's scalability risk, cut costs by thousands monthly, and is now live in over 100 hotels, serving 20,000+ daily guests and 25,000+ rooms across 25+ brands. The CEO called it the most value-add feature of the platform.",
-    images: ["Map.png"],
-    technologies: [
-      "React",
-      "Firebase",
-      "Google Places API",
-      "JavaScript",
-      "Map View",
-      "Caching",
-      "UI/UX",
-      "Development",
-      "RealWorld"
-    ],
-    link: "https://profile.freeguides.com/fZSetuEu14h1IBw9QWm5UKhIaC22"
-  },
-
-  {
-    id: 8,
-    title: "Pleiades Mental Health",
-    subtitle: "AI-Powered Mental Health Platform",
-    shortdescription:
-      "Pleiades Mental Health is the leading preventive mental health care platform that helps users receive better therapy and enables therapists to provide superior care.",
-    longdescription:
-      "As the founder of Pleiades Mental Health, I developed a state-of-the-art preventive mental health platform. Our mission is to onboard clients at the first sign of mental health symptoms, providing treatment and support while teaching effective coping strategies. In addition to a comprehensive suite of self-help and community tools, our platform saves therapists time, streamlines operations, and offers data-driven insights to track client progress and reduce burnout. Click below to learn about all the platform offerings, including a comprehensive analytics dashboard that leverages machine learning for predictive insights and real-time data visualization.",
-    images: [
-      "pleiades.png",
-      "overview.png",
-      "pleiadeshome.png",
-      "signin.png"
-    ],
-    technologies: [
-      "React",
-      "TensorFlow",
-      "Node.js",
-      "JavaScript",
-      "CSS",
-      "HTML",
-      "firebase",
-      "aws",
-      "mySQL",
-      "php",
-      "python",
-      "Figma"
-    ],
-    subprojects: [
-      { 
-        title: "Modality Matching", 
-        description:
-          "Modality Matching connects users with therapists who specialize in the therapy styles that best suit their individual needs. Leveraging modern JavaScript and AI techniques, the system delivers personalized matches based on therapeutic modalities.",
-        skills: ["JavaScript", "AI", "Modality"],
-        link: "https://pleiadesmh.com/mainwebsite/modalitymatching.html" 
-      },
-      { 
-        title: "Personality Matching", 
-        description:
-          "Personality Matching allows users to complete a Big Five personality assessment. Based on their results, the system matches them with therapists whose personality profiles align, ensuring an optimal therapeutic relationship.",
-        skills: ["JavaScript", "CSS", "AI"],
-        link: "https://pleiadesmh.com/mainwebsite/personalitytest.html" 
-      },
-      { 
-        title: "Symptom Based Matching", 
-        description:
-          "Symptom Based Matching enables users to complete a comprehensive mental health screener to identify conditions such as anxiety, depression, BPD, addiction, and eating disorders. Once the symptoms are analyzed, the platform connects users with therapists specialized in addressing their specific needs.",
-        skills: ["JavaScript", "AI", "Mental Health"],
-        link: "https://pleiadesmh.com/mainwebsite/test.html" 
-      },
-      { 
-        title: "Main Website", 
-        description:
-          "The main website, built entirely from scratch, provides essential information for users and therapists. It clearly communicates our mission, services, and values through engaging modern web design.",
-        skills: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-        link: "https://pleiadesmh.com/mainwebsite/home.html" 
-      },
-      { 
-        title: "Functioning Sign In and Sign Ups", 
-        description:
-          "This project implements a streamlined sign-in and sign-up system that enables therapists and users to securely create accounts. It supports both Google authentication and traditional registration methods, ensuring accurate user information and fraud prevention.",
-        skills: ["JavaScript", "Authentication", "Google OAuth", "Security", "Backend Development"],
-        link: "https://pleiadesmh.com/Authentication/sign-up-client.html" 
-      },
-      { 
-        title: "Joke API", 
-        description:
-          "The Joke API integration displays a daily joke on both client and therapist dashboards, offering users a light-hearted moment as they navigate the platform.",
-        skills: ["JavaScript", "API Integration", "REST"],
-        link: "https://pleiadesmh.com/ClientSide/overview.html" 
-      },
-      { 
-        title: "Compatibility Matching", 
-        description:
-          "Compatibility Matching enables users to enter basic details—such as interests, location, insurance type, and price range—which are analyzed against our extensive therapist database. The system then returns the top ten therapists ranked by a compatibility score out of 100%.",
-        skills: ["JavaScript", "Data Matching", "Algorithm Design", "API Integration"],
-        link: "https://pleiadesmh.com/ClientSide/viewcompatibletherapists.html" 
-      },
-      { 
-        title: "Daily Telehealth", 
-        description:
-          "Daily Telehealth streamlines online therapy sessions by allowing therapists to set up secure, HIPAA-compliant virtual appointments. Clients can quickly join automated telehealth rooms without any setup hassle, ensuring a smooth and safe experience.",
-        skills: ["JavaScript", "Video Conferencing", "Telehealth", "HIPAA Compliance"],
-      },
-      { 
-        title: "Scheduling System", 
-        description:
-          "The Scheduling System enables users to book appointments with therapists for in-person, hybrid, or online sessions. Therapists can integrate their Google or Outlook calendars and manage their availability using a drag-and-drop interface that automatically generates optimal appointment slots with built-in breaks.",
-        skills: ["JavaScript", "Calendar Integration", "Drag-and-Drop UI", "Scheduling Algorithms"],
-      },
-      { 
-        title: "Encrypted Messaging System", 
-        description:
-          "This encrypted messaging system enables secure communication between clients and therapists. It supports the exchange of messages, progress updates, and screening responses while keeping all sensitive information confidential.",
-        skills: ["JavaScript", "Encryption", "Messaging", "Security"],
-      },
-      { 
-        title: "Screeners and Progress Checks", 
-        description:
-          "Therapists can easily send progress checks and screening questionnaires to clients with just a few clicks. The system also allows the creation of custom assessments, the use of pre-designed templates, or access to a shared marketplace of templates for all therapists.",
-        skills: ["JavaScript", "UI/UX", "Survey Tools", "Template Management"],
-      },
-      { 
-        title: "Notes", 
-        description:
-          "The tailored notes system enables therapists to create both templated and custom notes for each client. These notes are automatically saved and organized under the user's profile, simplifying insurance claims and administrative tasks.",
-        skills: ["JavaScript", "Notes Management", "UI/UX", "Data Storage"],
-      },
-      { 
-        title: "Goodnews Area", 
-        description:
-          "The Goodnews Area uses a built-in RSS reader from the Goodnews Network to display the top five uplifting headlines on the main dashboard, providing users with daily inspiration and positive news.",
-        skills: ["JavaScript", "RSS Integration", "API Integration", "UI/UX"],
-        link: "https://pleiadesmh.com/ClientSide/overview.html" 
-      },
-      { 
-        title: "Weather API", 
-        description:
-          "The Weather API integration, available on both client and therapist dashboards, displays current weather information in Fahrenheit or Celsius, helping users plan their day with real-time updates.",
-        skills: ["JavaScript", "API Integration", "Weather Data", "Responsive Design"],
-        link: "https://pleiadesmh.com/ClientSide/overview.html" 
-      }
-    ],
-    link: "https://pleiadesmh.com/mainwebsite/home.html"
-  },
-
-  {
-    id: 9,
+    id: 6,
     title: "Apocalypse Water & Power Gravity Battery",
     subtitle: "Fully Remote Gravity Battery and Water Distribution System",
     shortdescription:
@@ -516,31 +346,137 @@ const projects = [
     ]
   },
 
+]
+
+const industryProjects = [
   {
-    id: 21,
-    title: "FreeGuides Encrypted Group Chat System",
-    subtitle: "Secure Guest Communication Platform for Hospitality",
+    id: 101,
+    title: "Pleiades Mental Health",
+    subtitle: "AI-Powered Mental Health Platform",
     shortdescription:
-      "Architected and deployed an end-to-end encrypted group chat system enabling secure guest communication across 200+ hostels and hotels worldwide.",
+      "Pleiades Mental Health is the leading preventive mental health care platform that helps users receive better therapy and enables therapists to provide superior care.",
     longdescription:
-      "During my internship at FreeGuides, I identified a critical gap in how hotel guests communicate with each other and with property staff. I designed and built a fully encrypted group chat system from the ground up, specifically tailored for the hospitality industry. The platform enables guests to safely connect, share recommendations, coordinate activities, and build community; all within a secure, privacy-first environment. Beyond basic messaging, I developed a comprehensive community reporting system per FreeGuides' specifications, allowing guests and staff to flag inappropriate content while maintaining user anonymity. After extensive iteration and rigorous testing across multiple properties, the system has been successfully deployed to over 200 hostels and hotels globally. The platform now facilitates thousands of daily conversations, fostering genuine connections between travelers while giving property managers peace of mind through robust security protocols and community guidelines enforcement. This project demonstrates the intersection of secure communication infrastructure, user experience design, and scalable deployment in the hospitality technology space.",
-    images: ["FreeGuides.png"],
+      "As the founder of Pleiades Mental Health, I developed a state-of-the-art preventive mental health platform. Our mission is to onboard clients at the first sign of mental health symptoms, providing treatment and support while teaching effective coping strategies. In addition to a comprehensive suite of self-help and community tools, our platform saves therapists time, streamlines operations, and offers data-driven insights to track client progress and reduce burnout. Click below to learn about all the platform offerings, including a comprehensive analytics dashboard that leverages machine learning for predictive insights and real-time data visualization.",
+    images: [
+      "pleiades.png",
+      "overview.png",
+      "pleiadeshome.png",
+      "signin.png"
+    ],
     technologies: [
-      "End-to-End Encryption",
-      "Real-Time Messaging",
-      "Firebase",
-      "JavaScript",
       "React",
+      "TensorFlow",
       "Node.js",
-      "Content Moderation",
-      "Community Systems",
-      "Development",
-      "RealWorld"
-    ]
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "firebase",
+      "aws",
+      "mySQL",
+      "php",
+      "python",
+      "Figma"
+    ],
+    subprojects: [
+      {
+        title: "Modality Matching",
+        description:
+          "Modality Matching connects users with therapists who specialize in the therapy styles that best suit their individual needs. Leveraging modern JavaScript and AI techniques, the system delivers personalized matches based on therapeutic modalities.",
+        skills: ["JavaScript", "AI", "Modality"],
+        link: "https://pleiadesmh.com/mainwebsite/modalitymatching.html"
+      },
+      {
+        title: "Personality Matching",
+        description:
+          "Personality Matching allows users to complete a Big Five personality assessment. Based on their results, the system matches them with therapists whose personality profiles align, ensuring an optimal therapeutic relationship.",
+        skills: ["JavaScript", "CSS", "AI"],
+        link: "https://pleiadesmh.com/mainwebsite/personalitytest.html"
+      },
+      {
+        title: "Symptom Based Matching",
+        description:
+          "Symptom Based Matching enables users to complete a comprehensive mental health screener to identify conditions such as anxiety, depression, BPD, addiction, and eating disorders. Once the symptoms are analyzed, the platform connects users with therapists specialized in addressing their specific needs.",
+        skills: ["JavaScript", "AI", "Mental Health"],
+        link: "https://pleiadesmh.com/mainwebsite/test.html"
+      },
+      {
+        title: "Main Website",
+        description:
+          "The main website, built entirely from scratch, provides essential information for users and therapists. It clearly communicates our mission, services, and values through engaging modern web design.",
+        skills: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+        link: "https://pleiadesmh.com/mainwebsite/home.html"
+      },
+      {
+        title: "Functioning Sign In and Sign Ups",
+        description:
+          "This project implements a streamlined sign-in and sign-up system that enables therapists and users to securely create accounts. It supports both Google authentication and traditional registration methods, ensuring accurate user information and fraud prevention.",
+        skills: ["JavaScript", "Authentication", "Google OAuth", "Security", "Backend Development"],
+        link: "https://pleiadesmh.com/Authentication/sign-up-client.html"
+      },
+      {
+        title: "Joke API",
+        description:
+          "The Joke API integration displays a daily joke on both client and therapist dashboards, offering users a light-hearted moment as they navigate the platform.",
+        skills: ["JavaScript", "API Integration", "REST"],
+        link: "https://pleiadesmh.com/ClientSide/overview.html"
+      },
+      {
+        title: "Compatibility Matching",
+        description:
+          "Compatibility Matching enables users to enter basic details, such as interests, location, insurance type, and price range, which are analyzed against our extensive therapist database. The system then returns the top ten therapists ranked by a compatibility score out of 100%.",
+        skills: ["JavaScript", "Data Matching", "Algorithm Design", "API Integration"],
+        link: "https://pleiadesmh.com/ClientSide/viewcompatibletherapists.html"
+      },
+      {
+        title: "Daily Telehealth",
+        description:
+          "Daily Telehealth streamlines online therapy sessions by allowing therapists to set up secure, HIPAA-compliant virtual appointments. Clients can quickly join automated telehealth rooms without any setup hassle, ensuring a smooth and safe experience.",
+        skills: ["JavaScript", "Video Conferencing", "Telehealth", "HIPAA Compliance"],
+      },
+      {
+        title: "Scheduling System",
+        description:
+          "The Scheduling System enables users to book appointments with therapists for in-person, hybrid, or online sessions. Therapists can integrate their Google or Outlook calendars and manage their availability using a drag-and-drop interface that automatically generates optimal appointment slots with built-in breaks.",
+        skills: ["JavaScript", "Calendar Integration", "Drag-and-Drop UI", "Scheduling Algorithms"],
+      },
+      {
+        title: "Encrypted Messaging System",
+        description:
+          "This encrypted messaging system enables secure communication between clients and therapists. It supports the exchange of messages, progress updates, and screening responses while keeping all sensitive information confidential.",
+        skills: ["JavaScript", "Encryption", "Messaging", "Security"],
+      },
+      {
+        title: "Screeners and Progress Checks",
+        description:
+          "Therapists can easily send progress checks and screening questionnaires to clients with just a few clicks. The system also allows the creation of custom assessments, the use of pre-designed templates, or access to a shared marketplace of templates for all therapists.",
+        skills: ["JavaScript", "UI/UX", "Survey Tools", "Template Management"],
+      },
+      {
+        title: "Notes",
+        description:
+          "The tailored notes system enables therapists to create both templated and custom notes for each client. These notes are automatically saved and organized under the user's profile, simplifying insurance claims and administrative tasks.",
+        skills: ["JavaScript", "Notes Management", "UI/UX", "Data Storage"],
+      },
+      {
+        title: "Goodnews Area",
+        description:
+          "The Goodnews Area uses a built-in RSS reader from the Goodnews Network to display the top five uplifting headlines on the main dashboard, providing users with daily inspiration and positive news.",
+        skills: ["JavaScript", "RSS Integration", "API Integration", "UI/UX"],
+        link: "https://pleiadesmh.com/ClientSide/overview.html"
+      },
+      {
+        title: "Weather API",
+        description:
+          "The Weather API integration, available on both client and therapist dashboards, displays current weather information in Fahrenheit or Celsius, helping users plan their day with real-time updates.",
+        skills: ["JavaScript", "API Integration", "Weather Data", "Responsive Design"],
+        link: "https://pleiadesmh.com/ClientSide/overview.html"
+      }
+    ],
+    link: "https://pleiadesmh.com/mainwebsite/home.html"
   },
 
   {
-    id: 22,
+    id: 102,
     title: "A Lot Media AI Engineering Consulting",
     subtitle: "Revolutionary Automated Sales Proposal Pipeline",
     shortdescription:
@@ -601,8 +537,55 @@ const projects = [
   },
 
   {
-    id: 23,
-    title: "JWM1 Open Source Robotic Platform",
+    id: 103,
+    title: "FreeGuides AI Engineering",
+    subtitle: "Hospitality Platform AI Infrastructure",
+    shortdescription:
+      "Developed three major AI-driven systems for FreeGuides: an automated demo generator, a cost-saving map recommendation system, and an encrypted group chat platform, now deployed across 200+ hotels worldwide.",
+    longdescription:
+      "During my internship at FreeGuides, I was responsible for building and deploying multiple AI-powered systems that transformed the company's hospitality platform. My work modernized over 50% of the existing codebase, cut API costs by 85%, and contributed to a 50% increase in demos generated. These systems now serve 20,000+ daily guests across 100+ hotels and 25+ brands, demonstrating significant real-world impact and scalability.",
+    images: ["FreeGuides.png"],
+    technologies: [
+      "GPT-4.0",
+      "Google Gemini",
+      "Firebase",
+      "React",
+      "JavaScript",
+      "Google Places API",
+      "End-to-End Encryption",
+      "AI Automation",
+      "Development",
+      "RealWorld"
+    ],
+    subprojects: [
+      {
+        title: "Agentic AI Hotel Demo Generator",
+        description:
+          "A transformative business solution that addressed FreeGuides' critical growth bottleneck: demo creation. Through analysis, I identified that providing hotel demos resulted in an 85% sign-up rate within the first week, but the 2.5-hour creation time severely limited scalability. My AI-powered demo generation system revolutionized this process, reducing creation time to just 20 minutes, a 750% efficiency improvement that enabled 5x more demos per time period. The system leverages a sophisticated multi-AI architecture including GPT-4.0, DALL-E for image generation, and Google's Gemini 2.5 Flash and Gemini 1.5 Pro/Flash models. From minimal input (hotel name, location, city, brand requirements, and restaurants), the system generates comprehensive hotel compendiums including check-in/check-out times, WiFi details, room accommodations, welcome sections, area history, and hotel background. Integration with Google Places API enables real-world data population, automatically incorporating 27 actual local attractions. A secondary AI agent handles data formatting, converting all generated content into proper JSON format and automatically exporting to Firebase for immediate live frontend viewing.",
+        skills: ["GPT-4.0", "DALL-E", "Google Gemini", "Firebase", "AI Automation"],
+        images: ["FreeGuides.png"]
+      },
+      {
+        title: "Map View Recommendation System",
+        description:
+          "Redesigned the hotel guest-facing recommendation system, which accounted for a fifth of the platform and was the most expensive feature due to repeated API calls. The old UI was poor and each recommendation cost the company around 50 cents, severely limiting scalability. I built a new map view recommendation system that fetches the Google Places API only once per user, caches results, and displays dynamic, filterable pins for satellite view, price, distance, and average rating. The system features a responsive map view for all devices, filter tags, and a modal for each recommendation showing images, name, distance, price, reviews, hours, service options, action buttons, and hotel insights. My caching system ensures data is always up to date, automatically refetching and purging every 3 months, and saving data to Firebase for all users after the first guest views it. This solution eliminated the startup's scalability risk, cut costs by thousands monthly, and is now live in over 100 hotels, serving 20,000+ daily guests and 25,000+ rooms across 25+ brands. The CEO called it the most value-add feature of the platform.",
+        skills: ["React", "Firebase", "Google Places API", "Caching", "UI/UX"],
+        link: "https://profile.freeguides.com/fZSetuEu14h1IBw9QWm5UKhIaC22",
+        images: ["Map.png"]
+      },
+      {
+        title: "Encrypted Group Chat System",
+        description:
+          "Identified a critical gap in how hotel guests communicate with each other and with property staff. I designed and built a fully encrypted group chat system from the ground up, specifically tailored for the hospitality industry. The platform enables guests to safely connect, share recommendations, coordinate activities, and build community; all within a secure, privacy-first environment. Beyond basic messaging, I developed a comprehensive community reporting system per FreeGuides' specifications, allowing guests and staff to flag inappropriate content while maintaining user anonymity. The moderation pipeline ensures swift response times while protecting guest privacy. After extensive iteration and rigorous testing across multiple properties, the system has been successfully deployed to over 200 hostels and hotels globally. The platform now facilitates thousands of daily conversations, fostering genuine connections between travelers while giving property managers peace of mind through robust security protocols and community guidelines enforcement.",
+        skills: ["End-to-End Encryption", "Real-Time Messaging", "Firebase", "Content Moderation"],
+        images: ["FreeGuides.png"]
+      }
+    ]
+  },
+
+  {
+    id: 104,
+    title: "JWM1 Open Source Robotic Platform(Current Project)",
     subtitle: "Autonomous Delivery Robot Built in Partnership with EndOverdose",
     shortdescription:
       "Currently developing an open-source autonomous delivery robot using NVIDIA Omniverse simulation, custom-trained vision models, LIDAR, Cameras, Ultra Sonic Sensors, and Gemini-powered reinforcement learning. Version one is being devloped with support From End Overdose to create a robot that repsonds to overdose 5 mintues quicker then EMS",
@@ -827,4 +810,4 @@ const projects = [
     }
   ];
 
-  export { projects, skills };
+  export { projects, industryProjects, skills };
