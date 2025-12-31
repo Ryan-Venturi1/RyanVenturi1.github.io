@@ -240,24 +240,22 @@ function createModalContent(project) {
     linksHTML = `<a href="${project.link}" class="modal-link" target="_blank" rel="noopener">Visit Project</a>`;
   }
 
-  // Return the final modal content HTML
+  // Return the final modal content HTML (without wrapper - goes inside existing modal-content div)
   return `
-    <div class="modal-content">
-      <h2>${project.title}</h2>
-      ${project.subtitle ? `<h3 class="modal-subtitle">${project.subtitle}</h3>` : ''}
-      ${carouselHTML}
-      <div class="modal-description">
-        <p class="short-desc">${project.shortdescription}</p>
-        <p class="long-desc">${project.longdescription || ''}</p>
-      </div>
-      <div class="modal-tech">
-        ${project.technologies ? project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('') : ''}
-      </div>
-      <div class="modal-links">
-        ${linksHTML}
-      </div>
-      ${subprojectsHTML}
+    <h2>${project.title}</h2>
+    ${project.subtitle ? `<h3 class="modal-subtitle">${project.subtitle}</h3>` : ''}
+    ${carouselHTML}
+    <div class="modal-description">
+      <p class="short-desc">${project.shortdescription}</p>
+      <p class="long-desc">${project.longdescription || ''}</p>
     </div>
+    <div class="modal-tech">
+      ${project.technologies ? project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('') : ''}
+    </div>
+    <div class="modal-links">
+      ${linksHTML}
+    </div>
+    ${subprojectsHTML}
   `;
 }
 function attachSubprojectListeners() {
@@ -548,6 +546,8 @@ function updateIndustryProjectsGrid() {
     const firstImage = project.images && project.images.length > 0 ? project.images[0] : null;
     const isVideo = firstImage && (firstImage.endsWith('.mov') || firstImage.endsWith('.mp4'));
     const subprojectCount = project.subprojects ? project.subprojects.length : 0;
+    // White background for FreeGuides (id 103)
+    const bgColor = project.id === 103 ? '#ffffff' : '#000';
 
     return `
       <div class="industry-project-card" onclick="openIndustryModal(${project.id})">
@@ -562,7 +562,7 @@ function updateIndustryProjectsGrid() {
             `<video src="${firstImage}" class="preview-video" muted loop>
               Your browser does not support the video tag.
              </video>` :
-            `<div class="image-container" style="background-image: url('${firstImage}')"></div>`
+            `<div class="image-container" style="background-image: url('${firstImage}'); background-color: ${bgColor};"></div>`
           ) : `<div class="image-container" style="background-color: #1a1a2e;"></div>`}
           <div class="project-overlay">
             <span class="view-project"><i class="fas fa-expand-alt"></i> Explore Projects</span>
@@ -641,7 +641,7 @@ function openIndustryModal(projectId) {
           ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
         </div>
         ${project.link ? `
-          <a href="${project.link}" target="_blank" class="modal-link">
+          <a href="${project.link}" target="_blank" class="modal-link" style="margin-top: 1rem; margin-bottom: 1rem; margin-left: 1.5rem;">
             <i class="fas fa-external-link-alt"></i> View Live Project
           </a>
         ` : ''}
@@ -753,7 +753,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Timeline Scrolling Feature
 let timelineIndex = 0;
-const itemsToShow = 2;
+const itemsToShow = 3;
 
 function initializeTimeline() {
   const timeline = document.getElementById('experienceTimeline');
@@ -804,11 +804,18 @@ function updateTimelineView() {
 
   const items = timeline.querySelectorAll('.timeline-item');
   const totalPages = Math.ceil(items.length / itemsToShow);
-  const itemHeight = items[0] ? items[0].offsetHeight + 24 : 140;
+
+  // Calculate actual height of items to scroll
+  let scrollHeight = 0;
+  const startIndex = timelineIndex * itemsToShow;
+  for (let i = 0; i < startIndex && i < items.length; i++) {
+    const itemStyle = window.getComputedStyle(items[i]);
+    const marginBottom = parseFloat(itemStyle.marginBottom) || 0;
+    scrollHeight += items[i].offsetHeight + marginBottom;
+  }
 
   // Scroll to the correct position
-  const offset = timelineIndex * itemsToShow * itemHeight;
-  timeline.style.transform = `translateY(-${offset}px)`;
+  timeline.style.transform = `translateY(-${scrollHeight}px)`;
 
   // Update indicators
   indicators.forEach((ind, i) => {
@@ -828,7 +835,140 @@ document.addEventListener('DOMContentLoaded', () => {
   updateProjectsGrid(projects);
   updateIndustryProjectsGrid();
   initializeTimeline();
+  initializeScrollProgress();
+  initializeSectionReveal();
+  initializeParallaxEffects();
+  initializeTypingAnimation();
 });
+
+// Typing Animation for Hero Section
+function initializeTypingAnimation() {
+  const typingElement = document.getElementById('typingText');
+  if (!typingElement) return;
+
+  const words = ['Entrepreneur', 'Student', 'Engineer', 'Creative'];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let isPaused = false;
+
+  const typeSpeed = 80;
+  const deleteSpeed = 40;
+  const pauseDuration = 1500;
+
+  function type() {
+    const currentWord = words[wordIndex];
+
+    if (isPaused) {
+      setTimeout(type, pauseDuration);
+      isPaused = false;
+      isDeleting = true;
+      return;
+    }
+
+    if (isDeleting) {
+      // Deleting characters
+      typingElement.textContent = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 500);
+        return;
+      }
+    } else {
+      // Typing characters
+      typingElement.textContent = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+
+      if (charIndex === currentWord.length) {
+        isPaused = true;
+        setTimeout(type, pauseDuration);
+        return;
+      }
+    }
+
+    setTimeout(type, isDeleting ? deleteSpeed : typeSpeed);
+  }
+
+  // Start after a short delay
+  setTimeout(type, 1000);
+}
+
+// Scroll Progress Indicator
+function initializeScrollProgress() {
+  // Create scroll progress bar
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  progressBar.style.width = '0%';
+  document.body.prepend(progressBar);
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    progressBar.style.width = `${scrollPercent}%`;
+  });
+}
+
+// Section Reveal on Scroll
+function initializeSectionReveal() {
+  const sections = document.querySelectorAll('.section');
+
+  // Initially make all sections visible for the first load
+  sections.forEach(section => {
+    section.classList.add('visible');
+  });
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    }
+  );
+
+  sections.forEach(section => revealObserver.observe(section));
+}
+
+// Parallax Effects for Visual Interest
+function initializeParallaxEffects() {
+  const landingPhoto = document.querySelector('.landing-photo');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    // Subtle parallax on landing photo
+    if (landingPhoto && scrollY < window.innerHeight) {
+      landingPhoto.style.transform = `translateY(${scrollY * 0.1}px)`;
+    }
+  });
+}
+
+// Smooth counter animation for metrics
+function animateCounter(element, target, duration = 2000) {
+  let start = 0;
+  const increment = target / (duration / 16);
+
+  function updateCounter() {
+    start += increment;
+    if (start < target) {
+      element.textContent = Math.floor(start).toLocaleString();
+      requestAnimationFrame(updateCounter);
+    } else {
+      element.textContent = target.toLocaleString();
+    }
+  }
+
+  updateCounter();
+}
 
 function initializeObserver() {
   const observer = new IntersectionObserver(

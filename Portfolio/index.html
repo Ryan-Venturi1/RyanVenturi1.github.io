@@ -91,13 +91,13 @@
   <div class="landing-container">
     <div class="landing-left">
       <h1 class="landing-title">
-        <span class="gradient-text">Entrepreneur</span>
-        <span class="divider">/</span>
-        <span class="gradient-text">Student</span>
+        <span class="typing-container">
+          <span class="gradient-text typing-text" id="typingText">Entrepreneur</span>
+          <span class="typing-cursor">|</span>
+        </span>
       </h1>
       <p class="landing-subtitle">
-        I am Ryan Venturi, a full-time entrepreneur and student majoring in Creative Technology and Design at the University of Colorado Boulder. I'm experienced in most modern technologies, from coding, design, CAD, arduinos, Jetson's, and everything in between. When I am not in school I am the Chief Executive Officer at Pleiades Mental Health, an AI-driven mental health platform designed to be the leader in preventive mental health care.
-      </p>
+        Hi, I'm Ryan Venturi, a full-time entrepreneur and senior majoring in Creative Technology and Design at the University of Colorado Boulder. I'm experienced in most modern technologies, from coding, design, CAD, arduinos, Jetson's, and everything in between. When I am not in school I am building modern AI solutions for companies or working on my robot JWM1. I love building and learning new skills and you can often find me geeking out on new subjects, especially this weeks subject which is the Nvidia Omniverse     </p>
       <button class="view-work-btn" onclick="scrollToSection('projects')">
         <span>View My Work</span>
       </button>
@@ -114,12 +114,6 @@
 <section id="industry-work" class="section" tabindex="-1">
   <div class="section-container">
     <h2 class="section-title">Industry Work</h2>
-    <div id="industry-modal" class="modal">
-      <div class="modal-content">
-        <button class="modal-close" onclick="closeIndustryModal()">×</button>
-        <div id="industry-modal-content"></div>
-      </div>
-    </div>
     <div class="industry-projects-grid" id="industryProjectsGrid"></div>
   </div>
 </section>
@@ -128,12 +122,6 @@
 <section id="projects" class="section" tabindex="-1">
   <div class="section-container">
     <h2 class="section-title">Featured Projects</h2>
-    <div id="project-modal" class="modal">
-      <div class="modal-content">
-        <button class="modal-close" onclick="closeProjectModal()">×</button>
-        <div id="modal-content"></div>
-      </div>
-    </div>
     <div class="project-filters-container">
       <button class="scroll-arrow left" aria-label="Scroll left">
         <i class="fas fa-chevron-left"></i>
@@ -146,7 +134,6 @@
         <button class="filter-btn" data-filter="Adobe">Design</button>
         <button class="filter-btn" data-filter="Figma">UI/UX</button>
         <button class="filter-btn" data-filter="TensorFlow">TensorFlow</button>
-        <button class="filter-btn" data-filter="MetaQuest">Meta Quest</button>
         <button class="filter-btn" data-filter="RealWorld">Real World</button>
         <button class="filter-btn" data-filter="Development">Development</button>
         <button class="filter-btn" data-filter="React">React</button>
@@ -165,12 +152,12 @@
         <span class="metric-label">Real World Projects Completed</span>
       </div>
       <div class="metric-item">
-        <span class="metric-number">500k+</span>
-        <span class="metric-label">Deployed Working Code</span>
+        <span class="metric-number">1.5mil+</span>
+        <span class="metric-label">Lines of Deployed Working Code</span>
       </div>
       <div class="metric-item">
-        <span class="metric-number">2</span>
-        <span class="metric-label">Companies Founded and New Venture Challenge Wins</span>
+        <span class="metric-number">7+</span>
+        <span class="metric-label">Years of Coding, CAD and design experience</span>
       </div>
     </div>
   </div>
@@ -186,7 +173,7 @@
         <div class="profile-card">
           <h3 class="card-title">Professional Profile</h3>
           <p>
-            I am an innovative engineering student at the University of Colorado Boulder specializing in Creative Technology and Design. As a full-time entrepreneur with a passion for merging technology with social impact, I have built cutting-edge solutions—from AI-driven mental health platforms like Pleiades Mental Health to community-focused sustainability and outreach initiatives. My expertise spans full-stack development, advanced UI/UX design, cloud architecture, and hardware prototyping. I thrive on transforming complex challenges into creative, user-centered solutions that drive tangible results. Outside of school I enjoy being outdoors skiing, hiking, and white water rafting; I also enjoy traveling to new places and photographing my journeys.
+            I am an innovative engineering student at the University of Colorado Boulder specializing in Creative Technology and Design. A full-time entrepreneur focused on building technology with real-world social impact, I have developed and deployed solutions ranging from AI-driven mental health platforms such as Pleiades Mental Health to community-centered sustainability and outreach initiatives. My expertise spans full-stack development, advanced UI/UX design, cloud architecture, and hardware prototyping. I excel at translating complex challenges into intuitive, user-centered systems that deliver measurable impact. Outside of academics and work, I enjoy skiing, hiking, and whitewater rafting, as well as traveling to new places and documenting my experiences through photography.
           </p>
         </div>
   
@@ -196,31 +183,27 @@
           <div class="skills-list">
             <div class="skill-item">
               <h4>UI/UX Design</h4>
-              <p>Figma, Adobe XD, Adobe Creative Suite, and more.</p>
-            </div>
-            <div class="skill-item">
-              <h4>Web Development</h4>
-              <p>HTML/CSS, JavaScript, React, Node.js, and full-stack frameworks.</p>
+              <p>Figma, Adobe Indesign, Adobe Photoshop, Adobe Illustrator, and Canva</p>
             </div>
             <div class="skill-item">
               <h4>Cloud Computing</h4>
-              <p>AWS, Firebase, and scalable cloud architecture design.</p>
+              <p>AWS, Firebase, Runpod, Nvidia Brev, and scalable cloud architecture design.</p>
             </div>
             <div class="skill-item">
               <h4>AI & Machine Learning</h4>
-              <p>ChatGPT, Claude and Claude Code, Gemini 2.5 Flash API, GPT Image Generator, Veo3, Sora 1/2, custom GPT models, OpenCV, Perpelxity Comet and API, and TensorFlow.</p>
+              <p>ChatGPT, Claude and Claude Code, Nvidia Omniverse, Gemini 2.5 Flash API, GPT Image Generator, Veo3, Sora 1/2, custom GPT models, Gemini Gems, OpenCV, Perplexity Comet and API, and TensorFlow.</p>
             </div>
             <div class="skill-item">
               <h4>CAD & 3D Printing</h4>
-              <p>SolidWorks, Onshape, SketchUp, laser cutting, and prototyping.</p>
+              <p>Onshape, SketchUp, and laser cutting.</p>
             </div>
             <div class="skill-item">
               <h4>Hardware & Electronics</h4>
-              <p>Arduino, electronic fabrication, IoT, and sensor integration.</p>
+              <p>Arduino, Nvidia Jetson Nano GPU, electronic fabrication, IoT, and sensor integration.</p>
             </div>
             <div class="skill-item">
               <h4>Coding Languages</h4>
-              <p>Python, C++, MATLAB, JavaScript, and more.</p>
+              <p>Python, C++, MATLAB, JavaScript, Html/CSS, React, and Node.js</p>
             </div>
             <!-- Add additional skill items as needed -->
           </div>
@@ -247,7 +230,7 @@
             </li>
             <li>
               <span class="achievement-dot"></span>
-              Played a pivotal role in establishing Delta Tau Delta at CU Boulder.
+              Built five projects that my professor told me would be impossible in the time given.
             </li>
             <!-- Add additional achievements as needed -->
           </ul>
@@ -268,14 +251,6 @@
                     <h4>A Lot Media AI Engineer</h4>
                     <div class="timeline-date">September 2025 - Present</div>
                     <p>Developed the most intuitive parking lot database, enhancing user experience and operational efficiency. Contributed by adding over 300,000 classified POI's to assist them in marketing sales to better targets to find clients.</p>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-dot"></span>
-                  <div class="timeline-content">
-                    <h4>Harymonx AI Consultant</h4>
-                    <div class="timeline-date">September 2025 - Present</div>
-                    <p>Assists Harymonx with data development and AI integration across their network of partner companies.</p>
                   </div>
                 </div>
                 <div class="timeline-item">
@@ -431,11 +406,26 @@
 
 
 
+  <!-- Modals (placed outside sections for proper z-index stacking) -->
+  <div id="industry-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeIndustryModal()">×</button>
+      <div id="industry-modal-content"></div>
+    </div>
+  </div>
+
+  <div id="project-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeProjectModal()">×</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
   <!-- Back to Top Button -->
-  <button 
-    id="backToTop" 
-    class="back-to-top" 
-    aria-label="Back to top" 
+  <button
+    id="backToTop"
+    class="back-to-top"
+    aria-label="Back to top"
     onclick="scrollToTop()"
   >
     <i class="fas fa-arrow-up"></i>

@@ -60,7 +60,6 @@ const projects = [
       "CSS",
       "Three.js",
       "VR Development",
-      "Meta OS",
       "Operating Systems"
     ],
     link: "https://part4.netlify.app/"
@@ -544,7 +543,7 @@ const industryProjects = [
       "Developed three major AI-driven systems for FreeGuides: an automated demo generator, a cost-saving map recommendation system, and an encrypted group chat platform, now deployed across 200+ hotels worldwide.",
     longdescription:
       "During my internship at FreeGuides, I was responsible for building and deploying multiple AI-powered systems that transformed the company's hospitality platform. My work modernized over 50% of the existing codebase, cut API costs by 85%, and contributed to a 50% increase in demos generated. These systems now serve 20,000+ daily guests across 100+ hotels and 25+ brands, demonstrating significant real-world impact and scalability.",
-    images: ["FreeGuides.png"],
+    images: ["freeguide.svg"],
     technologies: [
       "GPT-4.0",
       "Google Gemini",
@@ -588,7 +587,7 @@ const industryProjects = [
     title: "JWM1 Open Source Robotic Platform(Current Project)",
     subtitle: "Autonomous Delivery Robot Built in Partnership with EndOverdose",
     shortdescription:
-      "Currently developing an open-source autonomous delivery robot using NVIDIA Omniverse simulation, custom-trained vision models, LIDAR, Cameras, Ultra Sonic Sensors, and Gemini-powered reinforcement learning. Version one is being devloped with support From End Overdose to create a robot that repsonds to overdose 5 mintues quicker then EMS",
+      "Currently developing an open-source autonomous delivery robot using NVIDIA Omniverse simulation, custom-trained vision models, LIDAR, Cameras, Ultra Sonic Sensors, and Gemini-powered reinforcement learning. Version one is being developed with support from End Overdose to create a robot that responds to overdoses 5 minutes quicker than EMS",
     longdescription:
       "JWM1 is an ambitious open-source robotics project built in partnership with EndOverdose, aimed at creating a fully autonomous sidewalk delivery robot. The project spans hardware design, supply chain navigation, advanced computer vision training, and cutting-edge simulation environments. Using NVIDIA Omniverse, I've created a physics-accurate simulation of the CU Boulder campus by overlaying to-scale Google Maps tiles, integrating OpenStreetMap sidewalk data, and populating the environment with realistic pedestrian, cyclist, and scooter traffic patterns. The simulation models everything from chaotic passing periods to empty nighttime sidewalks, enabling the robot to learn safe navigation across diverse real-world conditions. A key innovation is replacing traditional rule-based reinforcement learning rewards with a comprehensive sidewalk safety manual evaluated by Gemini 3.0 Flash. This AI-judged approach improved overall model accuracy by 7-11%, producing a simulation-ready model prepared for real-world deployment.",
     images: ["JWM1.png"],
