@@ -514,11 +514,164 @@ const projects = [
       "OpenAI API",
       "OpenAI Text Recognition API"
     ]
+  },
+
+  {
+    id: 21,
+    title: "FreeGuides Encrypted Group Chat System",
+    subtitle: "Secure Guest Communication Platform for Hospitality",
+    shortdescription:
+      "Architected and deployed an end-to-end encrypted group chat system enabling secure guest communication across 200+ hostels and hotels worldwide.",
+    longdescription:
+      "During my internship at FreeGuides, I identified a critical gap in how hotel guests communicate with each other and with property staff. I designed and built a fully encrypted group chat system from the ground up, specifically tailored for the hospitality industry. The platform enables guests to safely connect, share recommendations, coordinate activities, and build community; all within a secure, privacy-first environment. Beyond basic messaging, I developed a comprehensive community reporting system per FreeGuides' specifications, allowing guests and staff to flag inappropriate content while maintaining user anonymity. After extensive iteration and rigorous testing across multiple properties, the system has been successfully deployed to over 200 hostels and hotels globally. The platform now facilitates thousands of daily conversations, fostering genuine connections between travelers while giving property managers peace of mind through robust security protocols and community guidelines enforcement. This project demonstrates the intersection of secure communication infrastructure, user experience design, and scalable deployment in the hospitality technology space.",
+    images: ["FreeGuides.png"],
+    technologies: [
+      "End-to-End Encryption",
+      "Real-Time Messaging",
+      "Firebase",
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Content Moderation",
+      "Community Systems",
+      "Development",
+      "RealWorld"
+    ]
+  },
+
+  {
+    id: 22,
+    title: "A Lot Media AI Engineering Consulting",
+    subtitle: "Revolutionary Automated Sales Proposal Pipeline",
+    shortdescription:
+      "Built a proprietary AI-powered system that revolutionizes the advertising space, enabling A Lot Media's sales team to generate fully researched RFPs in under 5 minutes, down from 2 weeks.",
+    longdescription:
+      "As an AI Engineering Consultant at A Lot Media, I created an in-house proprietary system that fundamentally transforms how the company approaches advertising sales. The fully automated sales proposal pipeline empowers the A Lot Media sales team to send out perfectly crafted, research-backed RFPs in under 5 minutes; a process that previously took up to 2 weeks. This unprecedented efficiency gain has unlocked massive scalability for the business, allowing the team to pursue exponentially more opportunities while maintaining exceptional proposal quality. The system integrates multiple data sources, AI-driven insights, and visualization tools to create a seamless end-to-end workflow from prospect identification to polished proposal delivery.",
+    images: ["a_lot.jpg"],
+    technologies: [
+      "Google Gemini",
+      "Google Maps API",
+      "Firebase",
+      "JavaScript",
+      "Python",
+      "Data Engineering",
+      "AI Automation",
+      "Geospatial Analysis",
+      "Development",
+      "RealWorld"
+    ],
+    subprojects: [
+      {
+        title: "Data Optimization & Classification",
+        description:
+          "Ingested and organized data from over 8,000 parking lots and 100,000+ additional points of interest into a unified storage system. Using proximity targeting algorithms, I enriched each location with 15-50 relevant nearby businesses and venues across 20 internal real estate classifications. This enables the A Lot Media team to leverage segmented marketing RFPs that target competitors or complementary businesses near their properties, providing clients with a crystal-clear understanding of the strategic value offered.",
+        skills: ["Data Engineering", "Classification", "Proximity Targeting", "Python"]
+      },
+      {
+        title: "Maps API Traffic Analysis",
+        description:
+          "Leveraging the Google Maps API, I developed a system that compares parking lot locations with surrounding area peak traffic estimates. This allows A Lot Media to dynamically segment digital signage costs based on actual foot traffic and impression potential. This traffic-based pricing model is a first-of-its-kind innovation in the parking lot advertising industry, enabling data-driven pricing that accurately reflects true advertising value.",
+        skills: ["Google Maps API", "Traffic Analysis", "Dynamic Pricing", "Geospatial Data"]
+      },
+      {
+        title: "Comprehensive Events Database",
+        description:
+          "Recognizing that many advertising clients prioritize event-based marketing, I built one of the most comprehensive single-source events databases in the industry. The system tracks exactly when every major event is happening, where it's located, and whether A Lot Media has lots within the venue's clear zone or nearby perimeter. This intelligence empowers the sales team to precisely target the right advertisers at the right time for maximum campaign effectiveness.",
+        skills: ["Event Data", "Database Architecture", "Sales Intelligence", "API Integration"]
+      },
+      {
+        title: "SST Interactive Map Visualization",
+        description:
+          "Developed an interactive SST (Sales Support Tool) map that allows the sales team to visualize and compare all parking lot locations, proximity targets, and real estate classifications in one unified interface. Team members can instantly see where lots are positioned, what business categories surround them, and identify neighboring venues; dramatically accelerating the RFP creation process with actionable geographic intelligence.",
+        skills: ["Data Visualization", "Interactive Maps", "UI/UX", "JavaScript"]
+      },
+      {
+        title: "Automated Proposal Generation System",
+        description:
+          "Using the SST platform and integrated data sources, I created an automated proposal system that generates polished, agency-ready RFP templates from scratch in minutes. The system pulls verified data, formats professional documents, and delivers exactly what advertising agencies need, enabling A Lot Media's ad business to scale at unprecedented rates.",
+        skills: ["Automation", "Template Generation", "Document Processing", "Sales Enablement"]
+      },
+      {
+        title: "Gemini Gem Internal AI Assistant",
+        description:
+          "Developed a private internal Gemini Gem trained on A Lot Media's proprietary company data. This AI assistant can answer any employee question, generate charts and visualizations, create maps, produce documentation, and assist with research tasks on demand. The Gem serves as an always-available knowledge base that accelerates decision-making across the entire organization.",
+        skills: ["Google Gemini", "Custom AI Training", "Knowledge Management", "Enterprise AI"]
+      }
+    ]
+  },
+
+  {
+    id: 23,
+    title: "JWM1 Open Source Robotic Platform",
+    subtitle: "Autonomous Delivery Robot Built in Partnership with EndOverdose",
+    shortdescription:
+      "Currently developing an open-source autonomous delivery robot using NVIDIA Omniverse simulation, custom-trained vision models, LIDAR, Cameras, Ultra Sonic Sensors, and Gemini-powered reinforcement learning. Version one is being devloped with support From End Overdose to create a robot that repsonds to overdose 5 mintues quicker then EMS",
+    longdescription:
+      "JWM1 is an ambitious open-source robotics project built in partnership with EndOverdose, aimed at creating a fully autonomous sidewalk delivery robot. The project spans hardware design, supply chain navigation, advanced computer vision training, and cutting-edge simulation environments. Using NVIDIA Omniverse, I've created a physics-accurate simulation of the CU Boulder campus by overlaying to-scale Google Maps tiles, integrating OpenStreetMap sidewalk data, and populating the environment with realistic pedestrian, cyclist, and scooter traffic patterns. The simulation models everything from chaotic passing periods to empty nighttime sidewalks, enabling the robot to learn safe navigation across diverse real-world conditions. A key innovation is replacing traditional rule-based reinforcement learning rewards with a comprehensive sidewalk safety manual evaluated by Gemini 3.0 Flash. This AI-judged approach improved overall model accuracy by 7-11%, producing a simulation-ready model prepared for real-world deployment.",
+    images: ["JWM1.png"],
+    technologies: [
+      "NVIDIA Omniverse",
+      "Google Gemini",
+      "TensorFlow",
+      "Python",
+      "Computer Vision",
+      "Reinforcement Learning",
+      "CAD",
+      "Robotics",
+      "OpenStreetMap",
+      "Google Maps API",
+      "Development",
+      "RealWorld"
+    ],
+    subprojects: [
+      {
+        title: "CADing the Robot",
+        description:
+          "Designed the complete mechanical chassis and housing for the JWM1 robot using professional CAD software. The design optimizes for manufacturability, durability, and modularity, allowing for easy component replacement and future upgrades. Every structural element was engineered to withstand outdoor conditions while maintaining a compact footprint suitable for sidewalk navigation.",
+        skills: ["CAD", "Mechanical Design", "3D Modeling", "Prototyping"]
+      },
+      {
+        title: "Navigating Tariffs & Supply Chain",
+        description:
+          "Managed the complex logistics of sourcing components across international supply chains while navigating evolving tariff landscapes. Identified cost-effective suppliers, negotiated pricing, and developed contingency plans for component availability, ensuring the project remains financially viable and on schedule despite global trade uncertainties.",
+        skills: ["Supply Chain Management", "Procurement", "Cost Analysis", "Logistics"]
+      },
+      {
+        title: "BDD100K Dataset Training",
+        description:
+          "Leveraged the Berkeley DeepDrive BDD100K dataset, one of the largest and most diverse driving datasets available, to pre-train the robot's vision model. This foundation enables robust object detection, lane recognition, and scene understanding across varied weather conditions, lighting scenarios, and urban environments.",
+        skills: ["Computer Vision", "Deep Learning", "Dataset Training", "TensorFlow"]
+      },
+      {
+        title: "Cityscapes Training System",
+        description:
+          "Supplemented BDD100K training with the Cityscapes dataset to enhance semantic segmentation capabilities. This additional training sharpened the model's ability to identify and classify pedestrians, cyclists, vehicles, road surfaces, and sidewalk boundaries with pixel-level precision, critical for safe autonomous navigation.",
+        skills: ["Semantic Segmentation", "Computer Vision", "Model Training", "Python"]
+      },
+      {
+        title: "Remote Operating Dashboard",
+        description:
+          "Built a comprehensive remote monitoring and control dashboard that enables operators to oversee robot status, intervene when necessary, and analyze performance metrics in real-time. The interface provides live video feeds, sensor data visualization, route tracking, and emergency stop capabilities for safe deployment supervision.",
+        skills: ["Dashboard Development", "Real-Time Systems", "UI/UX", "JavaScript"]
+      },
+      {
+        title: "NVIDIA Omniverse Simulation Environment",
+        description:
+          "Created an advanced physics simulation in NVIDIA Omniverse starting with pre-trained vision models from BDD100K and Cityscapes. Overlayed a to-scale Google Maps tile of the CU Boulder campus, then integrated OpenStreetMap data to accurately map sidewalk paths. Populated the environment with asset library models simulating students walking, biking, and riding scooters during chaotic passing periods, empty nighttime conditions, and every scenario in between. Innovatively replaced traditional RL rule sets with a comprehensive sidewalk safety instruction manual evaluated by Gemini 3.0 Flash. The AI judges robot performance and assigns rewards/penalties, improving overall model accuracy by 7-11% and producing a simulation-ready model for real-world testing.",
+        skills: ["NVIDIA Omniverse", "Physics Simulation", "Reinforcement Learning", "Google Gemini", "Geospatial Data"]
+      },
+      {
+        title: "Assembly & Integration",
+        description:
+          "Bringing together all hardware and software components into a functioning autonomous platform. This phase involves precise assembly of mechanical parts, electronic integration, sensor calibration, and software deployment, transforming months of design, training, and simulation work into a physical robot ready for real-world testing.",
+        skills: ["Hardware Assembly", "Electronics Integration", "System Calibration", "Testing"]
+      }
+    ]
   }
 ]
 
-  
-  
+
+
   const skills = [
     {
       name: "Frontend Development",
